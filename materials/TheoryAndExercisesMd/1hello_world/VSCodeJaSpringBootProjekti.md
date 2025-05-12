@@ -51,7 +51,7 @@ Projektin tietojen syöttäminen:
 > Paketin avulla voimme esim. tehdä koodiin muunnoksia ilman, että meidän pitää käynnistää tomcat palvelin uudelleen. Muunnokset ovat siten heti ajonaikana  käytettävissä.
 > ![](../imgs/1hello_world_16.png)
 
-- Generoi projekti a-kohdassa valittuun kansioon
+- Generoi projekti kansioon, jonne haluat projektin luoda
 
 ![](../imgs/1hello_world_17.png)
 
@@ -70,72 +70,33 @@ Ns pääluokka on generoitunut automaattisesti Spring Boot kehikon toimesta. Ann
 |--|--|
 
 <!-- Slide number: 9 -->
-Sovelluksen toiminnallisuuden periaatteet
-Tällä hetkellä meillä on sovellus, jossa on runko valmiina, muttei toiminnallisuutta.
-Lisätään toiminnallisuus, jonka tuloksena nettisivulle tulostuu lause ”Spring Boot sovellukseni!”
-Luodaan tätä varten palvelinohjelmaamme ns. controller luokka. Controller luokka vastaanottaa palvelimeen (server) kohdistuvat asiakkaan (client) pyynnöt. Controller luokka tekee – tai mieluummin pyytää jotain muuta tahoa tekemään työt ja palauttaa palautteen (response) clientille
+## Sovelluksen toiminnallisuuden periaatteet
 
-HTTP request
+- Tällä hetkellä meillä on sovellus, jossa on runko valmiina, muttei toiminnallisuutta.
+- Lisätään toiminnallisuus, jonka tuloksena nettisivulle tulostuu lause ”Spring Boot sovellukseni!”
+- Luodaan tätä varten palvelinohjelmaamme ns. controller luokka. Controller luokka vastaanottaa palvelimeen (server) kohdistuvat asiakkaan (client) pyynnöt. Controller luokka tekee – tai mieluummin pyytää jotain muuta tahoa tekemään työt ja palauttaa palautteen (response) clientille
 
-![](Picture13.jpg)
-
-![](Picture11.jpg)
-
-![](Picture9.jpg)
-
-Client
-Server
-HTTP response
-9
+![](../imgs/1hello_world_21.png)
 
 <!-- Slide number: 10 -->
-3 Koodin lisääminen projektiisi, jatkuu
+## 3 Koodin lisääminen projektiisi, jatkuu
 
-| a) Tarkista, että olet aktivoinut Java Projects näkymän | b) Luo uusi paketti ao kuvan mukaisesti |
-| --- | --- |
+|a) Tarkista, että olet aktivoinut Java Projects näkymän|b) Luo uusi paketti ao kuvan mukaisesti |
+|-|-|
+|![](../imgs/1hello_world_22.png)|![](../imgs/1hello_world_23.png)|
+|c) Anna paketille nimeksi web, laitamme sinne ns controller luokkia|d) Luo uusi java luokka. Anna Luokalle nimeksi MyController.java. Luokkaan lisättävä koodi esitetään seuraavalla sivulla.|
+|![](../imgs/1hello_world_24b.png) |![](../imgs/1hello_world_24.png) |
 
-![](Picture4.jpg)
+Spring Bootissa kerrotaan `@` annotaatioilla seuraavat asiat
 
-![](Picture9.jpg)
-10
+- `@Controller`: Tämän ns. kontrolleriluokan metodit pystyvät käsittelemään clientin pyynnöt/requestit ja välittämään niille vastaukset/responset.
+- `@RequestMapping`: Kerrotaan, mistä osoitteesta tulevat pyynnöt käsitellään kyseisessä metodissa. Tässä esimerkissä käytetään ”main” merkkijonoa. Joten, jos kirjoitat selaimeen urliin `http://localhost:8080/main`, niin kutsu ohjautuu tähän returnMessage-metodiin.
+- `@ResponseBody`: Palaute clientille esitetään sellaisenaan eli esimerkissä ”Eka SB sovellukseni”.
 
-<!-- Slide number: 11 -->
-3 Koodin lisääminen projektiisi, jatkuu
+![](../imgs/1hello_world_25.png)
 
-![](Picture8.jpg)
-| c) Anna paketille nimeksi web, laitamme sinne ns controller luokkia |  |
-| --- | --- |
+![](../imgs/1hello_world_26.png)
 
-![](Picture11.jpg)
-| d) Luo uusi java luokka. Anna Luokalle nimeksi MyController.java. Luokkaan lisättävä koodi esitetään seuraavalla sivulla. |  |
-| --- | --- |
-11
-
-<!-- Slide number: 12 -->
-3 Koodin lisääminen projektiisi, jatkuu
-
-![](Picture13.jpg)
-Spring Bootissa kerrotaan @ annotaatioilla seuraavat asiat
-@Controller: Tämän ns. kontrolleriluokan metodit pystyvät käsittelemään clientin pyynnöt/requestit ja välittämään niille vastaukset/responset.
-@RequestMapping: Kerrotaan, mistä osoitteesta tulevat pyynnöt käsitellään kyseisessä metodissa. Tässä esimerkissä käytetään ”main” merkkijonoa. Joten, jos kirjoitat selaimeen urliin
-” http://localhost:8080/main”, niin kutsu ohjautuu tähän returnMessage-metodiin.
-@ResponseBody: Palaute clientille esitetään sellaisenaan eli esimerkissä ”Eka SB sovellukseni”.
-12
-
-<!-- Slide number: 13 -->
-Ensimmäisen projektisi rakenne
-Projektisi nimi (artifact)
-
-![](Picture21.jpg)
-Paketin-nimi (group)
-Spring Boot projektin pääluokka, joka sisältää main-metodin. Main-metodin avulla käynnistetään sovellus. Pääluokan pitää olla ”juuressa”. Muut paketit luokkineen sen alapuolella. Kiinnitä rakenteeseen huomiota, muuten sovellus ei toimi kunnolla.
-Tämän paketin alla sijaitsevat Controller–luokat, jotka vastaanottavat clientin requestit
-Resources kansion alla on Templates-hakemisto, jonne laitetaan View-tason tiedostot. Me käytämme käyttöliittymän rakentamisessa Thymeleafia.
-Mavenin konfigurointitiedosto.
-Sisältää kirjastomoduulit, dependency.
-13
-
-<!-- Slide number: 14 -->
 Sovelluksen käynnistäminen
 
 ![](Picture11.jpg)
