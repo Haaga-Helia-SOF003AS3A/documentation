@@ -1,36 +1,31 @@
 <!-- Slide number: 1 -->
 # Back End Programming
-Juha Hinkula and Jukka Juslin
 
-### Notes:
+Juha Hinkula and Jukka Juslin
 
 <!-- Slide number: 2 -->
 # Server Programming course
-Introduction to the server side programming
-See the course description in the moodle
-Course contains
-Lectures
-Excercises
-Project
-2
-Server Programming
-11.8.2023
+
+- Introduction to the server side programming
+- See the course description in the moodle
+- Course contains
+  - Lectures
+  - Excercises
+  - Project
 
 <!-- Slide number: 3 -->
 # Server Programming
-Project
-Individual server side programming project
-Topic should be approved by the teacher
-Project includes
-Project proposal
-Planning
-Programming
-Testing
-Documentation & Code comments
-Final review
-3
-Server Programming
-11.8.2023
+
+- Project
+  - Individual server side programming project
+  - Topic should be approved by the teacher
+  - Project includes
+    - Project proposal
+    - Planning
+    - Programming
+    - Testing
+    - Documentation & Code comments
+    - Final review
 
 <!-- Slide number: 4 -->
 # Basics
