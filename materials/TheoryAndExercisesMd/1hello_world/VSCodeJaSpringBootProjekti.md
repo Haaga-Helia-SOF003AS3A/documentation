@@ -37,7 +37,9 @@ Projektin tietojen syöttäminen:
 - Mene kansioon, jonne haluat projektin luoda (VS Code: open folder)
 - ctrl + shift + p näppäinyhdistelmällä saat vs code ruudun yläreunaan command valikon -> kirjoita sinne ”Spring initialzer: Create a Maven project”
 - Valitse opettajan ohjeistama Spring boot versio (esim. keväällä 2025 se on 3.4.1)
+
 ![](../imgs/1hello_world_14.png)
+
 - Valitse tämän jälkeen kieleksi Java
 - Anna projektillesi group id (paketti, package), esim. kevat25
 - Anna artifact (projektin nimi), esim. backend
