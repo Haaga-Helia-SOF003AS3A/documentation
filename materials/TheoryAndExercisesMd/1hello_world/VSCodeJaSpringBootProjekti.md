@@ -46,11 +46,11 @@ Projektin tietojen syöttäminen:
   - Javan versio on 17
   - Valitse oikeat dependecyt (Spring web, Spring Boot Dev Tools)
 
-> Paketin avulla voimme luoda webbisovelluksia, käyttää MVC-arkkitehtuuria, sisältää sisäisen Tomcatin
-> ![](../imgs/1hello_world_15.png)
-
-> Paketin avulla voimme esim. tehdä koodiin muunnoksia ilman, että meidän pitää käynnistää tomcat palvelin uudelleen. Muunnokset ovat siten heti ajonaikana  käytettävissä.
-> ![](../imgs/1hello_world_16.png)
+  > Paketin avulla voimme luoda webbisovelluksia, käyttää MVC-arkkitehtuuria, sisältää sisäisen Tomcatin
+  > ![](../imgs/1hello_world_15.png)
+  
+  > Paketin avulla voimme esim. tehdä koodiin muunnoksia ilman, että meidän pitää käynnistää tomcat palvelin uudelleen. Muunnokset ovat siten heti ajonaikana  käytettävissä.
+  > ![](../imgs/1hello_world_16.png)
 
 <!-- Slide number: 6 -->
 2 Syötä projektin tiedot, jatkuu…
