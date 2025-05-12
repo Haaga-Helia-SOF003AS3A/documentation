@@ -57,13 +57,18 @@ public class Vehicle {
    }
 }
 With DI
+
 public class Vehicle {
+
    private Owner owner;
 
    public Vehicle(Owner owner) {
+   
       this.owner = owner;
    }
+   
 }
+
 6
 Server Programming / updated by Minna Pellikka
 9.1.2025
