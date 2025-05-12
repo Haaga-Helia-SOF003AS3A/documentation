@@ -99,60 +99,56 @@ Spring Bootissa kerrotaan `@` annotaatioilla seuraavat asiat
 
 ![](../imgs/1hello_world_26.png)
 
-Sovelluksen käynnistäminen
+## Sovelluksen käynnistäminen
 
-![](Picture11.jpg)
+Spring Boot sovelluksen käynnistäminen voi tapahtua esim. alla vasemmalla olevan kuvan mukaisessa näkymässä. Ks keltaisella väritetyt.
 
-![](Picture8.jpg)
-Spring Boot sovelluksen käynnistäminen voi tapahtua esim. vasemmalla olevan kuvan mukaisessa näkymässä. Ks keltaisella väritetyt.
 TAI
-Sovelluksen voi käynnistää myös menemällä Explorer näkymässä projektin pääluokan päälle ja valitsemalla pop-up valikosta Run Java. Ks kuva oikealla.
-14
+
+Sovelluksen voi käynnistää myös menemällä Explorer näkymässä projektin pääluokan päälle ja valitsemalla pop-up valikosta Run Java. Ks kuva alla oikealla.
+
+|![](../imgs/1hello_world_27.png)|![](../imgs/1hello_world_28.png)|
+|-|-|
 
 <!-- Slide number: 15 -->
-Sovelluksen ajaminen
+## Sovelluksen ajaminen
+
 Terminal näkymästä näet, milloin Tomcat ja sovelluksesi ovat käynnistyneet.
 
-![](Picture5.jpg)
+![](../imgs/1hello_world_29.png)
 
-![](Picture9.jpg)
-Kirjoittamalla selaimen osoitekenttään (url:iin) http://localhost:8080/main lähetät requestin/kutsun sovelluksellesi ja näet responsen ruudulla
+Kirjoittamalla selaimen osoitekenttään (url:iin) `http://localhost:8080/main` lähetät requestin/kutsun sovelluksellesi ja näet responsen ruudulla
 
-15
+![](../imgs/1hello_world_30.png)
 
-<!-- Slide number: 16 -->
-Lisää toiminnallisuutta
 
-![](Picture8.jpg)
-Lisätään MyController luokkaan toiminnallisuus, jonka tuloksena nettisivulle tulostuu ”Hei <nimi>!”
+## Lisää toiminnallisuutta
+
+Lisätään `MyController` luokkaan toiminnallisuus, jonka tuloksena nettisivulle tulostuu ”Hei <nimi>!”
 <nimi> paikalle tulee nimi, jonka annat url:ssa parametrinä
 
-![](Picture10.jpg)
-@RequestParam annotaation avulla sidomme urlin mukana tulevan parametrimuutujan nimesi arvon (esimerkissä Minna) Java puolella muuttujaan etunimi
-16
+![](../imgs/1hello_world_31.png)
 
-<!-- Slide number: 17 -->
-Lisää toiminnallisuutta
+`@RequestParam` annotaation avulla sidomme urlin mukana tulevan parametrimuutujan `nimesi` arvon (esimerkissä Minna) Java puolella muuttujaan `etunimi`
 
-![](Picture11.jpg)
+![](../imgs/1hello_world_32.png)
+
 Muokataan toiminnallisuus siten, että jos nimeä
 ei anneta, niin tulostetaan jokin oletusarvo.
 
-MyControllerissa on tätä vastaava koodi
+![](../imgs/1hello_world_33.png)
 
-![](Picture13.jpg)
-@RequestParam:lle voidaan antaa attribuutteja. Esim. required-attribuutilla kerrotaan, ettei nimi-parametri ei ole pakollinen, defaultValue kertoo oletusarvon.
-17
+`MyControllerissa` on tätä vastaava koodi
 
-<!-- Slide number: 18 -->
-Lisää toiminnallisuutta
+`@RequestParam`:lle voidaan antaa attribuutteja. Esim. `required`-attribuutilla kerrotaan, ettei nimi-parametri ei ole pakollinen, `defaultValue` kertoo oletusarvon.
+
+![](../imgs/1hello_world_34.png)
+
 Muokataan toiminnallisuutta siten, että nimen lisäksi annetaan myös ikä
 
+|![](../imgs/1hello_world_35.png)|![](../imgs/1hello_world_36.png)|
+|-|-|
+
 MyControllerissa on tätä vastaava koodi
 
-![](Picture10.jpg)
-
-![](Picture14.jpg)
-
-![](Picture12.jpg)
-18
+![](../imgs/1hello_world_37.png)
