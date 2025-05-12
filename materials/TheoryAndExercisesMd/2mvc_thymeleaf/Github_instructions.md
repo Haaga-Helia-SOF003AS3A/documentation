@@ -9,24 +9,25 @@ Note! Git installation is needed before going through this tutorial
 3. Open PowerShell or GitBash
 4. Change the current working directory to your local project
 5. Initialize the local GIT repository by using git command
-
-*git init*
-
-1. Add the files to new repository by using git command
-
-*git add .*
-
-1. Commit the files with comments
-
-*git commit -m “First commit”*
-
-1. Change your GitHub repository to your remote repository (Use URL from step 2)
-
-*git remote add origin Your\_Github\_Repository\_URL*
-
-1. Push the changes to GitHub
-
-*git push -u origin main*
+   ```
+   git init
+   ```
+6. Add the files to new repository by using git command
+   ```
+   git add .
+   ```
+7. Commit the files with comments
+   ```
+   git commit -m “First commit”
+   ```
+8. Change your GitHub repository to your remote repository (Use URL from step 2)
+   ```
+   git remote add origin Your\_Github\_Repository\_URL
+   ```
+9. Push the changes to GitHub
+   ```
+   git push -u origin main
+   ```
 
 Finally you should see your project in your repository Code page.
 
@@ -36,7 +37,9 @@ You can clone your project from the GitHub and start making changes to it. After
 
 1. Create a folder for your project and change current to the new folder. Clone your project by using following Git command
 
+```
 git clone YOUR\_GITHUB\_REPO\_URL
+```
 
 # Cloning your project to your computer with Eclipse (Option B)
 
