@@ -1,91 +1,75 @@
-![](data:image/jpeg;base64...)  **Server Programming**  1 (2)
-
-**Chapter 2**
-
-# **Hello Thymeleaf**
+# 1. Hello Thymeleaf
 
 Create Spring Boot application that handle GET request to the path /hello with two parameters called name and age. Create thymeleaf template which shows welcome message if age is greater than 18. See example prints below.
 
-**Tips**. You can use thymeleaf th:if attribute for comparison. Use escaped comparison operators (&gt; and &lt;).
+**Tips**. You can use thymeleaf `th:if` attribute for comparison. Use escaped comparison operators (&gt; and &lt;).
 
-Example: <div th:if="${age} &gt; 17">Show something</div>
+Example: `<div th:if="${age} &gt; 17">Show something</div>`
 
-Examples:
+**Examples:**
 
-Request:
+Request: `http://localhost:8080/hello?name=John&age=20`
 
-http://localhost:8080/hello?name=John&age=20
+Prints: `Welcome John!`
 
-Prints:
+Request: `http://localhost:8080/hello?name=Mark&age=12`
 
-Welcome John!
+Prints: `You are too young!`
 
-Request:
+# 2. Handling Lists
 
-http://localhost:8080/hello?name=Mark&age=12
-
-Prints:
-
-You are too young!
-
-# **Handling Lists**
-
-Create Spring Boot application that handle GET request to the path /hello. Application handles list of students. The application prints welcome message and the list of students.
+Create Spring Boot application that handle GET request to the path `/hello`. Application handles list of students. The application prints welcome message and the list of students.
 
 Steps: Create a new package called domain (inside the root package) and create Student class inside that package. Student class contains two attributes: firstName and lastName.
 
-Create a new package called web (inside the root package) and create a StudentController controller class. Create student objects in the controller and add students to a list. The list will be then added to the model and sent to a view. Finally you have to create view to show students using th:each. The screenshot below shows the example project structure (your package name might vary from the example).
+Create a new package called web (inside the root package) and create a StudentController controller class. Create student objects in the controller and add students to a list. The list will be then added to the model and sent to a view. Finally you have to create view to show students using `th:each`. The screenshot below shows the example project structure (your package name might vary from the example).
 
-![](data:image/png;base64...)
+![](../imgs/2mvc_thymeleaf_9.png)
 
-![](data:image/jpeg;base64...)  **Server Programming**  2 (2)
+**Example:**
 
-Example:
-
-Request:
-
-http://localhost:8080/hello
+Request: `http://localhost:8080/hello`
 
 Prints:
-
+```
 Welcome to the Haaga-Helia!
-
 Kate Cole
-
 Dan Brown
-
 Mike Mars
+```
 
-# **Friend List**
+# 3. Friend List
 
 1. Create Thymeleaf template which list all friends, see picture below:
 
-![A screenshot of a computer  Description automatically generated](data:image/png;base64...)
+![](../imgs/2mvc_thymeleaf_10.png)
 
-“Add friend” -link contains following code
+`Add friend` -link contains following code
 
+```
 <p><a th:href=*"@{/add}"*>Add friend</a></p>
+```
 
-1. Create thymeleaf template where you can insert new friend information.
+2. Create thymeleaf template where you can insert new friend information.
 
-![A computer screen shot of a computer screen  Description automatically generated](data:image/png;base64...)
+![](../imgs/2mvc_thymeleaf_11.png)
 
 Use html form element which contains 2 input fields and one button. See help from HelloFormValidation demo.
 
-1. Create domain package and Friend class. Friend class contains firstName and lastName.
-2. Create FriendController class which handles methods for showing friend list, opening “Add new friend” page and saving new friend information.
+3. Create domain package and Friend class. Friend class contains firstName and lastName.
+4. Create FriendController class which handles methods for showing friend list, opening “Add new friend” page and saving new friend information.
 
-# **Friend List**
+# 4. Friend List
 
 Create Thymeleaf template which contains two elements, see picture below:
 
-![](data:image/png;base64...)
+![](../imgs/2mvc_thymeleaf_12.png)
 
 You need controller class which will handle two kinds of HTTP-requests: GET and POST.
 
 Functionality is pretty much the same like in the previous exercise but now elements are in the same html page.
 
-# **Bookstore**
+# 5. Bookstore
 
 We will now start to create our training project. This excercise continues through the whole course and it will be returned to Github.
 
