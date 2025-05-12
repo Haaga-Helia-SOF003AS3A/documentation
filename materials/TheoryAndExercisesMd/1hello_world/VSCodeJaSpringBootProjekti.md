@@ -35,40 +35,33 @@ Valitse kuvien mukaiset laajennokset (extensios) Spring Boot projektia varten
 
 Projektin tietojen syöttäminen:
 
-  - Mene kansioon, jonne haluat projektin luoda (VS Code: open folder)
-  - ctrl + shift + p näppäinyhdistelmällä saat vs code ruudun yläreunaan command valikon -> kirjoita sinne ”Spring initialzer: Create a Maven project”
-  - Valitse opettajan ohjeistama Spring boot versio (esim. keväällä 2025 se on 3.4.1)
-  ![](../imgs/1hello_world_14.png)
-  - Valitse tämän jälkeen kieleksi Java
-  - Anna projektillesi group id (paketti, package), esim. kevat25
-  - Anna artifact (projektin nimi), esim. backend
-  - Valitse paketointityypiksi JAR
-  - Javan versio on 17
-  - Valitse oikeat dependecyt (Spring web, Spring Boot Dev Tools)
+- Mene kansioon, jonne haluat projektin luoda (VS Code: open folder)
+- ctrl + shift + p näppäinyhdistelmällä saat vs code ruudun yläreunaan command valikon -> kirjoita sinne ”Spring initialzer: Create a Maven project”
+- Valitse opettajan ohjeistama Spring boot versio (esim. keväällä 2025 se on 3.4.1)
+![](../imgs/1hello_world_14.png)
+- Valitse tämän jälkeen kieleksi Java
+- Anna projektillesi group id (paketti, package), esim. kevat25
+- Anna artifact (projektin nimi), esim. backend
+- Valitse paketointityypiksi JAR
+- Javan versio on 17
+- Valitse oikeat dependecyt (Spring web, Spring Boot Dev Tools)
 
-  > Paketin avulla voimme luoda webbisovelluksia, käyttää MVC-arkkitehtuuria, sisältää sisäisen Tomcatin
-  > ![](../imgs/1hello_world_15.png)
-  
-  > Paketin avulla voimme esim. tehdä koodiin muunnoksia ilman, että meidän pitää käynnistää tomcat palvelin uudelleen. Muunnokset ovat siten heti ajonaikana  käytettävissä.
-  > ![](../imgs/1hello_world_16.png)
+> Paketin avulla voimme luoda webbisovelluksia, käyttää MVC-arkkitehtuuria, sisältää sisäisen Tomcatin
+> ![](../imgs/1hello_world_15.png)
 
-<!-- Slide number: 6 -->
-2 Syötä projektin tiedot, jatkuu…
-j) Generoi projekti a-kohdassa valittuun kansioon
+> Paketin avulla voimme esim. tehdä koodiin muunnoksia ilman, että meidän pitää käynnistää tomcat palvelin uudelleen. Muunnokset ovat siten heti ajonaikana  käytettävissä.
+> ![](../imgs/1hello_world_16.png)
 
-![A screenshot of a computer Description automatically generated](Picture10.jpg)
-6
+- Generoi projekti a-kohdassa valittuun kansioon
+
+![](../imgs/1hello_world_17.png)
 
 <!-- Slide number: 7 -->
-3 Koodin lisääminen projektiisi
+# 3 Koodin lisääminen projektiisi
+
 VS Code ruudulla näkyy uusi projekti. Jos ei näy, niin avaa kansio seuraavasti: VS Code -> File -> Open Folder)
 
-![A screenshot of a computer Description automatically generated](Picture13.jpg)
-
-7
-
-<!-- Slide number: 8 -->
-3 Koodin lisääminen projektiisi, jatkuu
+![](../imgs/1hello_world_18.png)
 
 | Ruudulla näkyy nyt Backend projektisi pohja, johon voit koodata toiminnallisuutta | Ns pääluokka on generoitunut automaattisesti Spring Boot kehikon toimesta. Annotaatio @SpringBootApplication varmistaa mm. sen, että sovellus lukee projektin kaikki kontrollerit ja palvelut. Huolehtii, että ”lennossa” lisätyt paketit (esim. validation) toimivat ilman sovelluksen uudelleen käynnistämistä |
 | --- | --- |
