@@ -47,27 +47,26 @@ You can clone your project from the GitHub and start making changes to it.
 
 1. Open Eclipse
 2. Select ‘File 🡪 Import 🡪 Git 🡪 Projects from Git
-
-![](data:image/png;base64...)
-
-1. Select ‘Clone URI’
-2. Type in
+   - ![](../imgs/2mvc_thymeleaf_07.png)
+3. Select ‘Clone URI’
+4. Type in
    1. your GitHub repository URL to URI field
    2. Your Github account and password
-3. Click next and keep defaults until the end of the wizard
+5. Click next and keep defaults until the end of the wizard
 
 # Commit changes to GitHub
 
 After you have made changes to your source code, you can send changes to GitHub by using following Git commands
 
 1. Add the changed files by using git command
-
-*git add .*
-
-1. Commit the files with comments
-
-*git commit -m “Adding new method…”*
-
-1. Push the changes to GitHub
-
-*git push -u origin main*
+   ```
+   git add .
+   ```
+2. Commit the files with comments
+   ```
+   git commit -m “Adding new method…”
+   ```
+3. Push the changes to GitHub
+   ```
+   git push -u origin main
+   ```
