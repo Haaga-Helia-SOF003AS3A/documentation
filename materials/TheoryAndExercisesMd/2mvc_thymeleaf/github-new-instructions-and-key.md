@@ -45,24 +45,30 @@ DONE ALL THE TIME WHEN WORKING WITH GIT
 
 1.  Add the files to new repository by using git command:
 
-  ```git add .```
+  ```
+  git add .
+  ```
   
 2. Commit the files with comments:
 
-  ```git commit -m “First commit”```
+  ```
+  git commit -m “First commit”
+  ```
 
 3.  Change your GitHub repository to your remote repository SELECT SSH NOT HTTPS. Use URL from step:
 
-  ```git branch -M main```
+  ```
+  git branch -M main
+  ```
   
 4.  Add origin where repository is located in the internet:
 
-```
-git remote add origin Your_Github_Repository_URL
-```
+  ```
+  git remote add origin Your_Github_Repository_URL
+  ```
 
 5.  Push the changes to GitHub:
 
-```
-git push -u origin main
-```
+  ```
+  git push -u origin main
+  ```
