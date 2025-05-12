@@ -67,7 +67,8 @@ Ruudulla näkyy nyt Backend projektisi pohja, johon voit koodata toiminnallisuut
 
 Ns pääluokka on generoitunut automaattisesti Spring Boot kehikon toimesta. Annotaatio `@SpringBootApplication` varmistaa mm. sen, että sovellus lukee projektin kaikki kontrollerit ja palvelut. Huolehtii, että ”lennossa” lisätyt paketit (esim. validation) toimivat ilman sovelluksen uudelleen käynnistämistä
 
-![](../imgs/1hello_world_18.png) ![](../imgs/1hello_world_19.png)
+|![](../imgs/1hello_world_19.png)|![](../imgs/1hello_world_20.png)|
+|--|--|
 
 <!-- Slide number: 9 -->
 Sovelluksen toiminnallisuuden periaatteet
