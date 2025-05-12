@@ -63,13 +63,11 @@ VS Code ruudulla näkyy uusi projekti. Jos ei näy, niin avaa kansio seuraavasti
 
 ![](../imgs/1hello_world_18.png)
 
-| Ruudulla näkyy nyt Backend projektisi pohja, johon voit koodata toiminnallisuutta | Ns pääluokka on generoitunut automaattisesti Spring Boot kehikon toimesta. Annotaatio @SpringBootApplication varmistaa mm. sen, että sovellus lukee projektin kaikki kontrollerit ja palvelut. Huolehtii, että ”lennossa” lisätyt paketit (esim. validation) toimivat ilman sovelluksen uudelleen käynnistämistä |
-| --- | --- |
+Ruudulla näkyy nyt Backend projektisi pohja, johon voit koodata toiminnallisuutta
 
-![A screenshot of a computer Description automatically generated](Picture3.jpg)
+Ns pääluokka on generoitunut automaattisesti Spring Boot kehikon toimesta. Annotaatio `@SpringBootApplication` varmistaa mm. sen, että sovellus lukee projektin kaikki kontrollerit ja palvelut. Huolehtii, että ”lennossa” lisätyt paketit (esim. validation) toimivat ilman sovelluksen uudelleen käynnistämistä
 
-![](Picture8.jpg)
-8
+![](../imgs/1hello_world_18.png) ![](../imgs/1hello_world_19.png)
 
 <!-- Slide number: 9 -->
 Sovelluksen toiminnallisuuden periaatteet
