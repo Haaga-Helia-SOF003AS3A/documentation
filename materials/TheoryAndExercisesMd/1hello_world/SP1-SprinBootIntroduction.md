@@ -1,54 +1,41 @@
 <!-- Slide number: 1 -->
-# Server ProgrammingSpring Boot introduction
+# Server Programming: Spring Boot introduction
 Juha Hinkula and Jukka Juslin
 Updated Minna Pellikka 09.01.2025
 
-### Notes:
-
 <!-- Slide number: 2 -->
 # Spring
-Spring framework: https://spring.io/
-Spring framework is an open source application framework for Java platform
-The most popular framework for Java EE
-First version was released under Apache 2.0 license in 2003
-Spring is modular and it contains lot of extensions for different purposes
 
-2
-Server Programming
-9.1.2025
-
-### Notes:
+- Spring framework: https://spring.io/
+- Spring framework is an open source application framework for Java platform
+- The most popular framework for Java EE
+- First version was released under Apache 2.0 license in 2003
+- Spring is modular and it contains lot of extensions for different purposes
 
 <!-- Slide number: 3 -->
 # Spring
-Material
-Getting Started Guides: https://spring.io/guides
-Tutorials: https://spring.io/guides#tutorials
-Tutorialspoint: http://www.tutorialspoint.com/spring/
 
-3
-Server Programming
-9.1.2025
+- Material
+   - Getting Started Guides: https://spring.io/guides
+   - Tutorials: https://spring.io/guides#tutorials
+   - Tutorialspoint: http://www.tutorialspoint.com/spring/
 
 <!-- Slide number: 4 -->
 
-![](ContentPlaceholder6.jpg)
-4
-Server Programming
-9.1.2025
+![](../imgs/1hello_world_05.png)
 
 <!-- Slide number: 5 -->
 # Dependency Injection (DI)
-Web appliction typically contains object that have dependencies to each others
-Dependency injection helps interaction between classes but same time keeping them independent
 
-5
-Server Programming
-9.1.2025
+- Web appliction typically contains object that have dependencies to each others
+- Dependency injection helps interaction between classes but same time keeping them independent
 
 <!-- Slide number: 6 -->
 # Dependency Injection (DI) example
-Without DI
+
+- Without DI
+
+```
 public class Vehicle {
    private Owner owner;
 
@@ -56,60 +43,51 @@ public class Vehicle {
       owner = new Owner();
    }
 }
-With DI
+```
 
+- With DI
+
+```
 public class Vehicle {
-
    private Owner owner;
 
    public Vehicle(Owner owner) {
-   
       this.owner = owner;
    }
-   
 }
-
-6
-Server Programming / updated by Minna Pellikka
-9.1.2025
+```
 
 <!-- Slide number: 7 -->
 # Spring Boot
-Spring Boot helps to easily setup new Spring project
-Create stand-alone Spring applications
-Embedded application server
-Starter POM’s for Maven configuration
-Minimized the need of configuration
 
-7
-Server Programming
-9.1.2025
+- Spring Boot helps to easily setup new Spring project
+- Create stand-alone Spring applications
+   - Embedded application server
+- Starter POM’s for Maven configuration
+- Minimized the need of configuration
 
 <!-- Slide number: 8 -->
 # Maven
-Apache Maven is a software project management and comprehension tool
-https://maven.apache.org/
-Maven objectives
-Easy build process
-Uniform build system
-Transparent migration of new features
-Guidelines for best practice development
-8
-Server Programming
-9.1.2025
+
+- Apache Maven is a software project management and comprehension tool
+- https://maven.apache.org/
+- Maven objectives
+   - Easy build process
+   - Uniform build system
+   - Transparent migration of new features
+   - Guidelines for best practice development
 
 <!-- Slide number: 9 -->
 # Maven
-Maven in 5 minutes: https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
-The pom.xml file is the core of the project configuration in Maven
-Single configuration file to build a project
 
-9
-Server Programming
-9.1.2025
+- Maven in 5 minutes: https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
+- The pom.xml file is the core of the project configuration in Maven
+- Single configuration file to build a project
 
 <!-- Slide number: 10 -->
+# POM.XML example
 
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -151,35 +129,31 @@ Server Programming
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency> …..
-# POM.XML example
-10
-Server Programming
-9.1.2025
+```
 
 <!-- Slide number: 11 -->
 # Spring Boot
-Recommended project structure
-NOTE! locate the main application class in a root package above other classes. Otherwise your application won’t work properly
 
-![](Picture6.jpg)
-11
-Server Programming
-9.1.2025
+- Recommended project structure
+   - NOTE! locate the main application class in a root package above other classes. Otherwise your application won’t work properly
+
+![](../imgs/1hello_world_07.png)
 
 <!-- Slide number: 12 -->
 # Spring Boot
-First Spring Boot project
-Create a new Spring Boot project according to instructions in course site
-Add new controller class HelloController.java (code in next slide)
-Run your project and browse to localhost:8080
 
-![Screen Clipping](Picture7.jpg)
-12
-Server Programming
-9.1.2025
+- First Spring Boot project
+   - Create a new Spring Boot project according to instructions in course site
+   - Add new controller class HelloController.java (code in next slide)
+   - Run your project and browse to localhost:8080
+
+![](../imgs/1hello_world_08.png)
+
 
 <!-- Slide number: 13 -->
 # Spring Boot
+
+```
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -192,50 +166,42 @@ public class HelloController {
     public String hello() {
         return "Hello Spring";
     }
-
 }
-13
-Server Programming
-9.1.2025
+```
 
 <!-- Slide number: 14 -->
 # Spring Boot & Spring web MVC
-Spring uses annotations (starts with ’@’-sign) for configuration
-@Controller annotation
-Marks class as a Spring web MVC controller
-@ReponseBody annotation
-Converts the return value and write it to http reponse
-@RequestMapping annotation
-Mapping URLs to controller methods
 
-14
-Server Programming
-9.1.2025
+- Spring uses annotations (starts with ’@’-sign) for configuration
+- `@Controller` annotation
+   - Marks class as a Spring web MVC controller
+- `@ReponseBody` annotation
+   - Converts the return value and write it to http response
+- `@RequestMapping` annotation
+   - Mapping URLs to controller methods
 
 <!-- Slide number: 15 -->
 # Spring Boot
-@RequestMapping(”*”) means for any path in the application will excecute hello() method.
-Change the code @RequestMapping(”/hello”)means that path address:port/hello excecutes hello() method.
 
-![Screen Clipping](Picture6.jpg)
-15
-Server Programming
-9.1.2025
+- `@RequestMapping(”*”)` means for any path in the application will excecute hello() method.
+- Change the code `@RequestMapping(”/hello”)` means that path `address:port/hello` excecutes hello() method.
+
+![](../imgs/1hello_world_09.png)
 
 <!-- Slide number: 16 -->
 # Request parameters
-HTTP GET request can contain parameters
-Example
-http://localhost:8080/hello?firstname=John&lastname=Doe
-In HTTP POST request parameters are sent in the request body
 
-16
-Server Programming
-9.1.2025
+- HTTP GET request can contain parameters
+- Example
+   - `http://localhost:8080/hello?firstname=John&lastname=Doe`
+- In HTTP POST request parameters are sent in the request body
 
 <!-- Slide number: 17 -->
 # Spring Boot
-@RequestParam annotation binds the value of request parameter into name variable
+
+- `@RequestParam` annotation binds the value of request parameter into name variable
+
+```
 @Controller
 @ResponseBody
 public class HelloController {
@@ -244,32 +210,30 @@ public class HelloController {
         return "Hello " + firstName;
     }
 }
+```
 
-![Screen Clipping](Picture6.jpg)
-
-![](Picture7.jpg)
-17
-Server Programming
-9.1.2025
+![](../imgs/1hello_world_10.png)
 
 <!-- Slide number: 18 -->
 # Spring Boot
-In the pevious example the parameter is mandatory. If it is not required you can use following parameters in @RequestParam annotation
 
+- In the previous example the parameter is mandatory. If it is not required you can use following parameters in `@RequestParam` annotation
+
+```
 public String hello(@RequestParam(name=“firstname", required=false, defaultValue="World") String firstName)
+```
 
-If the request does not contains parameter the default value is used
+- If the request does not contains parameter the default value is used
 
-![Screen Clipping](Picture6.jpg)
-18
-Server Programming
-9.1.2025
+![](../imgs/1hello_world_11.png)
 
 <!-- Slide number: 19 -->
 # Spring Boot
-Spring Boot packs everything to one executable JAR package
-Excecution starts from the main application class (main() method)
 
+- Spring Boot packs everything to one executable JAR package
+- Excecution starts from the main application class (main() method)
+
+```
 package hello;
 
 import org.springframework.boot.SpringApplication;
@@ -281,17 +245,13 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 }
-19
-Server Programming
-9.1.2025
+```
 
 <!-- Slide number: 20 -->
 # Spring Boot
-@SpringBootApplication annotation adds following annotations
-@Configuration tags the class as a source of bean definitions for the application context.
-@EnableAutoConfiguration tells Spring Boot to start adding beans based on classpath .
-@ComponentScan tells Spring to look for other components, configurations, and services in the package
-@EnableWebMvc annotation flags the application as a web application and activates key behaviors such as setting up a DispatcherServlet
-20
-Server Programming
-9.1.2025
+
+- `@SpringBootApplication` annotation adds following annotations
+   - `@Configuration` tags the class as a source of bean definitions for the application context.
+   - `@EnableAutoConfiguration` tells Spring Boot to start adding beans based on classpath .
+   - `@ComponentScan` tells Spring to look for other components, configurations, and services in the package
+   - `@EnableWebMvc` annotation flags the application as a web application and activates key behaviors such as setting up a DispatcherServlet
