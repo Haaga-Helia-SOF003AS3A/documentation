@@ -44,11 +44,17 @@ commands as here.
 DONE ALL THE TIME WHEN WORKING WITH GIT
 
 1.  Add the files to new repository by using git command:
+
   ```git add .```
+  
 3. Commit the files with comments:
+
   ```git commit -m “First commit”```
+
 5.  Change your GitHub repository to your remote repository SELECT SSH NOT HTTPS. Use URL from step:
+
   ```git branch -M main```
+  
 7.  Add origin where repository is located in the internet:
 
 git remote add origin Your_Github_Repository_URL
