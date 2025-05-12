@@ -1,5 +1,5 @@
 <!-- Slide number: 1 -->
-# Server Programming: Spring Boot introduction
+# Server Programming: Spring Boot Introduction
 Juha Hinkula and Jukka Juslin
 Updated Minna Pellikka 09.01.2025
 
