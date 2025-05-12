@@ -66,7 +66,7 @@ Server Programming
 <!-- Slide number: 6 -->
 # MVC
 
-![](ContentPlaceholder6.jpg)
+![](../imgs/1hello_world_04.png)
 6
 Server Programming
 11.8.2023
