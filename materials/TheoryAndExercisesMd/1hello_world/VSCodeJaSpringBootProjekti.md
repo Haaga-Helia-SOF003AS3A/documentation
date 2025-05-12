@@ -26,9 +26,8 @@ Tässä lyhyesti ohjeet, seuraavalla sivulla tarkemmat ohjeet näyttökuvien ker
 
 Valitse kuvien mukaiset laajennokset (extensios) Spring Boot projektia varten
 
-![](../imgs/1hello_world_12.png)
-
-![](../imgs/1hello_world_13.png)
+|![](../imgs/1hello_world_12.png)|![](../imgs/1hello_world_13.png)|
+|--|--|
 
 <!-- Slide number: 4 -->
 # 2 Syötä projektin tiedot
