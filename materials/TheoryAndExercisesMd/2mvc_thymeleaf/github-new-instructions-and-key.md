@@ -47,17 +47,22 @@ DONE ALL THE TIME WHEN WORKING WITH GIT
 
   ```git add .```
   
-3. Commit the files with comments:
+2. Commit the files with comments:
 
   ```git commit -m “First commit”```
 
-5.  Change your GitHub repository to your remote repository SELECT SSH NOT HTTPS. Use URL from step:
+3.  Change your GitHub repository to your remote repository SELECT SSH NOT HTTPS. Use URL from step:
 
   ```git branch -M main```
   
-7.  Add origin where repository is located in the internet:
+4.  Add origin where repository is located in the internet:
 
+```
 git remote add origin Your_Github_Repository_URL
+```
 
-5.  Push the changes to GitHub: git push -u origin main
+5.  Push the changes to GitHub:
 
+```
+git push -u origin main
+```
