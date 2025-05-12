@@ -1,69 +1,56 @@
 <!-- Slide number: 1 -->
-VS Code:
-Spring boot projektin luominen
-
-![](Picture7.jpg)
-
-![](Picture4.jpg)
-9.1.2025, Minna Pellikka
-1
+# VS Code: Spring boot projektin luominen
 
 <!-- Slide number: 2 -->
-Spring boot projektin luominen
+# Spring boot projektin luominen
+
 Tässä lyhyesti ohjeet, seuraavalla sivulla tarkemmat ohjeet näyttökuvien kera.
-Spring boot projekti luodaan suoraan Visual Studio Codessa. Sinulla pitää olla kaksi laajennosta (extensions) asennettuna: Spring Boot Extension Pack sekä Extension Pack for Java.
-Projektin tietojen syöttäminen:
-Mene kansioon, jonne haluat projektin luoda
-ctrl + shift + p näppäinyhdistelmällä saat vs code ruudun yläreunaan command valikon -> kirjoita sinne ”Spring initialzer: Create a Maven project”
-Valitse SB versio on 3.4.1
-Valitse tämän jälkeen kieleksi Java
-Anna projektillesi group id (paketti, package), esim. kevat25
-Anna artifact (projektin nimi), esim. backend
-Valitse paketointityypiksi JAR
-Javan versio on 17
-Valitse dependecyt (riippuvuudet, kirjastopaketit) ja hyväksy ne enterillä
-Hyväksy projektin generointi kansioon, jonka valitsit a-kohdassa
 
-Koodin lisääminen projektiin ja sovelluksen käynnistäminen
+1. Spring boot projekti luodaan suoraan Visual Studio Codessa. Sinulla pitää olla kaksi laajennosta (extensions) asennettuna: Spring Boot Extension Pack sekä Extension Pack for Java.
+2. Projektin tietojen syöttäminen:
+  - Mene kansioon, jonne haluat projektin luoda
+  - ctrl + shift + p näppäinyhdistelmällä saat vs code ruudun yläreunaan command valikon -> kirjoita sinne ”Spring initialzer: Create a Maven project”
+  - Valitse SB versio on 3.4.1
+  - Valitse tämän jälkeen kieleksi Java
+  - Anna projektillesi group id (paketti, package), esim. kevat25
+  - Anna artifact (projektin nimi), esim. backend
+  - Valitse paketointityypiksi JAR
+  - Javan versio on 17
+  - Valitse dependecyt (riippuvuudet, kirjastopaketit) ja hyväksy ne enterillä
+  - Hyväksy projektin generointi kansioon, jonka valitsit a-kohdassa
 
-2
+3. Koodin lisääminen projektiin ja sovelluksen käynnistäminen
 
 <!-- Slide number: 3 -->
-1 Käynnistä Visual Studio Code ja asenna tarvittavat laajennokset
+# 1 Käynnistä Visual Studio Code ja asenna tarvittavat laajennokset
+
 Valitse kuvien mukaiset laajennokset (extensios) Spring Boot projektia varten
 
-![](Picture11.jpg)
+![](../imgs/1hello_world_12.png)
 
-![](Picture9.jpg)
-3
+![](../imgs/1hello_world_13.png)
 
 <!-- Slide number: 4 -->
-2 Syötä projektin tiedot
+# 2 Syötä projektin tiedot
+
 Projektin tietojen syöttäminen:
-Mene kansioon, jonne haluat projektin luoda (VS Code: open folder)
-ctrl + shift + p näppäinyhdistelmällä saat vs code ruudun yläreunaan command valikon -> kirjoita sinne ”Spring initialzer: Create a Maven project”
-Valitse opettajan ohjeistama Spring boot versio (esim. keväällä 2025 se on 3.4.1)
 
-Valitse tämän jälkeen kieleksi Java
-Anna projektillesi group id (paketti, package), esim. kevat25
-Anna artifact (projektin nimi), esim. backend
-Valitse paketointityypiksi JAR
-Javan versio on 17
+  - Mene kansioon, jonne haluat projektin luoda (VS Code: open folder)
+  - ctrl + shift + p näppäinyhdistelmällä saat vs code ruudun yläreunaan command valikon -> kirjoita sinne ”Spring initialzer: Create a Maven project”
+  - Valitse opettajan ohjeistama Spring boot versio (esim. keväällä 2025 se on 3.4.1)
+  ![](../imgs/1hello_world_14.png)
+  - Valitse tämän jälkeen kieleksi Java
+  - Anna projektillesi group id (paketti, package), esim. kevat25
+  - Anna artifact (projektin nimi), esim. backend
+  - Valitse paketointityypiksi JAR
+  - Javan versio on 17
+  - Valitse oikeat dependecyt (Spring web, Spring Boot Dev Tools)
 
-![A screenshot of a computer Description automatically generated](Picture3.jpg)
-4
+> Paketin avulla voimme luoda webbisovelluksia, käyttää MVC-arkkitehtuuria, sisältää sisäisen Tomcatin
+> ![](../imgs/1hello_world_15.png)
 
-<!-- Slide number: 5 -->
-2 Syötä projektin tiedot, jatkuu…
-i) Valitse oikeat dependecyt (Spring web, Spring Boot Dev Tools)
-
-Paketin avulla voimme luoda webbisovelluksia, käyttää MVC-arkkitehtuuria, sisältää sisäisen Tomcatin
-
-![](Picture5.jpg)
-Paketin avulla voimme esim. tehdä koodiin muunnoksia ilman, että meidän pitää käynnistää tomcat palvelin uudelleen. Muunnokset ovat siten heti ajonaikana  käytettävissä.
-
-![](Picture9.jpg)
-5
+> Paketin avulla voimme esim. tehdä koodiin muunnoksia ilman, että meidän pitää käynnistää tomcat palvelin uudelleen. Muunnokset ovat siten heti ajonaikana  käytettävissä.
+> ![](../imgs/1hello_world_16.png)
 
 <!-- Slide number: 6 -->
 2 Syötä projektin tiedot, jatkuu…
