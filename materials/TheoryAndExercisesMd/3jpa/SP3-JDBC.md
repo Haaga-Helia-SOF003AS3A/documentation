@@ -4,8 +4,8 @@ Juha Hinkula
 
 <!-- Slide number: 2 -->
 # Spring Boot: JDBC
-- Spring provides template class called JdbcTemplate
-- JdbcTemplate takes care of connection handling and exception handling
+- Spring provides template class called `JdbcTemplate`
+- `JdbcTemplate` takes care of connection handling and exception handling
 	- `Import org.springframework.jdbc.core.JdbcTemplate`
 - Dependency (Spring Boot automatically creates JdbcTemplate)
 
@@ -16,7 +16,7 @@ Juha Hinkula
 </dependency>
 ```
 
-- Datasource configuration is controlled by using application.properties file
+- Datasource configuration is controlled by using `application.properties` file
 
 - Example:
 
@@ -41,7 +41,7 @@ private JdbcTemplate jdbcTemplate;
 jdbcTemplate.execute("CREATE TABLE customers...");
 ```
 
-- You can also use schema.sql and data.sql files in resources folder which Spring Boot will automatically use to initialize database
+- You can also use `schema.sql` and `data.sql` files in resources folder which Spring Boot will automatically use to initialize database
 
 <!-- Slide number: 5 -->
 - Create a repository class and add methods
@@ -62,18 +62,14 @@ public class StudentRepository
 ```
 
 <!-- Slide number: 6 -->
-# Spring Boot: JDBC
-Spring framework has comprehensive transaction support
-If method is tagged with @Transactional, meaning that any failure causes the entire operation to roll back to its previous state, and to throw the original exception
-
-6
-Server Programming
-21.9.2023
+- Spring framework has comprehensive transaction support
+- If method is tagged with `@Transactional`, meaning that any failure causes the entire operation to roll back to its previous state, and to throw the original exception
 
 <!-- Slide number: 7 -->
-# Spring Boot: JDBC
-RowMapper is interface for mapping rows of a ResultSet
-Examle
+- RowMapper is interface for mapping rows of a ResultSet
+- Example
+
+```
 class StudentRowMapper implements RowMapper<Student> {
   @Override
   public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -84,15 +80,12 @@ class StudentRowMapper implements RowMapper<Student> {
 	return student;
   }
 }
-7
-Server Programming
-21.9.2023
+```
 
 <!-- Slide number: 8 -->
-# Spring Boot: JDBC
-It is recommended to use ? for arguments to avoid SQL injections,
- Example
+- It is recommended to use `?` for arguments to avoid SQL injections,
+- Example
+
+```
 jdbcTemplate.update("INSERT INTO customers(first_name, last_name) VALUES (?,?)", "John", "West");
-8
-Server Programming
-21.9.2023
+```
