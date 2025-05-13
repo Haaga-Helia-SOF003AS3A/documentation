@@ -6,7 +6,11 @@ Juha Hinkula
 # Spring Boot: JDBC
 - Spring provides template class called `JdbcTemplate`
 - `JdbcTemplate` takes care of connection handling and exception handling
-	- `Import org.springframework.jdbc.core.JdbcTemplate`
+
+```
+Import org.springframework.jdbc.core.JdbcTemplate
+```
+
 - Dependency (Spring Boot automatically creates JdbcTemplate)
 
 ```
