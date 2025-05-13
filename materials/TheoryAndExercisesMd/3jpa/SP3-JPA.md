@@ -1,62 +1,57 @@
 <!-- Slide number: 1 -->
-# Server ProgrammingORM/JPA, Databases
+# Server Programming: ORM/JPA, Databases
 Minna Pellikka, Juha Hinkula and Jukka Juslin
-
-### Notes:
 
 <!-- Slide number: 2 -->
 # Spring Boot: JPA
-JPA (Java Persistence API) is a collection of classes to persistently store data into a database
-JPA provides object – relational mapping for managing relational data in JAVA applications (ORM)
-There is lot of implementations of the JPA (like Hibernate)
-Dependency
-<dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
-</dependency>
 
-2
-Server Programming
-26.1.2025
+- JPA (Java Persistence API) is a collection of classes to persistently store data into a database
+- JPA provides object – relational mapping for managing relational data in JAVA applications (ORM)
+- There is lot of implementations of the JPA (like Hibernate)
+- Dependency
+
+```
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+```
 
 <!-- Slide number: 3 -->
 # Architecture of this lesson setup
 
-![](Picture7.jpg)
-3
-Server Programming
-26.1.2025
+![](..\imgs\3jpa_05.png)
 
 <!-- Slide number: 4 -->
 # H2 database
-H2 is open source Java based SQL database
-www.h2database.com
-Embedded and server modes: in-memory databases
-Good database for prototyping, testing etc.
-Dependency
+- H2 is open source Java based SQL database
+- www.h2database.com
+- Embedded and server modes: in-memory databases
+- Good database for prototyping, testing etc.
+- Dependency
+
+```
 <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
+	<groupId>com.h2database</groupId>
+	<artifactId>h2</artifactId>
 </dependency>
-4
-Server Programming
-26.1.2025
+```
 
 <!-- Slide number: 5 -->
-# H2 database
-H2 provides a web based console
-Add following lines to the application.properties file
-	spring.h2.console.enabled=true
-	spring.h2.console.path=/h2-console
-	spring.datasource.url=jdbc:h2:mem:testdb
-Navigate to localhost:8080/h2-console
-JDBC URL = jdbc:h2:mem:testdb
-Leave password field empty
+- H2 provides a web based console
+- Add following lines to the `application.properties` file
 
-![](Picture7.jpg)
-5
-Server Programming
-26.1.2025
+```
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+spring.datasource.url=jdbc:h2:mem:testdb
+```
+
+- Navigate to `localhost:8080/h2-console`
+	- JDBC URL = `jdbc:h2:mem:testdb`
+	- Leave password field empty
+
+![]("..\imgs\3jpa_06.png")
 
 <!-- Slide number: 6 -->
 # Spring Boot: JPA
