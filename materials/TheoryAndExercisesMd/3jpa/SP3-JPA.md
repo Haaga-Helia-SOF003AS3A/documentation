@@ -10,7 +10,7 @@ Minna Pellikka, Juha Hinkula and Jukka Juslin
 - There is lot of implementations of the JPA (like Hibernate)
 - Dependency
 
-```
+```xml
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -30,7 +30,7 @@ Minna Pellikka, Juha Hinkula and Jukka Juslin
 - Good database for prototyping, testing etc.
 - Dependency
 
-```
+```xml
 <dependency>
 	<groupId>com.h2database</groupId>
 	<artifactId>h2</artifactId>
@@ -64,7 +64,7 @@ spring.datasource.url=jdbc:h2:mem:testdb
 - Entity class must be annotated with `@Entity` annotation (jakarta.persistence.Entity)
 - By default, the table name is the name of the entity class. It can be changed by using `@Table` annotation
 
-```
+```java
 import jakarta.persistence.Entity;
 
 @Entity
@@ -76,7 +76,7 @@ public class Student {
 - `@Id` annotation is used for creating id column of the table
 - `@GeneratedValue` annotation generates automatically a unique primary key for every new entity object (GenerationType.Auto)
 
-```
+```java
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private Long id;
@@ -86,7 +86,7 @@ private Long id;
 - The other properties can be left unannotated. Then these properites are mapped to columns that share the same name as properties itself
 - `@Column` annotation can be used to specify mapped column. Example: `@Column(name=”address”)`
 
-```
+```java
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private Long id;
@@ -97,7 +97,7 @@ private String firstName, lastName, email;
 <!-- Slide number: 10 -->
 - Example Entity
 
-```
+```java
 @Entity
 public class Student {
 	@Id
@@ -138,7 +138,7 @@ public class Student {
 
 By extending CrudRepository the StudentRepository inherits  methods for working with Student persistence, including methods for saving, deleting, and finding Student entities.
 
-```
+```java
 import org.springframework.data.repository.CrudRepository;
 
 public interface StudentRepository extends CrudRepository<Student, Long> {
@@ -151,7 +151,7 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 
 Note! In typical Java application you should write an class that implements StudentRepository. Spring Data JPA creates this automatically when you run the application.
 
-```
+```java
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
@@ -166,7 +166,7 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 
 Constructor Injection annotation bring repository class into the context, and will inject an instance of the service into the YourAppClass class. Works only if there is only one constructor! Otherwise you need to use @Autowired annotation
 
-```
+```java
 @Controller
 public class StudentController {
 	private StudentRepository repository;
@@ -201,7 +201,7 @@ public class StudentController {
 
 - If you need to run some specific code when the SpringApplication has started, you can implement the `CommandLineRunner` interfaces. This is good place to add some demo data to your apllication
 
-```
+```java
 @Bean
 public CommandLineRunner demo(StudentRepository repository) {
 	return (args) -> {
@@ -217,7 +217,7 @@ public CommandLineRunner demo(StudentRepository repository) {
 
 1. Create template for list page (studentlist.html).
 
-```
+```html
 <table class="table table-striped">
   <tr>
    <th>Name</th>
@@ -233,7 +233,7 @@ public CommandLineRunner demo(StudentRepository repository) {
 <!-- Slide number: 19 -->
 2. Create method to your controller. All students are fetched from the database and added to the model attribute.
 
-```
+```java
 @Autowired
 private StudentRepository repository;
 
@@ -250,7 +250,7 @@ public String studentList(Model model) {
 - Adding Create funtionality to a Spring Boot application
 1. Create template for adding new entity (in this example addstudent.html). Download source code from the course site.
 
-```
+```html
 <h1>Add student</h1>
 <div>
 <form th:object="${student}" th:action="@{save}" action="#" method="post">
@@ -268,7 +268,7 @@ public String studentList(Model model) {
 <!-- Slide number: 21 -->
 2. Create functionality to your controller
 
-```
+```java
 @RequestMapping(value = "/add")
 public String addStudent(Model model){
     model.addAttribute("student", new Student());
@@ -283,7 +283,7 @@ public String save(Student student){
 ```
 
 3. Add link to create functionality
-```
+```html
  <a href="/add" class="btn btn-primary">Add Student</a>
 ```
 
@@ -296,7 +296,7 @@ public String save(Student student){
 
 1. Create functionality to the controller
 
-```
+```java
 @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 public String deleteStudent(@PathVariable("id") Long studentId, Model model) {
 	repository.deleteById(studentId);
@@ -311,7 +311,7 @@ public String deleteStudent(@PathVariable("id") Long studentId, Model model) {
 <!-- Slide number: 24 -->
 2. Add link to delete functionality (for example in the listpage row)
 
-```
+```html
 <a th:href="@{/delete/{id}(id=${student.id})}">Delete</a>
 ```
 
@@ -321,7 +321,7 @@ public String deleteStudent(@PathVariable("id") Long studentId, Model model) {
 - Query methods: CrudRepository can derive the query from the method name
 - Examples:
 
-```
+```java
 public interface StudentRepository extends CrudRepository<Student, Long> {
 	List<Student> findByLastName(String lastName);
 	
@@ -352,11 +352,12 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 <!-- Slide number: 28 -->
 - Student entity
 	- Add new department attribute with `@ManyToOne` and `@JoinColumn` annotations
-	```
-	@ManyToOne
-	@JoinColumn(name = "departmentid")
-	private Department department;
-	```
+
+```java
+@ManyToOne
+@JoinColumn(name = "departmentid")
+private Department department;
+```
  
 - Add getters and setters for department
 - Add department to constructor
@@ -364,17 +365,18 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 <!-- Slide number: 29 -->
 - Department entity
 	- Add new students attribute with `@OneToMany` annotation
-	```
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "department”)
-	private List<Student> students;
-	```
+
+```java
+@OneToMany(cascade = CascadeType.ALL,mappedBy = "department”)
+private List<Student> students;
+```
 
 - Add getters and setters
 
 <!-- Slide number: 30 -->
 - Add CrudRepository for Department entity
 
-```
+```java
 import org.springframework.data.repository.CrudRepository;
 
 public interface DepartmentRepository extends CrudRepository<Department, Long> {
@@ -386,7 +388,7 @@ public interface DepartmentRepository extends CrudRepository<Department, Long> {
 - Add department dropdown list to student form
 	- You have to add new model attribute to controller method which shows student creation form. You also have to inject department repository to controller
 
-```
+```java
 @Autowired
 private StudentRepository repository;
 @Autowired
@@ -406,7 +408,7 @@ public String addStudent(Model model){
 	- Departments can be now get from the model attribute in the template (departments attribute)
 	- Select element shows department names (th:text) but the value will be departmentid (th:value)
 
-```
+```html
 <label for="deplist">Department</label>
 <select id="deplist" th:field="*{department}" class="form-control">
 	<option th:each="department: ${departments}"
@@ -417,7 +419,7 @@ public String addStudent(Model model){
 <!-- Slide number: 33 -->
 - Show department name in the studentlist
 
-```
+```html
 <tr th:each = "student : ${students}">
 	<td th:text="${student.firstName} + ' ' + ${student.lastName}"></td>
 	<td th:text="${student.email}"></td>
@@ -487,7 +489,7 @@ public String showModStu(@PathVariable("id") Long studentId, Model model){
 ```
 
 <!-- Slide number: 38 -->
-# Spring Boot: MariaDB
+# Spring Boot: MySQL/MariaDB
 - Switching database from H2 to MySQL/MariaDB
 
 1. Remove H2 dependency from the pom.xml file
@@ -503,31 +505,21 @@ public String showModStu(@PathVariable("id") Long studentId, Model model){
 
 - Add following database connection settings to the `application.properties` file:
 
+```
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/jusju?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
 spring.datasource.username=jusju
 spring.datasource.password=YOUR_PASSWORD
 spring.datasource.initialization-mode=always
 spring.batch.initialize-schema=always
-
-38
-26.1.2025
+```
 
 <!-- Slide number: 39 -->
-# Spring Boot: MySQL/MariaDB
-Switching database from H2 to MariaDB
-For testing purposes you can install MariaDB locally and use localhost as server address. Change also password in the application.properties file (Password that you defined when installing MySQL/MariaDB).
-Use HeidiSQL to create new database before running the application (see the next slide)
-Set DB_NAME in the application.properties file to match name of the database you just created.
-Run the application and check with HeidiSQL that database tables were created.
-39
-Server Programming
-26.1.2025
+- Switching database from H2 to MariaDB
+- For testing purposes you can install MariaDB locally and use `localhost` as server address. Change also password in the `application.properties` file (Password that you defined when installing MySQL/MariaDB).
+- Use HeidiSQL to create new database before running the application (see the next slide)
+- Set `DB_NAME` in the `application.properties` file to match name of the database you just created.
+- Run the application and check with HeidiSQL that database tables were created.
 
 <!-- Slide number: 40 -->
-# Spring Boot: MySQL/MariaDB
-
-![](ContentPlaceholder6.jpg)
-40
-Server Programming
-26.1.2025
+![](../imgs/3jpa_12.png)
