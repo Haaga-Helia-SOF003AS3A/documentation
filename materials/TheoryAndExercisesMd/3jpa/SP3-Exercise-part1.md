@@ -1,4 +1,4 @@
-**Chapter 3**
+# Chapter 3
 
 Use your own bookstore application from the GitHub.
 
@@ -13,7 +13,7 @@ Use your own bookstore application from the GitHub.
 
 You should see similar messages in the console after you run your application
 
-![](data:image/png;base64...)
+![](../imgs/3jpa_01.png)
 
 Push all changes to GitHub.
 
@@ -21,7 +21,7 @@ Push all changes to GitHub.
 
 Create a template called booklist.html which shows all books from the database in html table. To show the books you have to add new method to controller that handle GET request from endpoint like /booklist.
 
-![](data:image/png;base64...)
+![](../imgs/3jpa_02.png)
 
 Push all changes to GitHub.
 
@@ -33,7 +33,7 @@ For create functionality add new thymeleaf template called addbook.html
 
 For deletion use *@PathVariable* annotation.
 
-![](data:image/png;base64...)
+![](../imgs/3jpa_03.png)
 
 Push all changes to GitHub.
 
@@ -49,12 +49,14 @@ Push all changes to GitHub.
 
 1. Add Bootstrap to your bookstore application. Download *bootstrap.min.css* from the bootstrap site. Copy it to your projects resources\static\css folder (Create the folder if it does not exist). Add link to your booklist template file.
 
+```
 <link type=**"text/css"** rel=**"stylesheet"** href=**"/css/bootstrap.min.css"** th:href=**"@{/css/bootstrap.min.css}"** />
+```
 
 1. Add ***class="table table-striped"*** to your table html element
 2. Add ***class="btn btn-success"*** to your ‘Add Book’- button html element
 3. Add ***class="btn btn-danger"*** to your ‘Delete’- button html element
 
-![](data:image/png;base64...)
+![](../imgs/3jpa_04.png)
 
 Push all changes to GitHub.
