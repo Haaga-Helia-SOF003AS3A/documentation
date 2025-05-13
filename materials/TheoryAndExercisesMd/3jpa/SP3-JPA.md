@@ -20,7 +20,7 @@ Minna Pellikka, Juha Hinkula and Jukka Juslin
 <!-- Slide number: 3 -->
 # Architecture of this lesson setup
 
-![](..\imgs\3jpa_05.png)
+![](../imgs/3jpa_05.png)
 
 <!-- Slide number: 4 -->
 # H2 database
@@ -51,159 +51,137 @@ spring.datasource.url=jdbc:h2:mem:testdb
 	- JDBC URL = `jdbc:h2:mem:testdb`
 	- Leave password field empty
 
-![]("..\imgs\3jpa_06.png")
+![](../imgs/3jpa_06.png)
 
 <!-- Slide number: 6 -->
 # Spring Boot: JPA
-You can add following property to application.properties file. This enables the logging of SQL statements
 
-spring.jpa.show-sql=true
-6
-Server Programming
-26.1.2025
+- You can add following property to `application.properties` file. This enables the logging of SQL statements
 
 <!-- Slide number: 7 -->
-# Spring Boot: JPA
-Entity
-An entity represents a table in relational database
-Entity class must be annotated with @Entity annotation (jakarta.persistence.Entity)
-By default, the table name is the name of the entity class. It can be changed by using @Table annotation
+**Entity**
+- An entity represents a table in relational database
+- Entity class must be annotated with `@Entity` annotation (jakarta.persistence.Entity)
+- By default, the table name is the name of the entity class. It can be changed by using `@Table` annotation
 
+```
 import jakarta.persistence.Entity;
 
 @Entity
 public class Student {
 	// More code..
-7
-Server Programming
-26.1.2025
+```
 
 <!-- Slide number: 8 -->
-# Spring Boot: JPA
-@Id annotation is used for creating id column of the table
-@GeneratedValue annotation generates automatically a unique primary key for every new entity object (GenerationType.Auto)
+- `@Id` annotation is used for creating id column of the table
+- `@GeneratedValue` annotation generates automatically a unique primary key for every new entity object (GenerationType.Auto)
 
+```
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private Long id;
-8
-Server Programming
-26.1.2025
+```
 
 <!-- Slide number: 9 -->
-# Spring Boot: JPA
-The other properties can be left unannotated. Then these properites are mapped to columns that share the same name as properties itself
-@Column annotation can be used to specify mapped column. Example: @Column(name=”address”)
+- The other properties can be left unannotated. Then these properites are mapped to columns that share the same name as properties itself
+- `@Column` annotation can be used to specify mapped column. Example: `@Column(name=”address”)`
 
+```
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private Long id;
 private String firstName, lastName, email;
 …getters and setters
-
-9
-Server Programming
-26.1.2025
+```
 
 <!-- Slide number: 10 -->
-# Spring Boot: JPA
-// Example Entity
+- Example Entity
+
+```
 @Entity
 public class Student {
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-      private Long id;
-      private String firstName, lastName, email;
-
-      public Student() {}
-
-      public Student(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        return "Student id=“ + id + “, firstName=“ + firstName + “,lastName=” + lastName;
-       }
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
+	private String firstName, lastName, email;
+	
+	public Student() {}
+	
+	public Student(String firstName, String lastName, String email) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+	}
+	
+	@Override
+	public String toString() {
+		return "Student id=“ + id + “, firstName=“ + firstName + “,lastName=” + lastName;
+	}
 }
-10
-Server Programming
-26.1.2025
+```
 
 <!-- Slide number: 11 -->
+- Wanted directory structure
 
-![](Picture9.jpg)
-# Wanted directory structure
-
-11
-Server Programming
-26.1.2025
+![](../imgs/3jpa_07.png)
 
 <!-- Slide number: 12 -->
-# Spring Boot: JPA
-The CrudRepository provides CRUD functionality for the entity class that is being managed.
-How to use repositories
-Declare an interface extending Repository
-Declare query methods on the interface
-Get the repository instance injected and use it
+- The `CrudRepository` provides CRUD functionality for the entity class that is being managed.
+- How to use repositories:
 
-12
-Server Programming
-26.1.2025
+1. Declare an interface extending Repository
+2. Declare query methods on the interface
+3. Get the repository instance injected and use it
 
 <!-- Slide number: 13 -->
-# Spring Boot: JPA
-1. ) Declare an interface extending Repository (Create a new class which extends CrudRepository)
+1. **Declare an interface extending Repository** (Create a new class which extends CrudRepository)
+
 By extending CrudRepository the StudentRepository inherits  methods for working with Student persistence, including methods for saving, deleting, and finding Student entities.
 
+```
 import org.springframework.data.repository.CrudRepository;
 
 public interface StudentRepository extends CrudRepository<Student, Long> {
 	...
 }
-
-13
-Server Programming
-26.1.2025
+```
 
 <!-- Slide number: 14 -->
-# Spring Boot: JPA
-2. ) Declare query methods on the interface
+2. **Declare query methods on the interface**
+
 Note! In typical Java application you should write an class that implements StudentRepository. Spring Data JPA creates this automatically when you run the application.
 
+```
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
 public interface StudentRepository extends CrudRepository<Student, Long> {
-    List<Student> findByLastName(String lastName);
+	List<Student> findByLastName(String lastName);
 }
-
-14
-Server Programming
-26.1.2025
+```
 
 <!-- Slide number: 15 -->
-# Spring Boot: JPA
-3. ) Get the repository instance injected and use it
+3. **Get the repository instance injected and use it**
+
 Constructor Injection annotation bring repository class into the context, and will inject an instance of the service into the YourAppClass class. Works only if there is only one constructor! Otherwise you need to use @Autowired annotation
 
-        @Controller
-        public class StudentController {
-            private StudentRepository repository;
-            // constructor injection. Can only be one constructor then.
-            public StudentController(StudentRepository repository) {
-                this.repository = repository;
+```
+@Controller
+public class StudentController {
+	private StudentRepository repository;
+	// constructor injection. Can only be one constructor then.
+	public StudentController(StudentRepository repository) {
+		this.repository = repository;
+	}
 
-            }
-            @RequestMapping(value= {"/", "/studentlist"})
-            public String studentList(Model model) {
-                model.addAttribute("students", repository.findAll());
-                return "studentlist";
-            }
-        }
+	@RequestMapping(value= {"/", "/studentlist"})
+	public String studentList(Model model) {
+		model.addAttribute("students", repository.findAll());
+		return "studentlist";
+	}
+}
+```
 
 15
 Server Programming
