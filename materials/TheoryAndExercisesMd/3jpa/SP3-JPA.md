@@ -183,48 +183,41 @@ public class StudentController {
 }
 ```
 
-15
-Server Programming
-26.1.2025
-
 <!-- Slide number: 16 -->
-# Spring Boot: JPA
-Some useful CrudRepository methods
+- Some useful CrudRepository methods
 
 |  |  |
 | --- | --- |
-| long count() | Returns the number of entities available. |
-| void deleteById(ID id) | Deletes the entity with the given id |
-| void delete(T Entity) | Deletes given entity |
-| deleteAll() | Deletes all entities managed by the repository |
-| Iterable<T> findAll() | Returns all entities |
-| Optional<T> findById(ID id) | Retrieves an entity by its id |
-| <S extends T> S save(S entity) | Saves a given entity |
-16
-Server Programming
-26.1.2025
+| `long count()` | Returns the number of entities available. |
+| `void deleteById(ID id)` | Deletes the entity with the given id |
+| `void delete(T Entity)` | Deletes given entity |
+| `deleteAll()` | Deletes all entities managed by the repository |
+| `Iterable<T> findAll()` | Returns all entities |
+| `Optional<T> findById(ID id)` | Retrieves an entity by its id |
+| `<S extends T> S save(S entity)` | Saves a given entity |
 
 <!-- Slide number: 17 -->
 # Spring Boot: CommandLineRunner
-If you need to run some specific code when the SpringApplication has started, you can implement the CommandLineRunner interfaces. This is good place to add some demo data to your apllication
-...
+
+- If you need to run some specific code when the SpringApplication has started, you can implement the `CommandLineRunner` interfaces. This is good place to add some demo data to your apllication
+
+```
 @Bean
 public CommandLineRunner demo(StudentRepository repository) {
 	return (args) -> {
 	  // Your code...add some demo data to db
 	};
 }
-...
-
-17
-Server Programming
-26.1.2025
+```
 
 <!-- Slide number: 18 -->
 # Spring Boot: JPA
-Adding List page to a Spring Boot application
-1.) Create template for list page (studentlist.html).
 
+- Adding List page to a Spring Boot application
+
+1. Create template for list page (studentlist.html).
+
+```
 <table class="table table-striped">
   <tr>
    <th>Name</th>
@@ -235,15 +228,12 @@ Adding List page to a Spring Boot application
        <td th:text="${student.email}"></td>
      </tr>
 </table>
-…
-18
-Server Programming
-26.1.2025
+```
 
 <!-- Slide number: 19 -->
-# Spring Boot: JPA
-2.) Create method to your controller. All students are fetched from the database and added to the model attribute.
+2. Create method to your controller. All students are fetched from the database and added to the model attribute.
 
+```
 @Autowired
 private StudentRepository repository;
 
@@ -254,37 +244,31 @@ public String studentList(Model model) {
   model.addAttribute("students", repository.findAll());
   return "studentlist";
 }
-…
-19
-Server Programming
-26.1.2025
+```
 
 <!-- Slide number: 20 -->
-# Spring Boot: JPA
-Adding Create funtionality to a Spring Boot application
-1.) Create template for adding new entity (in this example addstudent.html). Download source code from the course site.
-…
+- Adding Create funtionality to a Spring Boot application
+1. Create template for adding new entity (in this example addstudent.html). Download source code from the course site.
+
+```
 <h1>Add student</h1>
 <div>
-  <form th:object="${student}" th:action="@{save}" action="#" method="post">
-      <label for="fname">Firstname</label>
-      <input type="text" id="fname" th:field="*{firstName}" />
-      <label for="lname">Lastname</label>
-      <input type="text" id="lname" th:field="*{lastName}" />
-      <label for="email">Email</label>
-      <input type="text" th:field="*{email}" />
-      <input type="submit" value="Save"></input>
-  </form>
+<form th:object="${student}" th:action="@{save}" action="#" method="post">
+	<label for="fname">Firstname</label>
+	<input type="text" id="fname" th:field="*{firstName}" />
+	<label for="lname">Lastname</label>
+	<input type="text" id="lname" th:field="*{lastName}" />
+	<label for="email">Email</label>
+	<input type="text" th:field="*{email}" />
+	<input type="submit" value="Save"></input>
+</form>
 </div>
-…
-20
-Server Programming
-26.1.2025
+```
 
 <!-- Slide number: 21 -->
-# Spring Boot: JPA
-2.) Create functionality to your controller
-…
+2. Create functionality to your controller
+
+```
 @RequestMapping(value = "/add")
 public String addStudent(Model model){
     model.addAttribute("student", new Student());
@@ -296,136 +280,113 @@ public String save(Student student){
      repository.save(student);
      return "redirect:studentlist";
 }
-…
-3.) Add link to create functionality
- <a href="/add" class="btn btn-primary">Add Student</a>
+```
 
-21
-Server Programming
-26.1.2025
+3. Add link to create functionality
+```
+ <a href="/add" class="btn btn-primary">Add Student</a>
+```
 
 <!-- Slide number: 22 -->
 
-![](ContentPlaceholder7.jpg)
-22
-Server Programming
-26.1.2025
+![](../imgs/3jpa_08.png)
 
 <!-- Slide number: 23 -->
-# Spring Boot: JPA
-Adding Delete funtionality to a Spring Boot application
-1.) Create functionality to the controller
-…
+- Adding Delete funtionality to a Spring Boot application
+
+1. Create functionality to the controller
+
+```
 @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 public String deleteStudent(@PathVariable("id") Long studentId, Model model) {
-   repository.deleteById(studentId);
-   return "redirect:../studentlist";
+	repository.deleteById(studentId);
+	return "redirect:../studentlist";
 }
-…
-deleteStudent method listens /delete/studentid endpoint
-By using @PathVariable annotation Spring extracts id from the URI
-For example, request http://localhost:8080/delete/5, the @PathVariable studentId will be 5.
+```
 
-23
-Server Programming
-26.1.2025
+- deleteStudent method listens `/delete/studentid` endpoint
+- By using `@PathVariable` annotation Spring extracts id from the URI
+- For example, request `http://localhost:8080/delete/5`, the `@PathVariable` studentId will be 5.
 
 <!-- Slide number: 24 -->
-# Spring Boot: JPA
-2.) Add link to delete functionality (for example in the listpage row)
-…
+2. Add link to delete functionality (for example in the listpage row)
+
+```
 <a th:href="@{/delete/{id}(id=${student.id})}">Delete</a>
-…
-24
-Server Programming
-26.1.2025
+```
 
 <!-- Slide number: 25 -->
 # Spring Boot: CrudRepository
-Query methods: CrudRepository can derive the query from the method name
-Examples:
+
+- Query methods: CrudRepository can derive the query from the method name
+- Examples:
+
+```
 public interface StudentRepository extends CrudRepository<Student, Long> {
-    List<Student> findByLastName(String lastName);
-
-    List<Student> findByFirstNameAndLastName(String firstName, String lastName);
-
-     // Enabling ignoring case
-     List<Student> findByLastNameIgnoreCase(String lastName);
-
-     // Enabling ORDER BY for a query
-     List<Student> findByLastNameOrderByFirstNameAsc(String lastName);
+	List<Student> findByLastName(String lastName);
+	
+	List<Student> findByFirstNameAndLastName(String firstName, String lastName);
+	
+	// Enabling ignoring case
+	List<Student> findByLastNameIgnoreCase(String lastName);
+	
+	// Enabling ORDER BY for a query
+	List<Student> findByLastNameOrderByFirstNameAsc(String lastName);
 }
-
-25
-Server Programming
-26.1.2025
+```
 
 <!-- Slide number: 26 -->
 # Spring Boot: JPA
-Relationships with JPA
-One-to-Many
-@OneToMany and @ManyToOne annotations defines a one-to-many and many-to-one relationship between two entities
-@JoinColumn annotation defines the owner of the relationship
-(Table has a column with a foreign key to the referenced table)
 
-26
-Server Programming
-26.1.2025
+- Relationships with JPA
+- One-to-Many
+	- `@OneToMany` and `@ManyToOne` annotations defines a one-to-many and many-to-one relationship between two entities
+	- `@JoinColumn` annotation defines the owner of the relationship (Table has a column with a foreign key to the referenced table)
 
 <!-- Slide number: 27 -->
-# Spring Boot: JPA
-Relationships with JPA
-One-to-Many
+- Relationships with JPA
+- One-to-Many
 
-![](Picture7.jpg)
-27
-Server Programming
-26.1.2025
+![](../imgs/3jpa_09.png)
 
 <!-- Slide number: 28 -->
-# Spring Boot: JPA
-Student entity
-Add new department attribute with @ManyToOne and @JoinColumn annotations
+- Student entity
+	- Add new department attribute with `@ManyToOne` and `@JoinColumn` annotations
+	```
 	@ManyToOne
 	@JoinColumn(name = "departmentid")
 	private Department department;
-Add getters and setters for department
-Add department to constructor
-
-28
-Server Programming
-26.1.2025
+	```
+ 
+- Add getters and setters for department
+- Add department to constructor
 
 <!-- Slide number: 29 -->
-# Spring Boot: JPA
-Department entity
-Add new students attribute with @OneToMany annotation
+- Department entity
+	- Add new students attribute with `@OneToMany` annotation
+	```
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = 	  	  "department”)
 	private List<Student> students;
-Add getters and setters
+	```
 
-29
-Server Programming
-26.1.2025
+- Add getters and setters
 
 <!-- Slide number: 30 -->
-# Spring Boot: JPA
-Add CrudRepository for Department entity
+- Add CrudRepository for Department entity
 
+```
 import org.springframework.data.repository.CrudRepository;
 
 public interface DepartmentRepository extends CrudRepository<Department, Long> {
 	...
 }
-
-30
-Server Programming
-26.1.2025
+```
 
 <!-- Slide number: 31 -->
-# Spring Boot: JPA
-Add department dropdown list to student form
-You have to add new model attribute to controller method which shows student creation form. You also have to inject department repository to controller
+- Add department dropdown list to student form
+	- You have to add new model attribute to controller method which shows student creation form. You also have to inject department repository to controller
+
+```
 @Autowired
 private StudentRepository repository;
 @Autowired
@@ -434,10 +395,11 @@ private DepartmentRepository drepository;
 // Add new student
 @RequestMapping(value = "/add")
 public String addStudent(Model model){
-   model.addAttribute("student", new Student());
-   model.addAttribute("departments", drepository.findAll());
-   return "addstudent";
+	model.addAttribute("student", new Student());
+	model.addAttribute("departments", drepository.findAll());
+	return "addstudent";
 }
+```
 31
 Server Programming
 26.1.2025
