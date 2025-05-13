@@ -1,70 +1,65 @@
 <!-- Slide number: 1 -->
-# Server ProgrammingJDBC, Databases
+# Server Programming: JDBC, Databases
 Juha Hinkula
-
-### Notes:
 
 <!-- Slide number: 2 -->
 # Spring Boot: JDBC
-Spring provides template class called JdbcTemplate
-JdbcTemplate takes care of connection handling and exception handling
-Import org.springframework.jdbc.core.JdbcTemplate
-Dependency (Spring Boot automatically creates JdbcTemplate)
- <dependency>
-         <groupId>org.springframework.boot</groupId>
-         <artifactId>spring-boot-starter-jdbc</artifactId>
+- Spring provides template class called JdbcTemplate
+- JdbcTemplate takes care of connection handling and exception handling
+	- `Import org.springframework.jdbc.core.JdbcTemplate`
+- Dependency (Spring Boot automatically creates JdbcTemplate)
+
+```
+<dependency>
+	 <groupId>org.springframework.boot</groupId>
+	 <artifactId>spring-boot-starter-jdbc</artifactId>
 </dependency>
+```
 
-2
-Server Programming
-21.9.2023
+- Datasource configuration is controlled by using application.properties file
 
-<!-- Slide number: 3 -->
-# Spring Boot: JDBC
-Datasource configuration is controlled by using application.properties file
-Example:
+- Example:
 
+```
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/ruichao?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
 spring.datasource.username=ruichao
 spring.datasource.password=password
 spring.datasource.initialization-mode=always
-
-3
-Server Programming
-21.9.2023
+```
 
 <!-- Slide number: 4 -->
-# Spring Boot: JDBC
-JdbcTemplate can be injected to your classes
- @Autowired
- private JdbcTemplate jdbcTemplate;
-Excecute single SQL statement (typically DDL) by using excecute method
- jdbcTemplate.execute("CREATE TABLE customers...");
-You can also use schema.sql and data.sql files in resources folder which Spring Boot will automatically use to initialize database
+- JdbcTemplate can be injected to your classes
 
-4
-Server Programming
-21.9.2023
+```
+@Autowired
+private JdbcTemplate jdbcTemplate;
+```
+
+- Excecute single SQL statement (typically DDL) by using excecute method
+```
+jdbcTemplate.execute("CREATE TABLE customers...");
+```
+
+- You can also use schema.sql and data.sql files in resources folder which Spring Boot will automatically use to initialize database
 
 <!-- Slide number: 5 -->
-# Spring Boot: JDBC
-Create a repository class and add methods
-Example
+- Create a repository class and add methods
+- Example
+
+```
 @Repository
 public class StudentRepository
 {
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
-
-    @Transactional(readOnly=true)
-    public List<Student> findAll() {
-	return jdbcTemplate.query("select * from student", new StudentRowMapper());
-    }
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	@Transactional(readOnly=true)
+	public List<Student> findAll() {
+		return jdbcTemplate.query("select * from student", new StudentRowMapper());
+	}
 }
-5
-Server Programming
-21.9.2023
+```
 
 <!-- Slide number: 6 -->
 # Spring Boot: JDBC
