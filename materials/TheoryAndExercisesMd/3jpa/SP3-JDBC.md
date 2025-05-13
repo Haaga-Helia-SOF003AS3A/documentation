@@ -1,5 +1,5 @@
 <!-- Slide number: 1 -->
-# Server Programming: JDBC, Databases
+# Server Programming: JDBC, Databases
 Juha Hinkula
 
 <!-- Slide number: 2 -->
