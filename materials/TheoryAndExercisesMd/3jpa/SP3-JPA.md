@@ -365,7 +365,7 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 - Department entity
 	- Add new students attribute with `@OneToMany` annotation
 	```
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = 	  	  "department”)
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "department”)
 	private List<Student> students;
 	```
 
@@ -400,119 +400,109 @@ public String addStudent(Model model){
 	return "addstudent";
 }
 ```
-31
-Server Programming
-26.1.2025
 
 <!-- Slide number: 32 -->
-# Spring Boot: JPA
-Add department dropdown list to student form
-Departments can be now get from the model attribute in the template (departments attribute)
-Select element shows department names (th:text) but the value will be departmentid (th:value)
+- Add department dropdown list to student form
+	- Departments can be now get from the model attribute in the template (departments attribute)
+	- Select element shows department names (th:text) but the value will be departmentid (th:value)
+
+```
 <label for="deplist">Department</label>
 <select id="deplist" th:field="*{department}" class="form-control">
-  <option th:each="department: ${departments}"      	th:value="${department.departmentid}"
-	  th:text="${department.name}"></option>
+	<option th:each="department: ${departments}"
+		th:value="${department.departmentid}"
+		th:text="${department.name}"></option>
 </select>
-32
-Server Programming
-26.1.2025
-
+```
 <!-- Slide number: 33 -->
-# Spring Boot: JPA
-Show department name in the studentlist
+- Show department name in the studentlist
 
+```
 <tr th:each = "student : ${students}">
-    <td th:text="${student.firstName} + ' ' + ${student.lastName}"></td>
-    <td th:text="${student.email}"></td>
-    <td th:text="${student.department.name}"></td>
-    <td><a th:href="@{/delete/{id}(id=${student.id})}">Delete</a></td>
+	<td th:text="${student.firstName} + ' ' + ${student.lastName}"></td>
+	<td th:text="${student.email}"></td>
+	<td th:text="${student.department.name}"></td>
+	<td><a th:href="@{/delete/{id}(id=${student.id})}">Delete</a></td>
 </tr>
-33
-Server Programming
-26.1.2025
+```
 
 <!-- Slide number: 34 -->
-# Spring Boot: JPA
-
-![](ContentPlaceholder6.jpg)
-
-![](Picture7.jpg)
-34
-Server Programming
-26.1.2025
+|![](../imgs/3jpa_10.png)|![](../imgs/3jpa_11.png)|
+|-|-|
 
 <!-- Slide number: 35 -->
-# Spring Boot: JPA
-Edit functionality
-Similar to Add functionality
-Model contains now edited object instead of empty object (in the case of add)
+- Edit functionality
+	- Similar to Add functionality
+	- Model contains now edited object instead of empty object (in the case of add)
+
+```java
 // Edit student
 @RequestMapping(value = "/edit/{id}")
 public String showModStu(@PathVariable("id") Long studentId, Model model){
-   model.addAttribute("student", repository.findById(studentId);
-   model.addAttribute("departments", drepository.findAll());
-   return ”editstudent";
+	model.addAttribute("student", repository.findById(studentId);
+	model.addAttribute("departments", drepository.findAll());
+	return ”editstudent";
 }
-
-35
-Server Programming
-26.1.2025
+```
 
 <!-- Slide number: 36 -->
-# Spring Boot: JPA edit functionality continues
-In thymeleaf need to be careful of proper syntax. For example modifystudent.html:
-…
-<body>
-   <h1>Modify student</h1>
-   <div>
-      <form th:object="${student}" th:action="@{../save}" action="#" method="post">
-         <label for="id"></label>
-         <input type="hidden" id="id" th:field="*{id}" readonly="readonly" />
-         <div style="clear: both; display: block; height: 10px;"></div>
-         <label for="studentNumber">Student number</label>
-         <input type="text" id="author" th:field="*{studentNumber}" />
-         <label for="catlist">Category</label>
-         <select id="catlist" th:field="*{category.categoryid}" class="form-control">
-         <option th:each="cat: ${categories}" th:value="${cat.categoryid}" th:text="${cat.name}"></option>
-         </select>
-         <div style="clear: both; display: block; height: 10px;"></div>
-         <input class="btn btn-success" type="submit" value="Save"></input>
-        </form>
-</div>
-</body>
-</html>
-36
+- In thymeleaf need to be careful of proper syntax. For example modifystudent.html:
 
-26.1.2025
+```html
+</html>
+	<body>
+		<h1>Modify student</h1>
+		<div>
+			<form th:object="${student}" th:action="@{../save}" action="#" method="post">
+			<label for="id"></label>
+			<input type="hidden" id="id" th:field="*{id}" readonly="readonly" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="studentNumber">Student number</label>
+			<input type="text" id="author" th:field="*{studentNumber}" />
+			<label for="catlist">Category</label>
+			<select id="catlist" th:field="*{category.categoryid}" class="form-control">
+			<option th:each="cat: ${categories}" th:value="${cat.categoryid}" th:text="${cat.name}"></option>
+			</select>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input class="btn btn-success" type="submit" value="Save"></input>
+			</form>
+		</div>
+	</body>
+</html>
+```
 
 <!-- Slide number: 37 -->
-# Spring Boot: JPA
-Edit functionality
-Template for editing
-Note! Id should be added otherwise new student is created
-<form th:object="${student}" th:action="@{../save}" action="#" method="post">
-    <input type="hidden" th:field="*{id}" class="form-control"/>
-    <input type="text" th:field="*{firstName}" />
-    <input type="text" th:field="*{lastName}" />
-    <input type="text" th:field="*{email}" />
-    <input type="submit" class="btn btn-success" value="Save"></input>
-</form>
+- Edit functionality
+	- Template for editing
+	- Note! Id should be added otherwise new student is created
 
-37
-Server Programming
-26.1.2025
+```html
+<form th:object="${student}" th:action="@{../save}" action="#" method="post">
+	<input type="hidden" th:field="*{id}" class="form-control"/>
+	<input type="text" th:field="*{firstName}" />
+	<input type="text" th:field="*{lastName}" />
+	<input type="text" th:field="*{email}" />
+	<input type="submit" class="btn btn-success" value="Save"></input>
+</form>
+```
 
 <!-- Slide number: 38 -->
 # Spring Boot: MariaDB
-Switching database from H2 to MySQL/MariaDB
-Remove H2 dependency from the pom.xml file
-Add MySQL/MariaDB dependency to the pom.xml file
-		<dependency>
-    		   <groupId>mysql</groupId>
-    		   <artifactId>mysql-connector-java</artifactId>
-    		   <version>8.0.33</version>
-		</dependency>Add following database connection settings to the application.properties file:
+- Switching database from H2 to MySQL/MariaDB
+
+1. Remove H2 dependency from the pom.xml file
+2. Add MySQL/MariaDB dependency to the pom.xml file
+
+```xml
+<dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<version>8.0.33</version>
+</dependency>
+```
+
+- Add following database connection settings to the `application.properties` file:
+
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/jusju?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
 spring.datasource.username=jusju
