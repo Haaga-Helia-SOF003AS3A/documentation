@@ -1,4 +1,4 @@
-**Chapter 5**
+# Chapter 5
 
 ## Bookstore: REST
 
@@ -15,10 +15,10 @@ Check StudentListREST example from the moodle
 
 Push all changes to GitHub
 
-1. Bookstore: Spring Data REST
+## Bookstore: Spring Data REST
 
 Use your own bookstore application from the GitHub.
 
-Enable Spring Data REST by adding the dependency and the configuration to application.properties
+Enable Spring Data REST by adding the dependency and the configuration to `application.properties`
 
 Test different RESTful services (searching, adding…)
