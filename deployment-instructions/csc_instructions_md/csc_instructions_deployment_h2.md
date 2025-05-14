@@ -1,19 +1,19 @@
 # Create a new project in MyCSC portal
 
-* 1. Log in to the CSC environment, <https://my.csc.fi/>.
-  2. Navigate to the **Projects** tab in MyCSC portal management view and click **+ New Project**.
+1. Log in to the CSC environment, <https://my.csc.fi/>.
+2. Navigate to the **`Projects`** tab in MyCSC portal management view and click **`+ New Project`**.
 
-![](data:image/png;base64...)
+![](imgs/rahti_h2_01.png)
 
-* 1. Enter the required project details:
-* **Project name** and **description**
-* **Course end date**: can be at most six months from the creation date.
-* **Project resources**:
-  + Primary science area: **Engineering and technology**
-  + Secondary science area: **Other engineering and technologies**
+3. Enter the required project details:
+  * **`Project name`** and **description**
+  * **`Course end date`**: can be at most six months from the creation date.
+  * **`Project resources`**:
+    + Primary science area: **Engineering and technology**
+    + Secondary science area: **Other engineering and technologies**
 
 - Review the Terms of Use and READ CAREFULLY [documentation about CSC services for students](https://docs.csc.fi/support/tutorials/student_quick/)
-Click the **Create Project** button.
+Click the **`Create Project`** button.
 
 \* A course project is single-use. It cannot be extended, copied, or allocated additional resources. The default resource allocation for the project is 100 000 BU (billing units).
 
@@ -21,27 +21,28 @@ Click the **Create Project** button.
 
 **Note: Personal data must not be stored in course project services.**
 
-![](data:image/png;base64...)
+![](imgs/rahti_h2_02.png)
 
-* 1. Add services to your project. In this course, you will need the Rahti service from CSC’s offerings. You will also need the **project number** later for the actual application deployment.
+4. Add services to your project. In this course, you will need the Rahti service from CSC’s offerings. You will also need the **`project number`** later for the actual application deployment.
 
-     ![](data:image/png;base64...)
-  2. Click on the **+ Add services** button. A new view with services listed will appear.
-     Select **Rahti**, accept the terms of use for the Rahti and click **Add selected services** button.
+![](imgs/rahti_h2_03.png)
 
-![](data:image/png;base64...)
+5. Click on the **`+ Add services`** button. A new view with services listed will appear. Select **`Rahti`**, accept the terms of use for the Rahti and click **`Add selected services`** button.
 
-* 1. In the **Services** card, you will now see **Rahti Container Cloud** service. Log in to the Rahti service by clicking the **Login** button.
+![](imgs/rahti_h2_04.png)
 
-     ![A screenshot of a computer  AI-generated content may be incorrect.](data:image/png;base64...)
+6. In the **`Services`** card, you will now see **`Rahti Container Cloud`** service. Log in to the Rahti service by clicking the **`Login`** button.
 
-A new tab <https://rahti.csc.fi/> will open in your browser. Click the **Login** button.
+![](imgs/rahti_h2_05.png)
 
-![A screenshot of a computer  AI-generated content may be incorrect.](data:image/png;base64...)
+A new tab <https://rahti.csc.fi/> will open in your browser. Click the **`Login`** button.
 
-Click **Login** and sign in using your **CSC** or **Haka credentials**.
+![](imgs/rahti_h2_06.png)
 
-![A screenshot of a computer  AI-generated content may be incorrect.](data:image/png;base64...) 🡪 ![A screenshot of a computer  AI-generated content may be incorrect.](data:image/png;base64...)
+Click **`Login`** and sign in using your **`CSC`** or **`Haka credentials`**.
+
+|![](imgs/rahti_h2_07.png)|-->|![](imgs/rahti_h2_08.png)|
+|-|-|-|
 
 **Note**: if you have registered to my.csc.fi just before following these instructions, it may take some time for your account to activate, so you might see an error message: “Could not find user”. Try going back to the Rahti service login step after a while.
 ![A screenshot of a computer  AI-generated content may be incorrect.](data:image/png;base64...)
