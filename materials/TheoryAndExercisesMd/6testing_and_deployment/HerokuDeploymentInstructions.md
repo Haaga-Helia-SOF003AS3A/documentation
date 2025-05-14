@@ -85,7 +85,7 @@ Not every time we get successful stories. In case of failure, It is quite useful
 
 - Add to your **pom.xml**:
 
-```java
+```xml
 <dependency>
    <groupId>org.postgresql</groupId>
    <artifactId>postgresql</artifactId>
