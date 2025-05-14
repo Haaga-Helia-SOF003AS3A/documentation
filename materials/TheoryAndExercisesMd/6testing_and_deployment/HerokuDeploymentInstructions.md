@@ -3,6 +3,7 @@ Heroku Deployment Instructions with PostgeSQL
 1.  Create a Spring Boot project in your Eclipse or use as a test in course demo - for example "**SecureStudentListUser**" should do, because it has at least both the database and Spring Security, which is a minimum software should have. That software needs to be modified though from `application.properties` to match needs of a real **Postgre** database.
 
 2.  Make sure your project is in github from its root level, meaning that when you open a given repository you see for example pom.xml on the root level:
+
 ![pom.xml at root](../imgs/6heroku_deployment_01.png)
 
 You can put your project to github using git bash program, if you go with **cd** (change directory) command to the root level of a specific project. Then you would issue following commands, and after these commands, you would find the project in github.
