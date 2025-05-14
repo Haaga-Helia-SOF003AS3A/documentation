@@ -258,7 +258,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 <!-- Slide number: 17 -->
 3. Implement `UserDetailService` interface. Spring Security is using it to authenticate and authorize user
 
-```
+```java
 @Service
 public class UserDetailServiceImpl implements UserDetailsService  {
 	private final UserRepository repository;
