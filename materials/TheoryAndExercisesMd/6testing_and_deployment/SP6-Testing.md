@@ -63,7 +63,7 @@ assertThat(person.getName()).startsWith(”M”).endWith(”s”);
 ```
 
 <!-- Slide number: 6 -->
-## Smoke testing
+# Smoke testing
 - testing the major functions of software before carrying out formal testing
 ```java
   import static org.assertj.core.api.Assertions.assertThat;
