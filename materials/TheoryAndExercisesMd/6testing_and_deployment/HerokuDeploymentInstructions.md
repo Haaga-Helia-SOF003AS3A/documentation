@@ -8,7 +8,7 @@ Heroku Deployment Instructions with PostgeSQL
 
 You can put your project to github using git bash program, if you go with **cd** (change directory) command to the root level of a specific project. Then you would issue following commands, and after these commands, you would find the project in github.
 
-```
+```shell
 git init
 git add .
 git commit -m “first commit”
