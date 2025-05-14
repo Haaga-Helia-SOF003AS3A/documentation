@@ -41,8 +41,10 @@ A new tab <https://rahti.csc.fi/> will open in your browser. Click the **`Login`
 
 Click **`Login`** and sign in using your **`CSC`** or **`Haka credentials`**.
 
-|![](imgs/rahti_h2_07.png)|-->|![](imgs/rahti_h2_08.png)|
-|-|-|-|
+<p float="left">
+  <img src="imgs/rahti_h2_07.png" width="400"/>
+  <img src="imgs/rahti_h2_08.png" width="400"/> 
+</p>
 
 **Note**: if you have registered to my.csc.fi just before following these instructions, it may take some time for your account to activate, so you might see an error message: “Could not find user”. Try going back to the Rahti service login step after a while.
 
@@ -95,32 +97,49 @@ If you don’t know project number, see **step 1.4**.
 
 ![](imgs/rahti_h2_13.png)
 
-1. Now you can deploy your Spring Boot application inside the newly created project in the Rahti service. Navigate to **Developer** mode. If your project name is not visible, select it from the **Project** drop-down menu.
-   ![](data:image/png;base64...)
-2. Click **+Add** and from the available resources select **Git Repository** 🡪 **Import from Git**.
-   ![](data:image/png;base64...)
-3. Fill in the **Import from Git** form by entering the **Git Repo URL**.
-   ![](data:image/png;base64...)
+3. Now you can deploy your Spring Boot application inside the newly created project in the Rahti service. Navigate to **`Developer`** mode. If your project name is not visible, select it from the **`Project`** drop-down menu.
 
-If your repository contains multiple projects, open **Advanced Git options** and specify the path to the root folder in the **Content dir** field:
-![A screenshot of a computer  AI-generated content may be incorrect.](data:image/png;base64...)
+![](imgs/rahti_h2_14.png)
 
-A name for your application component in **Name** field is be generated automatically but you can also create your own **unique name**. This component will be used to name associated resources.
-Then click the **Create** button.
+4. Click **`+Add`** and from the available resources select **`Git Repository`** 🡪 **`Import from Git`**.
 
-![](data:image/png;base64...)🡪![](data:image/png;base64...)
+![](imgs/rahti_h2_15.png)
 
-1. The build process will start and may take a few minutes. You can find application component under **Developer** mode 🡪 **Topology** view**:**![A screenshot of a computer  AI-generated content may be incorrect.](data:image/png;base64...)
-2. Follow the build progress in the **Developer** mode 🡪 **Builds** view.
-   While application is being built, its status will be **Running**.
+5. Fill in the **Import from Git** form by entering the **`Git Repo URL`**.
 
-![](data:image/png;base64...)
+![](imgs/rahti_h2_16.png)
 
-1. Once the build is complete, the status will change to **Complete**.
-   ![](data:image/png;base64...)
-2. You can find your application’s URL, by navigating to the **Topology** view 🡪 selecting the component 🡪 when the sidebar on the right opens, navigate to the **Resources** tab 🡪 the application’s URL will be under **Routes**. Click the link, and the application will open in your web browser.
-   ![](data:image/png;base64...)
-3. Congratulations, your application is deployed!
-   ![](data:image/png;base64...)
+If your repository contains multiple projects, open **`Advanced Git options`** and specify the path to the root folder in the **`Contenxt dir`** field:
+
+![](imgs/rahti_h2_17.png)
+
+A name for your application component in **`Name`** field generated automatically but you can also create your own **unique name**. This component will be used to name associated resources.
+
+Then click the **`Create`** button.
+
+<p float="left">
+  <img src="imgs/rahti_h2_18.png" width="500"/>
+  <img src="imgs/rahti_h2_19.png" width="500"/> 
+</p>
+
+6. The build process will start and may take a few minutes. You can find application component under **`Developer`** mode 🡪 **`Topology`** view:
+
+![](imgs/rahti_h2_20.png)
+
+7. Follow the build progress in the **`Developer`** mode 🡪 **`Builds`** view. While application is being built, its status will be **`Running`**.
+
+![](imgs/rahti_h2_21.png)
+
+8. Once the build is complete, the status will change to **`Complete`**.
+
+![](imgs/rahti_h2_22.png)
+
+9. You can find your application’s URL, by navigating to the **`Topology`** view 🡪 selecting the component 🡪 when the sidebar on the right opens, navigate to the **`Resources`** tab 🡪 the application’s URL will be under **`Routes`**. Click the link, and the application will open in your web browser.
+
+![](imgs/rahti_h2_23.png)
+
+10. Congratulations, your application is deployed!
+
+![](imgs/rahti_h2_24.png)
 
 Dovile Martinonyte & Renne Jämsén 2025-05-14
