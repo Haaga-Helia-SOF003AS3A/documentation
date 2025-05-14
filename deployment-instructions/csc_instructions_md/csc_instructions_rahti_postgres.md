@@ -86,7 +86,7 @@ Click the **`Project: All projects`** dropdown menu and choose **`Create Project
 
 ![](imgs/rahti_postgres_05.png)
 
-Give your project a name and a display name. In the description write **`csc\_project:<your CSC project number>`**. You will find your **`CSC project number`** in your CSC Project’s **`Project information`** view. Proceed by clicking **`Create`**.
+Give your project a name and a display name. In the description write **`csc_project:<your CSC project number>`**. You will find your **`CSC project number`** in your CSC Project’s **`Project information`** view. Proceed by clicking **`Create`**.
 
 ![](imgs/rahti_postgres_06.png)
 
