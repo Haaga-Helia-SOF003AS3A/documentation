@@ -1,4 +1,4 @@
-# Create a new project in MyCSC portal
+# 1 Create a new project in MyCSC portal
 
 1. Log in to the CSC environment, <https://my.csc.fi/>.
 2. Navigate to the **`Projects`** tab in MyCSC portal management view and click **`+ New Project`**.
@@ -45,61 +45,55 @@ Click **`Login`** and sign in using your **`CSC`** or **`Haka credentials`**.
 |-|-|-|
 
 **Note**: if you have registered to my.csc.fi just before following these instructions, it may take some time for your account to activate, so you might see an error message: “Could not find user”. Try going back to the Rahti service login step after a while.
-![A screenshot of a computer  AI-generated content may be incorrect.](data:image/png;base64...)
+
+![](imgs/rahti_h2_09.png)
 
 Once your login is successful, you can get started with a tour to improve your workflow or skip it.
 
-# Deploy a Spring Boot Application with an H2 database on Rahti
+# 2 Deploy a Spring Boot Application with an H2 database on Rahti
 
-## Prepare your Spring Boot Application
+## 2.1 Prepare your Spring Boot Application
 
-* + 1. Create a new file in the **root** directory of your Spring Boot application and name it **Dockerfile** (without a file extension).
-       ![](data:image/png;base64...)
-    2. Copy the following content into the **Dockerfile** (this can also be found in the course’s Moodle page):
-       FROM eclipse-temurin:17-jdk-focal as builder
-
+1. Create a new file in the **`root`** directory of your Spring Boot application and name it **`Dockerfile`** (without a file extension).
+![](imgs/rahti_h2_10.png)
+2. Copy the following content into the **`Dockerfile`** (this can also be found in the course’s Moodle page):
+```
+FROM eclipse-temurin:17-jdk-focal as builder
 WORKDIR /opt/app
-
 COPY .mvn/ .mvn
-
 COPY mvnw pom.xml ./
-
 RUN chmod +x ./mvnw
-
 RUN ./mvnw dependency:go-offline
-
 COPY ./src ./src
-
 RUN ./mvnw clean install -DskipTests
-
 RUN find ./target -type f -name '\*.jar' -exec cp {} /opt/app/app.jar \; -quit
-
 FROM eclipse-temurin:17-jre-alpine
-
 COPY --from=builder /opt/app/\*.jar /opt/app/
-
 EXPOSE 8080
-
 ENTRYPOINT ["java", "-jar", "/opt/app/app.jar"]
+```
 
-* + 1. Push your updated application to GitHub.
-       **Note:** These instructions assume you GitHub repository is **public.** *(If needed, you can make it public temporarily during deployment and switch it back to private later.)*
-       Private repositories can also be used, but this document does not cover that method.
+3. Push your updated application to GitHub.
 
-## Spring Boot application deployment
+**Note:** These instructions assume your GitHub repository is **public.** *(If needed, you can make it public temporarily during deployment and switch it back to private later.)*
 
-1. Navigate to the top left menu. Choose your role **Administrator** 🡪 **Home** 🡪 **Projects**.
-   The deployment is done by creating a new project in the Rahti service, click the **Create Project** button.
+Private repositories can also be used, but this document does not cover that method.
 
-![](data:image/png;base64...)
+## 2.2 Spring Boot application deployment
 
-![](data:image/png;base64...)
+1. Navigate to the top left menu. Choose your role **`Administrator`** 🡪 **`Home`** 🡪 **`Projects`**.
 
-1. Enter the required details. **Name** must be **unique** and it is **case sensitive**.
-   Click **Create** button.
-   **Note:** To successfully create the project, you must enter the **CSC project number** (e.g. **csc\_project:<project number>**) in the **Description** field.
-   If you don’t know project number, see **step 1.4**.
-   ![](data:image/png;base64...)
+The deployment is done by creating a new project in the Rahti service, click the **`Create Project`** button.
+
+![](imgs/rahti_h2_12.png)
+
+2. Enter the required details. **`Name`** must be **unique** and it is **case sensitive**. Click **`Create`** button.
+
+**Note:** To successfully create the project, you must enter the **CSC project number** (e.g. **`csc\_project:<project number>`**) in the **`Description`** field.
+  
+If you don’t know project number, see **step 1.4**.
+
+![](imgs/rahti_h2_13.png)
 
 1. Now you can deploy your Spring Boot application inside the newly created project in the Rahti service. Navigate to **Developer** mode. If your project name is not visible, select it from the **Project** drop-down menu.
    ![](data:image/png;base64...)
