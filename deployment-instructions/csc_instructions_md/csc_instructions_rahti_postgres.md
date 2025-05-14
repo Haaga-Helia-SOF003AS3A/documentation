@@ -158,3 +158,5 @@ Congratulations! You have now deployed your Spring application with a proper dat
 To get the URL for your app go back to **Developer** view 🡪 **Topology**. Click your application’s **Open URL** shortcut or navigate to deployment’s quick controls (navigation pane on the right) and scroll down to **Routes**. It might take few minutes before you are able to access your deployment’s URL in browser.
 
 ![A screenshot of a computer  AI-generated content may be incorrect.](data:image/png;base64...)
+
+Renne Jämsén & Dovile Martinonyte 2025-05-14
