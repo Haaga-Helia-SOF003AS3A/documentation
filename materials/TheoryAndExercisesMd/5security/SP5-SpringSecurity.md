@@ -307,7 +307,7 @@ urepository.save(user2);
 
 <!-- Slide number: 20 -->
 # HttpSession
-- Provides a way to identify a user across more than one page request or visit to a Web site and to store information about that user https://jakarta.ee/specifications/platform/9/apidocs/index.html?jakarta/servlet/http/HttpSession.html
+- Provides a way to identify a user across more than one page request or visit to a Web site and to store information about that user https://jakarta.ee/specifications/platform/9/apidocs/index.html?jakarta/servlet/http/HttpSession.html
 - Session information is scoped only to the current web application
 
 <!-- Slide number: 21 -->
