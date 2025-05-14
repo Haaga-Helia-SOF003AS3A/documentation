@@ -222,10 +222,10 @@ public String deleteStudent(@PathVariable("id") Long studentId, Model model) {
 # Spring Security: User entity
 
 - How to use Users from database in authentication?
-- 
+ 
 1. Create User Entity
 
-```
+```java
 @Entity(name= "users")
 public class User {  // or AppUser
 	@Id
