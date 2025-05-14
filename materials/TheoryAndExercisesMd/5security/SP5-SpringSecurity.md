@@ -1,83 +1,72 @@
 <!-- Slide number: 1 -->
 # Back End Programming
-Spring Security
-updated Minna Pellikka
-7.2.2025
 
-### Notes:
+**Spring Security**
+
+Minna Pellikka updated: 7.2.2025
 
 <!-- Slide number: 2 -->
 # Spring Security
-Spring Security is customizable authentication and access control framework for Spring based applications
-To get started add dependency to pom.xml
 
+- Spring Security is customizable authentication and access control framework for Spring based applications
+- To get started add dependency to pom.xml
+
+```xml
 <dependency>
    <groupId>org.springframework.boot</groupId>
    <artifactId>spring-boot-starter-security</artifactId>
 </dependency>
-updated Minna Pellikka
-7.2.2025
+```
 
 <!-- Slide number: 3 -->
-# Spring Security
-By default Spring Security enables following features (out of the box)
-An AuthenticationManager bean with in-memory single user (username = user, password from the log)
-Ignored (insecure) paths for common static resource locations like /css, /images…
-HTTP Basic security for all other endpoints
-Security events published to Spring ApplicationEventPublisher
-Common low-level features (HSTS, XSS, CSRF, caching) provided by Spring Security are on by default
-
-updated Minna Pellikka
-7.2.2025
+- By default Spring Security enables following features (out of the box)
+	- An AuthenticationManager bean with in-memory single user (username = user, password from the log)
+	- Ignored (insecure) paths for common static resource locations like /css, /images…
+	- HTTP Basic security for all other endpoints
+	- Security events published to Spring ApplicationEventPublisher
+	- Common low-level features (HSTS, XSS, CSRF, caching) provided by Spring Security are on by default
 
 <!-- Slide number: 4 -->
-# Spring Security
-Adding dependency secures your application automatically
-Spring Boot create one test user and password can be seen in the console when application starts (see, SecurityDemo)
-
+- Adding dependency secures your application automatically
+- Spring Boot create one test user and password can be seen in the console when application starts (see, SecurityDemo)
+- 
+```
 Using default security password: 837a95a3-3546-4896-9689-7711133e9ca6
+```
 
-Spring Security can be configured by creating Configuration class
+- Spring Security can be configured by creating Configuration class
 
+```
 @Configuration
 @EnableMethodSecurity(securedEnabled = true) //you can use method level security
 public class WebSecurityConfig {
-…
-
-updated Minna Pellikka
-7.2.2025
+```
 
 <!-- Slide number: 5 -->
-# Spring Security
-WebSecurityConfig class contains a method configure(HttpSecurity)that defines which URL paths are secured and the path for login form
-
-updated Minna Pellikka
-7.2.2025
+- WebSecurityConfig class contains a method `configure(HttpSecurity)` that defines which URL paths are secured and the path for login form
 
 <!-- Slide number: 6 -->
-# Spring Security
-/ and /home paths are configured to not require any authentication. All other paths must be authenticated
+```java
 @Configuration
 public class WebSecurityConfig  {
-@Bean
-public SecurityFilterChain configure(HttpSecurity http) throws Exception {
-        http
-            .authorizeHttpRequests( authorize -> authorize
-                .requestMatchers("/", "/home").permitAll()
-                .anyRequest().authenticated()
-             )
-            .formLogin( formlogin -> formlogin
-                .loginPage("/login")
-                .defaultSuccessUrl("/studentlist”, true)
-                .permitAll()
-            )
-            .logout( logout -> logout
-                .permitAll()
-              );
-            return http.build();
-    }
+	@Bean
+	public SecurityFilterChain configure(HttpSecurity http) throws Exception {
+		http.authorizeHttpRequests( authorize -> authorize    # / and /home paths are configured to not
+			.requestMatchers("/", "/home").permitAll()    # require any authentication.
+			.anyRequest().authenticated()                 # All other paths must be authenticated.
+		)                                                     # If you don't give loginPage
+		.formLogin( formlogin -> formlogin                    # your application will use the
+			.loginPage("/login")                          # spring boot default login page.
+			.defaultSuccessUrl("/studentlist”, true)      # <-- Tells where to go after
+			.permitAll()                                  # successful login.
+		)
+		.logout( logout -> logout
+			.permitAll()
+		);
+		return http.build();
+	}
 }
-
+```
 If you don’t give loginPage your application will use the spring boot default login page.
 Tells where to go after successful login
 updated Minna Pellikka
