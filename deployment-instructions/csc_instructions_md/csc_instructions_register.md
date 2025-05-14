@@ -41,3 +41,5 @@ If you prefer CSC, check your email for your CSC Username and use the password y
 Successful login will redirect you to this page:
 
 ![A screenshot of a computer  AI-generated content may be incorrect.](data:image/png;base64...)
+
+Dovile Martinonyte & Renne Jämsén 2025-05-14
