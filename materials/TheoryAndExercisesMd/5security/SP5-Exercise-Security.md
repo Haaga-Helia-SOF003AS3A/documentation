@@ -19,11 +19,11 @@ Push all changes to GitHub. Create in github a release of the steps before you o
 
 Use your own bookstore application from the GitHub.
 
-* 1. Create user entity for your application endusers
+1. Create user entity for your application endusers
      1. Attributes: username (unique), password, email, role
-  2. Create crud repository for user entity
-  3. Implement UserDetailService
-  4. Add some users to your database and hash the passwords with BCrypt hashing algorithm.
-  5. Change Spring Security configuration to use user entities instead of in-memory users in authentication
+2. Create crud repository for user entity
+3. Implement UserDetailService
+4. Add some users to your database and hash the passwords with BCrypt hashing algorithm.
+5. Change Spring Security configuration to use user entities instead of in-memory users in authentication
 
 Push all changes to GitHub
