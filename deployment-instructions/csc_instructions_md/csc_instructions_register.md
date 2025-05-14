@@ -11,19 +11,21 @@ Give your Haaga-Helia credentials when prompted (bxx000 + password). After authe
 
 ![Registration form](./imgs/csc_register_03.png)
 
-Fill the form with your contact information and proceed to **Next step.** You can also use Haaga-Helia’s information but use your own phone number.
+Fill the form with your contact information and proceed to **Next step.** You can also use Haaga-Helia’s information but use **your own phone number**.
 
-Street address: Ratapihantie 13
-
-Postal code: 00520
-
-City: Helsinki
-
-State/province: Uusimaa
-
-Country of Residence: Finland
-
-Country of Citizenship: Your own
+>Mobile phone number: Your own
+>
+> Street address: Ratapihantie 13
+> 
+> Postal code: 00520
+>
+> City: Helsinki
+>
+> State/province: Uusimaa
+>
+> Country of Residence: Finland
+>
+> Country of Citizenship: Your own
 
 ![Contact information form](./imgs/csc_register_04.png)
 
