@@ -119,7 +119,6 @@ Then click the **Create** button.
 2. Follow the build progress in the **Developer** mode 🡪 **Builds** view.
    While application is being built, its status will be **Running**.
 
-Dovile Martinonyte & Renne Jämsén 2025-05-14
 ![](data:image/png;base64...)
 
 1. Once the build is complete, the status will change to **Complete**.
@@ -128,3 +127,5 @@ Dovile Martinonyte & Renne Jämsén 2025-05-14
    ![](data:image/png;base64...)
 3. Congratulations, your application is deployed!
    ![](data:image/png;base64...)
+
+Dovile Martinonyte & Renne Jämsén 2025-05-14
