@@ -29,7 +29,6 @@ Minna Pellikka updated: 7.2.2025
 <!-- Slide number: 4 -->
 - Adding dependency secures your application automatically
 - Spring Boot create one test user and password can be seen in the console when application starts (see, SecurityDemo)
-- 
 ```
 Using default security password: 837a95a3-3546-4896-9689-7711133e9ca6
 ```
@@ -277,7 +276,7 @@ public class UserDetailServiceImpl implements UserDetailsService  {
 ```
 
 <!-- Slide number: 18 -->
-4.) Change Spring Security configuration to use your `UserDetailService` implementation.
+4. Change Spring Security configuration to use your `UserDetailService` implementation.
 
 - Use `BCryptPasswordEncoder` to encrypt passwords using Bcrypt hash algorithm (Default number of rounds is 10). You can also use constructor to give strength between 4-31.
 
