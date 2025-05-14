@@ -1,65 +1,71 @@
 <!-- Slide number: 1 -->
-# Server ProgrammingTesting
+# Server Programming: Testing
 Juha Hinkula, Jukka Juslin, Tanja Bergius, Minna Pellikka
-1
-Updated by Minna Pellikka
-27.9.2024
 
-### Notes:
+*Updated by Minna Pellikka 27.9.2024*
 
 <!-- Slide number: 2 -->
 # Spring Boot - Testing
-Spring Boot provides a number of utilities and annotations to help when testing your application
-When Spring boot project is created you can find from POM.XML test dependency
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+- Spring Boot provides a number of utilities and annotations to help when testing your application
 
-This dependency provides some libraries and tools for testing, for instance Junit.
-2
-Updated by Minna Pellikka
-27.9.2024
+- When Spring boot project is created you can find from POM.XML test dependency
+```java
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-test</artifactId>
+	<scope>test</scope>
+</dependency>
+```
+- This dependency provides some libraries and tools for testing, for instance Junit.
 
 <!-- Slide number: 3 -->
-# Spring Boot - Testing
-Spring Boot will create automatically one test class for you
 
-![](Picture9.jpg)
-3
-Updated by Minna Pellikka
-27.9.2024
+- Spring Boot will create automatically one test class for you
+
+![HellotestApplicationTests.java](../imgs/6testing_01.png)
 
 <!-- Slide number: 4 -->
-# Spring Boot - Testing
-@SpringBootTest annotation tells that entire application will be started so that it can be tested
 
-@Test annotation defines a method to be tested
+```java
+package fall24.hellotest;
 
-![](Picture18.jpg)
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-This is testing if application context is loaded without problems.
-4
-Updated by Minna Pellikka
-27.9.2024
+@SpringBootTest   //@SpringBootTest annotation tells that entire application will be started so that it can be tested
+class HellotestApplicationTests {
+//This is testing if application context is loaded without problems.
+	@Test         //@Test annotation defines a method to be tested
+	void contextLoads() {
+
+  }
+}
+```
 
 <!-- Slide number: 5 -->
-# Spring Boot - Testing
-Spring Boot test dependency will add AssertJ library for assertions (http://joel-costigliola.github.io/assertj/index.html)
-Syntax
- assertThat(objectToTest). // code completion -> assertions specific to objectToTest
-Examples
+
+- Spring Boot test dependency will add AssertJ library for assertions (http://joel-costigliola.github.io/assertj/index.html)
+
+- Syntax
+```java
+assertThat(objectToTest). // code completion -> assertions specific to objectToTest 
+```
+
+- Examples
+```java
 assertThat(objectToTest).isNotNull();
+```
+```java
 assertThat(”Hello World”).contains(”Hello”);
+```
+```java
 assertThat(person.getName()).startsWith(”M”).endWith(”s”);
-5
+```
 
 <!-- Slide number: 6 -->
-# Spring Boot - Testing
-Smoke testing
-testing the major functions of software before carrying out formal testing
-
+## Smoke testing
+- testing the major functions of software before carrying out formal testing
+```java
   import static org.assertj.core.api.Assertions.assertThat;
 
   import org.junit.jupiter.api.Test;
@@ -79,13 +85,12 @@ testing the major functions of software before carrying out formal testing
       assertThat(controller).isNotNull();
     }
   }
+```
 
-6
 
 <!-- Slide number: 7 -->
-# Spring Boot - Testing
-Testing the web layer: Test will start the full Spring application context, but without the server by using Spring’s MockMvc.
-
+- Testing the web layer: Test will start the full Spring application context, but without the server by using Spring’s MockMvc.
+```java
 @SpringBootTest
 @AutoConfigureMockMvc
 public class WebLayerTest {
@@ -98,11 +103,12 @@ public class WebLayerTest {
                 .andExpect(content().string(containsString("Hello World")));
     }
 }
-7
+```
 
 <!-- Slide number: 8 -->
 # Testing the JPA repository / in-memory database
-@DataJpaTest annotation will be used when testing in-memory database. It also turns on SQL logging
+`@DataJpaTest` annotation will be used when testing in-memory database. It also turns on SQL logging
+```java
 @DataJpaTest
 public class StudentRepositoryTest {
    @Autowired
@@ -126,13 +132,12 @@ public class StudentRepositoryTest {
        assertThat(student.getId()).isNotNull();
     }
 }
-8
-Updated by Minna Pellikka
-27.9.2024
+```
 
 <!-- Slide number: 9 -->
 # JPA Testing on a real database (Postgres)
-When testing with other than development database annotations change and the way to reference category
+- When testing with other than development database annotations change and the way to reference category
+```java
 @SpringBootTest(classes = StudentListApplication.class)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) //if you are using real db
 public class StudentRepositoryTest {
@@ -156,6 +161,4 @@ public class StudentRepositoryTest {
     assertThat(book.getId()).isNotNull();
     }
 }
-9
-Updated by Minna Pellikka
-27.9.2024
+```
