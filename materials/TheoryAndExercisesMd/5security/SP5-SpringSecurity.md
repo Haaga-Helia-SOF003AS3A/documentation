@@ -36,7 +36,7 @@ Using default security password: 837a95a3-3546-4896-9689-7711133e9ca6
 
 - Spring Security can be configured by creating Configuration class
 
-```
+```java
 @Configuration
 @EnableMethodSecurity(securedEnabled = true) //you can use method level security
 public class WebSecurityConfig {
