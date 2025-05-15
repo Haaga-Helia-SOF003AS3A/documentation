@@ -40,9 +40,9 @@ Name the new file **`application-rahti.properties`**.
 Content of the **`application-rahti.properties`** is (use Copy + Paste):
 
 ```
-spring.datasource.url=jdbc:postgresql://${POSTGRESQL\_SERVICE\_HOST}:${POSTGRESQL\_SERVICE\_PORT}/${DB\_NAME}
-spring.datasource.username=${DB\_USER}
-spring.datasource.password=${DB\_PASSWORD}
+spring.datasource.url=jdbc:postgresql://${POSTGRESQL_SERVICE_HOST}:${POSTGRESQL_SERVICE_PORT}/${DB_NAME}
+spring.datasource.username=${DB_USER}
+spring.datasource.password=${DB_PASSWORD}
 spring.jpa.show-sql=true
 spring.jpa.generate-ddl=true
 spring.jpa.hibernate.ddl-auto=update
@@ -103,8 +103,8 @@ If you want to specify **`PostgreSQL Connection Username`** and **`Password`**,
 ⚠️ **don’t use a weak password! Always use strong passwords even when practicing!** ⚠️
 
 <p float="left">
-  <img src="imgs/rahti_postgres_07.png" />
-  <img src="imgs/rahti_postgres_08.png" /> 
+  <img src="imgs/rahti_postgres_07.png" width="400"/>
+  <img src="imgs/rahti_postgres_08.png" width="400"/> 
 </p>
 
 Successful creation of a database will show as a new **`DeploymentConfig`** object in your **`Topology`** view.
