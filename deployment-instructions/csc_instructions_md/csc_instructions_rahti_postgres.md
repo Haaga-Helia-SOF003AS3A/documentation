@@ -149,4 +149,4 @@ To get the URL for your app go back to **`Developer`** view 🡪 **`Topology`**.
 
 ![](imgs/rahti_postgres_15.png)
 
-Renne Jämsén & Dovile Martinonyte 2025-05-14
+[Renne Jämsén](https://github.com/RenneJ) & [Dovile Martinonyte](https://github.com/dovile-mart) 2025-05-14
