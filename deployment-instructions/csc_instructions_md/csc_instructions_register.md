@@ -47,4 +47,4 @@ Successful login will redirect you to this page:
 
 ![Welcome to MyCSC](./imgs/csc_register_07.png)
 
-Dovile Martinonyte & Renne Jämsén 2025-05-14
+[Dovile Martinonyte](https://github.com/dovile-mart) & [Renne Jämsén](https://github.com/RenneJ) 2025-05-14
