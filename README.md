@@ -1,4 +1,4 @@
-# Backend-materiaalit
+# Backend-materiaalit ja julkaisuohjeet Rahtiin
 
 Tämä repositorio sisältää sekä uudet markdown-versiot että alkuperäiset pdf-, docx- ja pptx-tiedostot. Markdown-versioiden yhteydessä on alkuperäisistä dokumenteista tallennetut kuvat `imgs` hakemistossa.
 
