@@ -142,4 +142,4 @@ Then click the **`Create`** button.
 
 ![](imgs/rahti_h2_24.png)
 
-Dovile Martinonyte & Renne Jämsén 2025-05-14
+[Dovile Martinonyte](https://github.com/dovile-mart) & [Renne Jämsén](https://github.com/RenneJ) 2025-05-14
