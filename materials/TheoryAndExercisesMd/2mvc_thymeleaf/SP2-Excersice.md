@@ -46,7 +46,7 @@ Mike Mars
 
 `Add friend` -link contains following code
 
-```
+```html
 <p><a th:href=*"@{/add}"*>Add friend</a></p>
 ```
 
