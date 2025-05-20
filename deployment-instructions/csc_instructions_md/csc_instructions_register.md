@@ -3,8 +3,8 @@
 Navigate in your web browser to <https://my.csc.fi/login>. Select **Haka** as an authentication provider and in the next view choose **HAAGA-HELIA University of Applied Sciences** in the dropdown menu.
 
 <p float="left"> 
-<img src="./imgs/csc_register_01.png" width="400" alt="Select an authentication provider"/> 
-<img src="./imgs/csc_register_02.png" width="400" alt="Haka authentication"/> 
+  <img src="./imgs/csc_register_01.png" width="400" alt="Select an authentication provider"/> 
+  <img src="./imgs/csc_register_02.png" width="400" alt="Haka authentication"/> 
 </p>
 
 Give your Haaga-Helia credentials when prompted (bxx000 + password). After authentication you will start to create a new profile to CSC’s platform. Match your selections to the image below and proceed to **Next step.**
