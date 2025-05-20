@@ -8,7 +8,7 @@
 - www.thymeleaf.org
 - How to start? Add dependency to pom.xml
 
-```
+```xml
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -24,7 +24,7 @@
 <!-- Slide number: 4 -->
 - Thymeleaf template example
 
-```
+```html
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 	<head>
@@ -43,7 +43,7 @@
 	- Example below handels request for /index endpoint and returns view called ”index” (index.html Thymeleaf template)
 	- **Note!** There is no `@ResponseBody` annotation when using Thymeleaf templates.
 
- ```
+ ```java
 @Controller
 public class MyController {
 	@RequestMapping("/index")
@@ -58,7 +58,7 @@ public class MyController {
 - The value of a parameter can be added to the Model object that makes it accessible to the view
 - In a typical Spring application, Controller classes are responsible for preparing a model map with data and selecting a view to be rendered
 
-```
+```java
 import org.springframework.ui.Model;
 
 @Controller
@@ -75,7 +75,7 @@ public class HelloController {
 - In Thymeleaf, the model attributes can be accessed with the following syntax: `${attributeName}`
 - Thymeleaf parses the template and evaluates `th:text` expression to render the value of the `${name}` parameter
 
-```
+```html
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
@@ -92,7 +92,7 @@ public class HelloController {
 - Model can contain the list of object which can be iterated and displayed as a table with Thymeleaf
 - In the following example `messageRepository.findAll()` method returns the list of message objects
 
-```
+```java
 @RequestMapping(”/message")
 public String messages(Model model) {
 	model.addAttribute("messages", messageRepository.findAll());
@@ -103,7 +103,7 @@ public String messages(Model model) {
 <!-- Slide number: 9 -->
 - Thymeleaf provides th:each attribute to iterate over the list of objects
 
-```
+```html
 <tr th:each="message : ${messages}">
 	<td th:text="${message.id}">1</td>
 	<td th:text="${message.text}">Text ...</td>
@@ -136,7 +136,7 @@ EQUALS TO
 <!-- Slide number: 12 -->
 - Following mapping allows the controller to differentiate the requests to the /hello (GET and POST requests)
 
-```
+```java
 @Controller
 public class HelloController {
 	@GetMapping("/hello")
@@ -157,7 +157,7 @@ public class HelloController {
 - HTML Forms are needed when you want to collect data from the application end users
 - A form will take input from the users and post it to a server
 
-```
+```html
 <form action="Script URL" method="GET|POST">
 	form elements like input, dropdowns...
 </form>
@@ -168,7 +168,7 @@ public class HelloController {
 
 - Thymeleaf form example
 
-```
+```html
 <form action="#" th:action="@{/hello}" th:object="${message}“ method="post">
 	<p>Id: <input type="text" th:field="*{id}" /></p>
 	<p>Message: <input type="text" th:field="*{msg}" /></p>
@@ -182,7 +182,7 @@ public class HelloController {
 <!-- Slide number: 15 -->
 - Message class
 
-```
+```java
 public class Message {
 	private long id;
 	private String msg;
@@ -196,7 +196,7 @@ public class Message {
 - Controller handles the form submit
 - The `msgSubmit()` method is mapped to POST
 
-```
+```java
 @PostMapping("/hello")
 public String msgSubmit(@ModelAttribute Message msg, Model model) {
 	model.addAttribute("message", msg);
@@ -209,7 +209,7 @@ public String msgSubmit(@ModelAttribute Message msg, Model model) {
 <!-- Slide number: 17 -->
 - Finally we need Thymeleaf template for showing results (result.html)
 
-```
+```html
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
@@ -237,7 +237,7 @@ Server Programming
 
 - Validation: Class attributes can be flagged with standard validation attributes (=Bean validation)
 
-```
+```java
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -256,7 +256,7 @@ public class Message {
 <!-- Slide number: 20 -->
 - POM.XML: insert validation depencency
 
-```
+```xml
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-validation</artifactId>
@@ -265,7 +265,7 @@ public class Message {
 
 - Controller: Add new arguments to controller request methdod. BindingResult object is used to check validation result. `@Valid` attribute gather attributes filled out in the form.
 
-```
+```java
 @RequestMapping(value="/hello", method=RequestMethod.POST)
 public String greetingSubmit(@Valid Message msg, BindingResult bindingResult, Model model) {
 	if (bindingResult.hasErrors()) {
@@ -281,7 +281,7 @@ public String greetingSubmit(@Valid Message msg, BindingResult bindingResult, Mo
 
 - Example
 
-```
+```html
 <tr>
   <td>Message: <input type="text" th:field="*{name}" /></td>
   <td th:if="${#fields.hasErrors(’name')}" th:errors="*{name}">Error</td>
