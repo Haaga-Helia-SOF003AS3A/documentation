@@ -2,7 +2,7 @@
 
 Tämä repositorio sisältää sekä uudet markdown-versiot että alkuperäiset pdf-, docx- ja pptx-tiedostot. Markdown-versioiden yhteydessä on alkuperäisistä dokumenteista tallennetut kuvat `imgs` hakemistossa.
 
-Markdown-versiot on käännetty käyttäen `markitdown` ohjelmaa ([linkki](https://github.com/microsoft/markitdown)). Ohjelma toimi paremmin, kun input oli .docx tai .pptx verrattuna .pdf-tiedostoon. Peruskäyttö:
+Markdown-versiot on käännetty käyttäen `markitdown` ohjelmaa ([linkki](https://github.com/microsoft/markitdown)). Ohjelma toimi paremmin, kun input on .docx tai .pptx verrattuna .pdf-tiedostoon. Peruskäyttö:
 
 ```shell
 markitdown path/to/document.docx -o output/path/document.md
