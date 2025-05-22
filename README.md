@@ -1,6 +1,6 @@
 # Backend-materiaalit ja julkaisuohjeet Rahtiin
 
-Tämä repositorio sisältää sekä uudet markdown-versiot että alkuperäiset pdf-, docx- ja pptx-tiedostot. Markdown-versioiden yhteydessä on alkuperäisistä dokumenteista tallennetut kuvat `imgs` hakemistossa.
+Tämä repositorio sisältää sekä uudet markdown-versiot että alkuperäiset pdf-, docx- ja pptx-tiedostot Backend-materiaaleista sekä julkaisuohjeet CSC:n Rahti-palveluun. Markdown-versioiden yhteydessä on alkuperäisistä dokumenteista tallennetut kuvat `imgs` hakemistossa.
 
 Markdown-versiot on käännetty käyttäen `markitdown` ohjelmaa ([linkki](https://github.com/microsoft/markitdown)). Ohjelma toimii paremmin, kun input on .docx tai .pptx verrattuna .pdf-tiedostoon. Peruskäyttö:
 
