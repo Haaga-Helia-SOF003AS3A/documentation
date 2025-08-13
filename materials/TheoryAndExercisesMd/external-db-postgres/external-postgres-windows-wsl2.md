@@ -1,5 +1,5 @@
 
-# Spring Boot + PostgreSQL (Linux-ohje)
+# Spring Boot + PostgreSQL (Windows Subsystem for Linux WSL2 and Linux instructions)
 
 _Updated: 2025-08-13_ Jukka Juslin
 
@@ -17,9 +17,9 @@ Install needed new database:
 ```bash
 sudo apt update
 sudo apt install -y postgresql postgresql-contrib
-# Käynnistys ja käynnistyksen varmistus
+# starting the service
 sudo systemctl enable --now postgresql
-# Luo postgres-sisäinen superuser-sessio
+# Create postgres internal super user session
 sudo -u postgres psql
 ```
 
