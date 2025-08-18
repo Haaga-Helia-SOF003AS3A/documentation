@@ -10,10 +10,10 @@ Tässä lyhyesti ohjeet, seuraavalla sivulla tarkemmat ohjeet näyttökuvien ker
 2. Projektin tietojen syöttäminen:
   - Mene kansioon, jonne haluat projektin luoda
   - ctrl + shift + p näppäinyhdistelmällä saat vs code ruudun yläreunaan command valikon -> kirjoita sinne ”Spring initialzer: Create a Maven project”
-  - Valitse SB versio on 3.4.1
+  - Valitse SB versio on 3.5.4
   - Valitse tämän jälkeen kieleksi Java
-  - Anna projektillesi group id (paketti, package), esim. kevat25
-  - Anna artifact (projektin nimi), esim. backend
+  - Anna projektillesi group id (paketti, package), esim. backend tai hh.backend
+  - Anna artifact (projektin nimi), esim. vs_car tai kokeiluprojekti 
   - Valitse paketointityypiksi JAR
   - Javan versio on 17
   - Valitse dependecyt (riippuvuudet, kirjastopaketit) ja hyväksy ne enterillä
