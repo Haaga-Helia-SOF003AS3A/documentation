@@ -134,7 +134,7 @@ EQUALS TO
 `@PostMapping("/greeting")`
 
 <!-- Slide number: 12 -->
-- Following mapping allows the controller to differentiate the requests to the /hello (GET and POST requests)
+- Following mapping allows the controller to differentiate the requests to the /newmessage (GET and POST requests)
 
 ```java
 @Controller
