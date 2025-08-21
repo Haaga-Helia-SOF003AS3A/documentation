@@ -22,13 +22,13 @@
 ![](../imgs/2mvc_thymeleaf_13.png)
 
 <!-- Slide number: 4 -->
-- Thymeleaf template example
+- Thymeleaf template example (index.html)
 
 ```html
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<title>Server Programming</title>
+		<title>Index</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	<body>
@@ -49,7 +49,7 @@ public class MyController {
 	@RequestMapping("/index")
 	public String home() {
 		// do something
-		return "index";
+		return "index"; // index.html
 	}
 }
 ```
@@ -66,7 +66,7 @@ public class HelloController {
 	@RequestMapping("/hello")
 	public String greeting(@RequestParam(name="name") String name, Model model)    {
 		model.addAttribute("name", name);
-		return "hello";
+		return "hello"; // hello.html
 	}
 }
 ```
@@ -79,7 +79,7 @@ public class HelloController {
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<title>Server Programming with Spring Boot</title>
+		<title>Hello</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	<body>
@@ -93,10 +93,10 @@ public class HelloController {
 - In the following example `messageRepository.findAll()` method returns the list of message objects
 
 ```java
-@RequestMapping(”/message")
+@RequestMapping("/allmessages")
 public String messages(Model model) {
 	model.addAttribute("messages", messageRepository.findAll());
-	return "messagelist”;
+	return "messagelist"; // messagelist.html
 }
 ```
 
@@ -106,7 +106,7 @@ public String messages(Model model) {
 ```html
 <tr th:each="message : ${messages}">
 	<td th:text="${message.id}">1</td>
-	<td th:text="${message.text}">Text ...</td>
+	<td th:text="${message.msg}">Text ...</td>
 </tr>
 ```
 
@@ -138,17 +138,17 @@ EQUALS TO
 
 ```java
 @Controller
-public class HelloController {
-	@GetMapping("/hello")
+public class MessageController {
+	@GetMapping("/newmessage")
 	public String greetingForm(Model model) {
 		model.addAttribute("message", new Message());
-		return "hello";
+		return "form"; // form.html
 	}
 
-	@PostMapping("/hello")
-	public String greetingSubmit(@ModelAttribute Message msg, Model model) {
-		model.addAttribute("message", msg);
-		return "result";
+	@PostMapping("/newmessage")
+	public String greetingSubmit(@ModelAttribute Message message, Model model) {
+		model.addAttribute("message", message);
+		return "result";  // result.html
 	}
 }
 ```
@@ -166,17 +166,17 @@ public class HelloController {
 <!-- Slide number: 14 -->
 # Spring Boot: Form
 
-- Thymeleaf form example
+- Thymeleaf form example (form.html)
 
 ```html
-<form action="#" th:action="@{/hello}" th:object="${message}“ method="post">
+<form action="#" th:action="@{/newmessage}" th:object="${message}“ method="post">
 	<p>Id: <input type="text" th:field="*{id}" /></p>
 	<p>Message: <input type="text" th:field="*{msg}" /></p>
 	<p><input type="submit" value="Submit" /></p>
 </form>
 ```
 
-- `th:action="@{/hello}"` expression directs the form to POST to the /hello endpoint
+- `th:action="@{/newmessage}"` expression directs the form to POST to the /newmessage endpoint
 - `th:object="${message}"` expression  is the model object used to collect data. We need to create Message class next.
 
 <!-- Slide number: 15 -->
@@ -194,13 +194,14 @@ public class Message {
 
 <!-- Slide number: 16 -->
 - Controller handles the form submit
-- The `msgSubmit()` method is mapped to POST
+- The `greetingSubmit()` method is mapped to POST
 
 ```java
-@PostMapping("/hello")
-public String msgSubmit(@ModelAttribute Message msg, Model model) {
-	model.addAttribute("message", msg);
-	return "redirect:/result";
+@PostMapping("/newmessage")
+public String greetingSubmit(@ModelAttribute Message message, Model model) {
+	model.addAttribute("message", message);
+	return "result";
+	// return "redirect:/home";  // redirect to endpoint /home
 }
 ```
 
@@ -213,13 +214,13 @@ public String msgSubmit(@ModelAttribute Message msg, Model model) {
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<title>Server Programming</title>
+		<title>Result</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	<body>
 		<p th:text="'id: ' + ${message.id}" />
 		<p th:text="'content: ' + ${message.msg}" />
-		<a href="/hello">Submit another message</a>
+		<a href="/newmessage">Submit another message</a>
 	</body>
 </html>
 ```
@@ -247,7 +248,7 @@ public class Message {
 	private long id;
 
 	@Size(min=2, max=30)
-	private String name;
+	private String msg;  // message text
 
 	...getters & setters
 }
@@ -266,13 +267,13 @@ public class Message {
 - Controller: Add new arguments to controller request methdod. BindingResult object is used to check validation result. `@Valid` attribute gather attributes filled out in the form.
 
 ```java
-@RequestMapping(value="/hello", method=RequestMethod.POST)
-public String greetingSubmit(@Valid Message msg, BindingResult bindingResult, Model model) {
+@PostMapping("/newmessage")
+public String greetingSubmit(@Valid Message message, BindingResult bindingResult, Model model) {
 	if (bindingResult.hasErrors()) {
-		return "hello";
+		return "form"; // form.html
 	}
-	model.addAttribute("message", msg);
-	return "result";
+	model.addAttribute("message", message);
+	return "result";  // result.html
 }
 ```
 
@@ -283,8 +284,8 @@ public String greetingSubmit(@Valid Message msg, BindingResult bindingResult, Mo
 
 ```html
 <tr>
-  <td>Message: <input type="text" th:field="*{name}" /></td>
-  <td th:if="${#fields.hasErrors(’name')}" th:errors="*{name}">Error</td>
+  <td>Message: <input type="text" th:field="*{msg}" /></td>
+  <td th:if="${#fields.hasErrors('msg')}" th:errors="*{msg}">Error</td>
 </tr>
 ```
 
