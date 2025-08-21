@@ -186,8 +186,8 @@ public class HelloController {
 <!-- Slide number: 15 -->
 # Spring Boot
 
-- `@RequestMapping(”*”)` means for any path in the application will excecute hello() method.
-- Change the code `@RequestMapping(”/hello”)` means that path `address:port/hello` excecutes hello() method.
+- `@RequestMapping("*")` means for any path in the application will excecute hello() method.
+- Change the code `@RequestMapping("/hello")` means that path `address:port/hello` excecutes hello() method.
 
 ![](../imgs/1hello_world_09.png)
 
@@ -209,7 +209,7 @@ public class HelloController {
 @ResponseBody
 public class HelloController {
     @RequestMapping("/hello")
-    public String hello(@RequestParam(name=“firstname") String firstName) {
+    public String hello(@RequestParam(name="firstname") String firstName) {
         return "Hello " + firstName;
     }
 }
@@ -223,7 +223,7 @@ public class HelloController {
 - In the previous example the parameter is mandatory. If it is not required you can use following parameters in `@RequestParam` annotation
 
 ```
-public String hello(@RequestParam(name=“firstname", required=false, defaultValue="World") String firstName)
+public String hello(@RequestParam(name="firstname", required=false, defaultValue="World") String firstName)
 ```
 
 - If the request does not contains parameter the default value is used
