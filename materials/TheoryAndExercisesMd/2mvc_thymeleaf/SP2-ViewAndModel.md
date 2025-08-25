@@ -2,7 +2,7 @@
 # Back End Programming: Views & Model
 
 <!-- Slide number: 2 -->
-# Spring Boot
+# Spring Boot and Thymeleaf
 - Thymeleaf is used for the views during this course
 - Thymeleaf is a modern server-side Java template engine for web and standalone environments
 - www.thymeleaf.org
@@ -16,12 +16,14 @@
 ```
 
 <!-- Slide number: 3 -->
+# Thymeleaf Templates
 - Thymeleaf templates are HTML files that also work as static prototypes
 - With Spring Boot Thymeleaf templates are saved to `resources/templates` folder
 
 ![](../imgs/2mvc_thymeleaf_13.png)
 
 <!-- Slide number: 4 -->
+# Thymeleaf Template - Example
 - Thymeleaf template example (index.html)
 
 ```html
@@ -38,6 +40,7 @@
 ```
 
 <!-- Slide number: 5 -->
+# Controller and Thymeleaf template
 - Accessing views
 	- Controller handles request and returns the name of the View
 	- Example below handels request for /index endpoint and returns view called ”index” (index.html Thymeleaf template)
@@ -55,6 +58,7 @@ public class MyController {
 ```
 
 <!-- Slide number: 6 -->
+# Model Map
 - The value of a parameter can be added to the Model object that makes it accessible to the view
 - In a typical Spring application, Controller classes are responsible for preparing a model map with data and selecting a view to be rendered
 
@@ -72,6 +76,7 @@ public class HelloController {
 ```
 
 <!-- Slide number: 7 -->
+# Attributes of Model Map
 - In Thymeleaf, the model attributes can be accessed with the following syntax: `${attributeName}`
 - Thymeleaf parses the template and evaluates `th:text` expression to render the value of the `${name}` parameter
 
@@ -89,6 +94,7 @@ public class HelloController {
 ```
 
 <!-- Slide number: 8 -->
+# List Attribute of Model Map
 - Model can contain the list of object which can be iterated and displayed as a table with Thymeleaf
 - In the following example `messageRepository.findAll()` method returns the list of message objects
 
@@ -101,6 +107,7 @@ public String messages(Model model) {
 ```
 
 <!-- Slide number: 9 -->
+# Thymeleaf and th:each
 - Thymeleaf provides th:each attribute to iterate over the list of objects
 
 ```html
@@ -111,6 +118,7 @@ public String messages(Model model) {
 ```
 
 <!-- Slide number: 10 -->
+# GET Request vs. POST Request
 - GET request
 	- Values are sent in URL in URL’s query string
 - POST request
@@ -125,6 +133,7 @@ OR
 `@RequestMapping(value="/greeting", method=RequestMethod.GET)`
 
 <!-- Slide number: 11 -->
+# Request Mapping
 - Instead of `@RequestMapping` annotation you can also use method specific shortcut annotations (`@GetMapping`, `@PostMapping` etc.)
 
 `@RequestMapping(value="/greeting", method=RequestMethod.POST)`
@@ -134,6 +143,7 @@ EQUALS TO
 `@PostMapping("/greeting")`
 
 <!-- Slide number: 12 -->
+# Get Mapping and Post Mapping
 - Following mapping allows the controller to differentiate the requests to the /newmessage (GET and POST requests)
 
 ```java
@@ -154,6 +164,7 @@ public class MessageController {
 ```
 
 <!-- Slide number: 13 -->
+# HTML Forms
 - HTML Forms are needed when you want to collect data from the application end users
 - A form will take input from the users and post it to a server
 
@@ -180,7 +191,7 @@ public class MessageController {
 - `th:object="${message}"` expression  is the model object used to collect data. We need to create Message class next.
 
 <!-- Slide number: 15 -->
-- Message class
+# Message Class
 
 ```java
 public class Message {
@@ -193,6 +204,7 @@ public class Message {
 ```
 
 <!-- Slide number: 16 -->
+# Controller Method for POST Mapping
 - Controller handles the form submit
 - The `greetingSubmit()` method is mapped to POST
 
@@ -208,6 +220,7 @@ public String greetingSubmit(@ModelAttribute Message message, Model model) {
 - It is recommended to use redirect afer POST. That prevents duplicate form submissions (PostRedirectGet = PRG)
 
 <!-- Slide number: 17 -->
+# Thymeleaf Template - result.html
 - Finally we need Thymeleaf template for showing results (result.html)
 
 ```html
@@ -226,7 +239,7 @@ public String greetingSubmit(@ModelAttribute Message message, Model model) {
 ```
 
 <!-- Slide number: 18 -->
-- HelloForm example
+# HelloForm example
 
 ![](../imgs/2mvc_thymeleaf_14.png)
 18
@@ -255,6 +268,7 @@ public class Message {
 ```
 
 <!-- Slide number: 20 -->
+# Validation Dependency
 - POM.XML: insert validation depencency
 
 ```xml
@@ -278,6 +292,7 @@ public String greetingSubmit(@Valid Message message, BindingResult bindingResult
 ```
 
 <!-- Slide number: 21 -->
+# Validation Function
 - Thymeleaf provides validation function `#fields.hasErrors()` which can be used to check if field contains any validation errors
 
 - Example
@@ -290,7 +305,7 @@ public String greetingSubmit(@Valid Message message, BindingResult bindingResult
 ```
 
 <!-- Slide number: 22 -->
-# Spring Boot
+# Thymeleaf Demos
 - Demo codes
 	1. HelloForm
 		- Simple form example
