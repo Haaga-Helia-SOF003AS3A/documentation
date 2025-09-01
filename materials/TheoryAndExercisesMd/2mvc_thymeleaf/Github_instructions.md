@@ -18,7 +18,7 @@ Note! Git installation is needed before going through this tutorial
    ```
 7. Commit the files with comments
    ```
-   git commit -m “First commit”
+   git commit -m "First commit"
    ```
 8. Change your GitHub repository to your remote repository (Use URL from step 2)
    ```
@@ -31,7 +31,7 @@ Note! Git installation is needed before going through this tutorial
 
 Finally you should see your project in your repository Code page.
 
-# Cloning your project to your computer manually (Option A)
+# Cloning your project to your computer manually
 
 You can clone your project from the GitHub and start making changes to it. After you have cloned your program you can import it to Eclipse.
 
@@ -40,19 +40,6 @@ You can clone your project from the GitHub and start making changes to it. After
 ```
 git clone YOUR\_GITHUB\_REPO\_URL
 ```
-
-# Cloning your project to your computer with Eclipse (Option B)
-
-You can clone your project from the GitHub and start making changes to it.
-
-1. Open Eclipse
-2. Select ‘File 🡪 Import 🡪 Git 🡪 Projects from Git
-   - ![](../imgs/2mvc_thymeleaf_07.png)
-3. Select ‘Clone URI’
-4. Type in
-   1. your GitHub repository URL to URI field
-   2. Your Github account and password
-5. Click next and keep defaults until the end of the wizard
 
 # Commit changes to GitHub
 
@@ -64,7 +51,7 @@ After you have made changes to your source code, you can send changes to GitHub 
    ```
 2. Commit the files with comments
    ```
-   git commit -m “Adding new method…”
+   git commit -m "Adding new method…"
    ```
 3. Push the changes to GitHub
    ```
