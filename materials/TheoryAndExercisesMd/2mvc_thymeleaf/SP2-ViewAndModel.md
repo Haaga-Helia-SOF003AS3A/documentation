@@ -239,12 +239,14 @@ public String greetingSubmit(@ModelAttribute Message message, Model model) {
 ```
 
 <!-- Slide number: 18 -->
-# HelloForm example
+# HelloForm example - Views
 
 ![](../imgs/2mvc_thymeleaf_14.png)
-18
-Server Programming
-29.1.2024
+
+<!-- Slide number: 18b -->
+# HelloForm example - Requests
+
+![](../imgs/2mvc_thymeleaf_14b.png)
 
 <!-- Slide number: 19 -->
 # Spring Boot: Form validation
