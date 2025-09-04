@@ -450,8 +450,8 @@ public String addStudent(Model model){
 
 <!-- Slide number: 35 -->
 # Edit functionality
-	- Similar to Add functionality of Student Application
-	- Model contains now edited object instead of empty object (in the case of add)
+- Similar to Add functionality of Student Application
+- Model contains now edited object instead of empty object (in the case of add)
 
 ```java
 // Edit student
