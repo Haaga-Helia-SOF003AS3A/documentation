@@ -3,7 +3,7 @@
 Minna Pellikka, Juha Hinkula and Jukka Juslin
 
 <!-- Slide number: 2 -->
-# Spring Boot: JPA
+## Spring Boot: JPA
 
 - JPA (Java Persistence API) is a collection of classes to persistently store data into a database
 - JPA provides object – relational mapping for managing relational data in JAVA applications (ORM)
@@ -18,12 +18,12 @@ Minna Pellikka, Juha Hinkula and Jukka Juslin
 ```
 
 <!-- Slide number: 3 -->
-# Architecture of this lesson setup
+## Architecture of this lesson setup
 
 ![](../imgs/3jpa_05.png)
 
 <!-- Slide number: 4 -->
-# H2 Database
+## H2 Database
 - H2 is open source Java based SQL database
 - www.h2database.com
 - Embedded and server modes: in-memory databases
@@ -38,7 +38,7 @@ Minna Pellikka, Juha Hinkula and Jukka Juslin
 ```
 
 <!-- Slide number: 5 -->
-# H2 Database Console
+## H2 Database Console
 - H2 provides a web based console
 - Add following lines to the `application.properties` file
 
@@ -55,7 +55,7 @@ spring.datasource.url=jdbc:h2:mem:testdb
 ![](../imgs/3jpa_06.png)
 
 <!-- Slide number: 6 -->
-# Logging of SQL Statements
+## Logging of SQL Statements
 
 - You can add following property to `application.properties` file. This enables the logging of SQL statements.
 
@@ -64,7 +64,7 @@ spring.jpa.show-sql=true
 ```
 
 <!-- Slide number: 7 -->
-# Entity
+## Entity
 - An entity represents a table in relational database
 - Entity class must be annotated with `@Entity` annotation (jakarta.persistence.Entity)
 - By default, the table name is the name of the entity class. It can be changed by using `@Table` annotation
@@ -78,7 +78,7 @@ public class Student {
 ```
 
 <!-- Slide number: 8 -->
-# Entity and @Id Annotation
+## Entity and @Id Annotation
 - `@Id` annotation is used for creating id column of the table
 - `@GeneratedValue` annotation generates automatically a unique primary key for every new entity object (GenerationType.Auto)
 
@@ -89,7 +89,7 @@ private Long id;
 ```
 
 <!-- Slide number: 9 -->
-# Entity and @Column Annotation
+## Entity and @Column Annotation
 - The other properties can be left unannotated. Then these properites are mapped to columns that share the same name as properties itself
 - `@Column` annotation can be used to specify mapped column. Example: `@Column(name=”address”)`
 
@@ -102,7 +102,7 @@ private String firstName, lastName, email;
 ```
 
 <!-- Slide number: 10 -->
-# Example Entity: Student
+## Example Entity: Student
 
 ```java
 @Entity
@@ -128,12 +128,12 @@ public class Student {
 ```
 
 <!-- Slide number: 11 -->
-# Wanted Directory Structure
+## Wanted Directory Structure
 
 ![](../imgs/3jpa_07.png)
 
 <!-- Slide number: 12 -->
-# CrudRepository
+## CrudRepository
 - The `CrudRepository` provides CRUD functionality for the entity class that is being managed.
 - How to use repositories:
 
@@ -142,7 +142,7 @@ public class Student {
 3. Get the repository instance injected and use it
 
 <!-- Slide number: 13 -->
-# New Interface Extending CrudRepository
+## New Interface Extending CrudRepository
 1. **Declare an interface extending CrudRepository** (Create a new class which extends CrudRepository)
 
 By extending CrudRepository the StudentRepository inherits  methods for working with Student persistence, including methods for saving, deleting, and finding Student entities.
@@ -156,7 +156,7 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 ```
 
 <!-- Slide number: 14 -->
-# New Query Methods on the Interface
+## New Query Methods on the Interface
 2. **Declare query methods on the interface**
 
 Note! In typical Java application you should write an class that implements StudentRepository. Spring Data JPA creates this automatically when you run the application.
@@ -194,7 +194,7 @@ public class StudentController {
 ```
 
 <!-- Slide number: 16 -->
-# Some Useful Methods of CrudRepository
+## Some Useful Methods of CrudRepository
 
 |  |  |
 | --- | --- |
@@ -207,7 +207,7 @@ public class StudentController {
 | `<S extends T> S save(S entity)` | Saves a given entity |
 
 <!-- Slide number: 17 -->
-# Spring Boot: CommandLineRunner
+## Spring Boot: CommandLineRunner
 
 - If you need to run some specific code when the SpringApplication has started, you can implement the `CommandLineRunner` interfaces. This is good place to add some demo data to your apllication
 
@@ -221,7 +221,7 @@ public CommandLineRunner demo(StudentRepository repository) {
 ```
 
 <!-- Slide number: 18 -->
-# Thymeleaf Template: studentlist.html
+## Thymeleaf Template: studentlist.html
 
 - Adding List page to a Spring Boot application
 
@@ -241,7 +241,7 @@ public CommandLineRunner demo(StudentRepository repository) {
 ```
 
 <!-- Slide number: 19 -->
-# Controller Method and Fetching Data from the Database
+## Controller Method and Fetching Data from the Database
 2. Create method to your controller. All students are fetched from the database and added to the model attribute.
 
 ```java
@@ -258,7 +258,7 @@ public String studentList(Model model) {
 ```
 
 <!-- Slide number: 20 -->
-# Thymeleaf Template: addstudent.html
+## Thymeleaf Template: addstudent.html
 - Adding Create funtionality to a Spring Boot application
 1. Create template for adding new entity (in this example addstudent.html). Download source code from the course site.
 
@@ -278,7 +278,7 @@ public String studentList(Model model) {
 ```
 
 <!-- Slide number: 21 -->
-# Create Functionality
+## Create Functionality
 2. Create functionality to your controller
 
 ```java
@@ -305,7 +305,7 @@ public String save(Student student){
 ![](../imgs/3jpa_08.png)
 
 <!-- Slide number: 23 -->
-# Delete functionality
+## Delete functionality
 - Adding Delete functionality to a Spring Boot application
 
 1. Create functionality to the controller
@@ -323,7 +323,7 @@ public String deleteStudent(@PathVariable("id") Long studentId, Model model) {
 - For example, request `http://localhost:8080/delete/5`, the `@PathVariable` studentId will be 5.
 
 <!-- Slide number: 24 -->
-# Delete Link
+## Delete Link
 2. Add link to delete functionality (for example in the listpage row)
 
 ```html
@@ -331,7 +331,7 @@ public String deleteStudent(@PathVariable("id") Long studentId, Model model) {
 ```
 
 <!-- Slide number: 25 -->
-# CrudRepository and New Queries
+## CrudRepository and New Queries
 
 - Query methods: CrudRepository can derive the query from the method name
 - Examples:
@@ -351,18 +351,18 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 ```
 
 <!-- Slide number: 26 -->
-# Relationships with JPA
+## Relationships with JPA
 - One-to-Many and Many-to-One
 	- `@OneToMany` and `@ManyToOne` annotations defines a one-to-many and many-to-one relationship between two entities
 	- `@JoinColumn` annotation defines the owner of the relationship (Table has a column with a foreign key to the referenced table)
 
 <!-- Slide number: 27 -->
-# One-to-Many Relationship with JPA
+## One-to-Many Relationship with JPA
 
 ![](../imgs/3jpa_09.png)
 
 <!-- Slide number: 28 -->
-# Student Entity and Many-to-One Relationship to Department
+## Student Entity and Many-to-One Relationship to Department
 - Add new department attribute with `@ManyToOne` and `@JoinColumn` annotations
 
 ```java
@@ -375,7 +375,7 @@ private Department department;
 - Add department to constructor
 
 <!-- Slide number: 29 -->
-# Department Entity and One-to-Many Relationship to Students
+## Department Entity and One-to-Many Relationship to Students
 - Add new students attribute with `@OneToMany` annotation
 
 ```java
@@ -386,7 +386,7 @@ private List<Student> students;
 - Add getters and setters
 
 <!-- Slide number: 30 -->
-# DepartmentRepository
+## DepartmentRepository
 - Add CrudRepository for Department entity
 
 ```java
@@ -398,7 +398,7 @@ public interface DepartmentRepository extends CrudRepository<Department, Long> {
 ```
 
 <!-- Slide number: 31 -->
-# Student Form and Department Dropdown List 1/2
+## Student Form and Department Dropdown List 1/2
 - Add department dropdown list to student form
 	- You have to add new model attribute to controller method which shows student creation form. You also have to inject department repository to controller
 
@@ -418,7 +418,7 @@ public String addStudent(Model model){
 ```
 
 <!-- Slide number: 32 -->
-# Student Form and Department Dropdown List 2/2
+## Student Form and Department Dropdown List 2/2
 - Add department dropdown list to student form
 	- Departments can be now get from the model attribute in the template (departments attribute)
 	- Select element shows department names (th:text) but the value will be departmentid (th:value)
@@ -432,7 +432,7 @@ public String addStudent(Model model){
 </select>
 ```
 <!-- Slide number: 33 -->
-# Student List with Names of Departments
+## Student List with Names of Departments
 - Show department name in the studentlist
 
 ```html
@@ -449,7 +449,7 @@ public String addStudent(Model model){
 |-|-|
 
 <!-- Slide number: 35 -->
-# Edit functionality
+## Edit functionality
 - Similar to Add functionality of Student Application
 - Model contains now edited object instead of empty object (in the case of add)
 
@@ -464,7 +464,7 @@ public String showModStu(@PathVariable("id") Long studentId, Model model){
 ```
 
 <!-- Slide number: 36 -->
-# Thymeleaf Template: modifystudent.html
+## Thymeleaf Template: modifystudent.html
 - In thymeleaf need to be careful of proper syntax. For example modifystudent.html:
 
 ```html
@@ -506,7 +506,7 @@ public String showModStu(@PathVariable("id") Long studentId, Model model){
 ```
 
 <!-- Slide number: 38 -->
-# Spring Boot: MySQL/MariaDB
+## Spring Boot: MySQL/MariaDB
 - Switching database from H2 to MySQL/MariaDB
 
 1. Remove H2 dependency from the pom.xml file
@@ -532,7 +532,7 @@ spring.batch.initialize-schema=always
 ```
 
 <!-- Slide number: 39 -->
-# Switching Database from H2 to MariaDB
+## Switching Database from H2 to MariaDB
 - For testing purposes you can install MariaDB locally and use `localhost` as server address. Change also password in the `application.properties` file (Password that you defined when installing MySQL/MariaDB).
 - Use HeidiSQL to create new database before running the application (see the next slide)
 - Set `DB_NAME` in the `application.properties` file to match name of the database you just created.

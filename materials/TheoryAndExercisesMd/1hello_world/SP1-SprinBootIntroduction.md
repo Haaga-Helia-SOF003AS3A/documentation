@@ -1,10 +1,10 @@
 <!-- Slide number: 1 -->
-# Server Programming: Spring Boot Introduction
+# Back End Programming: Spring Boot Introduction
 Juha Hinkula and Jukka Juslin
-Updated Minna Pellikka 09.01.2025
+Updated Minna Pellikka 
 
 <!-- Slide number: 2 -->
-# Spring
+## Spring Framework
 
 - Spring framework: https://spring.io/
 - Spring framework is an open source application framework for Java platform
@@ -13,7 +13,7 @@ Updated Minna Pellikka 09.01.2025
 - Spring is modular and it contains lot of extensions for different purposes
 
 <!-- Slide number: 3 -->
-# Spring
+## Spring Documentation
 
 - Material
    - Getting Started Guides: https://spring.io/guides
@@ -25,13 +25,13 @@ Updated Minna Pellikka 09.01.2025
 ![](../imgs/1hello_world_05.png)
 
 <!-- Slide number: 5 -->
-# Dependency Injection (DI)
+## Dependency Injection (DI)
 
 - Web appliction typically contains object that have dependencies to each others
 - Dependency injection helps interaction between classes but same time keeping them independent
 
 <!-- Slide number: 6 -->
-# Dependency Injection (DI) example
+## Dependency Injection (DI) example
 
 - Without DI
 
@@ -58,7 +58,7 @@ public class Vehicle {
 ```
 
 <!-- Slide number: 7 -->
-# Spring Boot
+## Spring Boot
 
 - Spring Boot helps to easily setup new Spring project
 - Create stand-alone Spring applications
@@ -67,7 +67,7 @@ public class Vehicle {
 - Minimized the need of configuration
 
 <!-- Slide number: 8 -->
-# Maven
+## Maven
 
 - Apache Maven is a software project management and comprehension tool
 - https://maven.apache.org/
@@ -78,14 +78,14 @@ public class Vehicle {
    - Guidelines for best practice development
 
 <!-- Slide number: 9 -->
-# Maven
+## Maven and pom.xml
 
 - Maven in 5 minutes: https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
 - The pom.xml file is the core of the project configuration in Maven
 - Single configuration file to build a project
 
 <!-- Slide number: 10 -->
-# POM.XML example
+## POM.XML example
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -135,26 +135,22 @@ public class Vehicle {
 ```
 
 <!-- Slide number: 11 -->
-# Spring Boot
-
-- Recommended project structure
-   - NOTE! locate the main application class in a root package above other classes. Otherwise your application won’t work properly
+## Recommended Structure of Spring Boot Project
+- NOTE! locate the main application class in a root package above other classes. Otherwise your application won’t work properly
 
 ![](../imgs/1hello_world_07.png)
 
 <!-- Slide number: 12 -->
-# Spring Boot
-
-- First Spring Boot project
-   - Create a new Spring Boot project according to instructions in course site
-   - Add new controller class HelloController.java (code in next slide)
-   - Run your project and browse to localhost:8080
+## First Spring Boot project
+- Create a new Spring Boot project according to instructions in course site
+- Add new controller class HelloController.java (code in next slide)
+- Run your project and browse to localhost:8080
 
 ![](../imgs/1hello_world_08.png)
 
 
 <!-- Slide number: 13 -->
-# Spring Boot
+## Hello Controller
 
 ```
 import org.springframework.stereotype.Controller;
@@ -173,7 +169,7 @@ public class HelloController {
 ```
 
 <!-- Slide number: 14 -->
-# Spring Boot & Spring web MVC
+## Spring Boot & Spring web MVC
 
 - Spring uses annotations (starts with ’@’-sign) for configuration
 - `@Controller` annotation
@@ -184,7 +180,7 @@ public class HelloController {
    - Mapping URLs to controller methods
 
 <!-- Slide number: 15 -->
-# Spring Boot
+## Spring Boot and Request Mapping
 
 - `@RequestMapping("*")` means for any path in the application will excecute hello() method.
 - Change the code `@RequestMapping("/hello")` means that path `address:port/hello` excecutes hello() method.
@@ -192,7 +188,7 @@ public class HelloController {
 ![](../imgs/1hello_world_09.png)
 
 <!-- Slide number: 16 -->
-# Request parameters
+## Request Parameters
 
 - HTTP GET request can contain parameters
 - Example
@@ -200,7 +196,7 @@ public class HelloController {
 - In HTTP POST request parameters are sent in the request body
 
 <!-- Slide number: 17 -->
-# Spring Boot
+## @RequestParam Annotation
 
 - `@RequestParam` annotation binds the value of request parameter into name variable
 
@@ -218,7 +214,7 @@ public class HelloController {
 ![](../imgs/1hello_world_10.png)
 
 <!-- Slide number: 18 -->
-# Spring Boot
+## Configurating of @RequestParam Annotation
 
 - In the previous example the parameter is mandatory. If it is not required you can use following parameters in `@RequestParam` annotation
 
@@ -231,7 +227,7 @@ public String hello(@RequestParam(name="firstname", required=false, defaultValue
 ![](../imgs/1hello_world_11.png)
 
 <!-- Slide number: 19 -->
-# Spring Boot
+## Spring Boot Application
 
 - Spring Boot packs everything to one executable JAR package
 - Excecution starts from the main application class (main() method)
@@ -251,7 +247,7 @@ public class Application {
 ```
 
 <!-- Slide number: 20 -->
-# Spring Boot
+## Annotations for Spring Boot Application Class
 
 - `@SpringBootApplication` annotation adds following annotations
    - `@Configuration` tags the class as a source of bean definitions for the application context.
