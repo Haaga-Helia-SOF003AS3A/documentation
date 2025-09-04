@@ -352,7 +352,7 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 
 <!-- Slide number: 26 -->
 # Relationships with JPA
-- One-to-Many
+- One-to-Many and Many-to-One
 	- `@OneToMany` and `@ManyToOne` annotations defines a one-to-many and many-to-one relationship between two entities
 	- `@JoinColumn` annotation defines the owner of the relationship (Table has a column with a foreign key to the referenced table)
 
@@ -362,8 +362,8 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 ![](../imgs/3jpa_09.png)
 
 <!-- Slide number: 28 -->
-# Student Entity and @ManytoOne Relationship to Department
-	- Add new department attribute with `@ManyToOne` and `@JoinColumn` annotations
+# Student Entity and Many-to-One Relationship to Department
+- Add new department attribute with `@ManyToOne` and `@JoinColumn` annotations
 
 ```java
 @ManyToOne
@@ -375,8 +375,8 @@ private Department department;
 - Add department to constructor
 
 <!-- Slide number: 29 -->
-# Department Entity and @OnetoMany Relationship to Students
-	- Add new students attribute with `@OneToMany` annotation
+# Department Entity and One-to-Many Relationship to Students
+- Add new students attribute with `@OneToMany` annotation
 
 ```java
 @OneToMany(cascade = CascadeType.ALL,mappedBy = "department”)
