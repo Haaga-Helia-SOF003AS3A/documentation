@@ -1,7 +1,7 @@
 <!-- Slide number: 1 -->
 # WebSecurityConfig – muutokset
 
-**Uusi Spring Security 6 (with lambdas)**
+**Spring Security 6 (newer version) (with lambdas)**
 
 ```java
 @Configuration
@@ -27,7 +27,7 @@ public class WebSecurityConfig {
 }
 ```
 
-**Vanha Spring Security 5 (videoissa)**
+**Old Spring Security 5 version (on videos)**
 
 ```java
 @Configuration
