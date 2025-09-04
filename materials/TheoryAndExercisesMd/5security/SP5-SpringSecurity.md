@@ -3,8 +3,6 @@
 
 **Spring Security**
 
-Minna Pellikka updated: 7.2.2025
-
 <!-- Slide number: 2 -->
 # Spring Security
 
@@ -19,6 +17,7 @@ Minna Pellikka updated: 7.2.2025
 ```
 
 <!-- Slide number: 3 -->
+# Default Features of Spring Security
 - By default Spring Security enables following features (out of the box)
 	- An AuthenticationManager bean with in-memory single user (username = user, password from the log)
 	- Ignored (insecure) paths for common static resource locations like /css, /images…
@@ -27,6 +26,7 @@ Minna Pellikka updated: 7.2.2025
 	- Common low-level features (HSTS, XSS, CSRF, caching) provided by Spring Security are on by default
 
 <!-- Slide number: 4 -->
+# One Default Test User
 - Adding dependency secures your application automatically
 - Spring Boot create one test user and password can be seen in the console when application starts (see, SecurityDemo)
 ```
@@ -42,6 +42,7 @@ public class WebSecurityConfig {
 ```
 
 <!-- Slide number: 5 -->
+# WebSecurityConfig Class
 - WebSecurityConfig class contains a method `configure(HttpSecurity)` that defines which URL paths are secured and the path for login form
 
 <!-- Slide number: 6 -->
@@ -57,7 +58,7 @@ public class WebSecurityConfig  {
 			)                                             // If you don't give loginPage
 		.formLogin( formlogin -> formlogin                    // your application will use the
 			.loginPage("/login")                          // spring boot default login page.
-			.defaultSuccessUrl("/studentlist”, true)      // <-- Tells where to go after
+			.defaultSuccessUrl("/studentlist", true)      // <-- Tells where to go after
 			.permitAll()                                  // successful login.
 		)
 		.logout( logout -> logout
@@ -69,6 +70,7 @@ public class WebSecurityConfig  {
 ```
 
 <!-- Slide number: 7 -->
+# Configuration of Authentication and Authorization Rules
 - Configuration examples
 	- Requires user authentication in all URLs
 
@@ -80,7 +82,7 @@ public SecurityFilterChain configure(HttpSecurity http) throws Exception {
 		)
 		.formLogin( formlogin -> formlogin
 			.loginPage("/login")
-			.defaultSuccessUrl("/studentlist”, true)
+			.defaultSuccessUrl("/studentlist", true)
 			.permitAll()
 		);
 		return http.build();
@@ -88,19 +90,18 @@ public SecurityFilterChain configure(HttpSecurity http) throws Exception {
 ```
 
 <!-- Slide number: 8 -->
-- Configuration examples
-	- Any user can access a request if the URL starts with `/resources/`, equals `/signup`, or equals `/about`
-	- Any URL that starts with `/admin/` will be restricted to users who have the role `ADMIN`.
+# Configuation Examples
+
+- Any user can access a request if the URL starts with `/resources/`, equals `/signup`, or equals `/about`
+- Any URL that starts with `/admin/` will be restricted to users who have the role `ADMIN`.
 
 ```java
-import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
-
 public SecurityFilterChain configure(HttpSecurity http) throws Exception {
 	http.authorizeHttpRequests( authorize -> authorize
-		.requestMatchers(antMatcher("/resources/**")).permitAll()
-		.requestMatchers(antMatcher("/signup” )).permitAll()
-		.requestMatchers(antMatcher("/about”)).permitAll()
-		.requestMatchers(antMatcher("/admin/**”)).hasRole("ADMIN")
+		.requestMatchers("/resources/**").permitAll()
+		.requestMatchers("/signup").permitAll()
+		.requestMatchers("/about").permitAll()
+		.requestMatchers("/admin/**").hasRole("ADMIN")
 		.anyRequest().authenticated()
 	)
 	// ...
@@ -109,6 +110,7 @@ public SecurityFilterChain configure(HttpSecurity http) throws Exception {
 ```
 
 <!-- Slide number: 9 -->
+# Creating In-Memory Users for Testing Purposes
 - Create in-memory users
 	- **This is only for testing and demo purposes** (Security configuration class)
 	- You can add multiple user using `Collection<UserDetails>`
@@ -128,11 +130,11 @@ public UserDetailsService userDetailsService() {
 ```
 
 <!-- Slide number: 10 -->
-- Login
-	- Create method to controller and thymeleaf template for login
-	- Thymeleaf: method = POST
-	- Spring Security provides a filter that intercepts request to `/login` and authenticates the user
-	- If the user fails to authenticate, the page is redirected to `/login?error` endpoint
+# Login Functionality
+- Create method to controller and thymeleaf template for login
+- Thymeleaf: method = POST
+- Spring Security provides a filter that intercepts request to `/login` and authenticates the user
+- If the user fails to authenticate, the page is redirected to `/login?error` endpoint
 
  ```html
 <div th:if="${param.error}">
@@ -146,9 +148,9 @@ public UserDetailsService userDetailsService() {
 ```
 
 <!-- Slide number: 11 -->
-- Logout
-	- Thymeleaf: method = POST
-	- After successfully logging out user will be redirected to `/login?logout` endpoint
+# Logout Functionality
+- Thymeleaf: method = POST
+- After successfully logging out user will be redirected to `/login?logout` endpoint
 
 ```html
 <form th:action="@{/logout}" method="post">
@@ -163,17 +165,18 @@ public UserDetailsService userDetailsService() {
 ```
 
 <!-- Slide number: 12 -->
-- CSRF
-	- Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execute unwanted actions on a web application in which they're currently authenticated (OWASP)
-	- To protect against CSRF attacks we need to ensure there is something in the request that the ‘evil’ site is unable to provide.
-	- CSRF protection is enabled as a default in Spring Security
-	- With Thymeleaf the csrf token is automatically included for you
+# Cross-Site Request Forgery (CSRF)
+- Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execute unwanted actions on a web application in which they're currently authenticated (OWASP)
+- To protect against CSRF attacks we need to ensure there is something in the request that the ‘evil’ site is unable to provide.
+- CSRF protection is enabled as a default in Spring Security
+- With Thymeleaf the csrf token is automatically included for you
 
 ```html
 <input type="hidden" name="_csrf" value="d63f746f-c5f6-4cc6-99c0-9220ff784b23" /></form>
 ```
 
 <!-- Slide number: 13 -->
+# Thymeleaf Extras Spring Security 6
 - Spring Security Thymeleaf dialects can be used to show different content to different roles
 - Add dependency
 
@@ -199,7 +202,7 @@ public UserDetailsService userDetailsService() {
 **Note!** In the case of in-memory users use `hasRole` instead of `hasAuthority`.
 
 <!-- Slide number: 14 -->
-# Method level security
+# Method Level Security
 
 - Add following annotation to Web Security config class
 ```java
@@ -218,7 +221,7 @@ public String deleteStudent(@PathVariable("id") Long studentId, Model model) {
 ```
 
 <!-- Slide number: 15 -->
-# Spring Security: User entity
+# Spring Security: User Entity
 
 - How to use Users from database in authentication?
  
@@ -255,6 +258,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 ```
 
 <!-- Slide number: 17 -->
+# Implementation for UserDetailsService Interface
 3. Implement `UserDetailService` interface. Spring Security is using it to authenticate and authorize user
 
 ```java
@@ -276,6 +280,7 @@ public class UserDetailServiceImpl implements UserDetailsService  {
 ```
 
 <!-- Slide number: 18 -->
+# Changing Web Security Configuration
 4. Change Spring Security configuration to use your `UserDetailService` implementation.
 
 - Use `BCryptPasswordEncoder` to encrypt passwords using Bcrypt hash algorithm (Default number of rounds is 10). You can also use constructor to give strength between 4-31.
@@ -294,6 +299,7 @@ public class WebSecurityConfig {
 ```
 
 <!-- Slide number: 19 -->
+# Inserting Demo User to Database
 5. Create some demo users to your database in `CommandLineRunner`. **Hint:** You can use Bcrypt calculators to create hashed passwords.
 
 ```java
@@ -334,7 +340,7 @@ public SecurityFilterChain configure(HttpSecurity http) throws Exception {
 		.authorizeHttpRequests(authorize -> authorize
 			.anyRequest().authenticated())
 		.formLogin(formlogin -> formlogin
-			.loginPage("/login").defaultSuccessUrl("/studentlist”, true).permitAll())
+			.loginPage("/login").defaultSuccessUrl("/studentlist", true).permitAll())
 		.logout(formlogin -> formlogin
 			.permitAll().invalidateHttpSession(true)) // Invalidate session
 		// ...
