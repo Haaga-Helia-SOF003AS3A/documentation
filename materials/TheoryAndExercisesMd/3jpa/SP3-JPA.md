@@ -1,6 +1,6 @@
 <!-- Slide number: 1 -->
 # Back End Programming: ORM/JPA, Databases
-Minna Pellikka, Juha Hinkula and Jukka Juslin
+Tanja Bergius, Minna Pellikka, Juha Hinkula and Jukka Juslin
 
 <!-- Slide number: 2 -->
 ## Spring Boot: JPA
