@@ -186,7 +186,7 @@ Constructor Injection annotation bring repository class into the context, and wi
 @Controller
 public class StudentController {
 	private StudentRepository repository;
-	// constructor injection. Can only be one constructor then.
+	// constructor injection. 
 	public StudentController(StudentRepository repository) {
 		this.repository = repository;
 	}
