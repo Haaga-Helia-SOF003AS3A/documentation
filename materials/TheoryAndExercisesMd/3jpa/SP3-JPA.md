@@ -1,13 +1,13 @@
 <!-- Slide number: 1 -->
-# Back End Programming: ORM/JPA, Databases
+# Back End Programming: ORM/Jakarta Persistence (former JPA), Databases
 Tanja Bergius, Minna Pellikka, Juha Hinkula and Jukka Juslin
 
 <!-- Slide number: 2 -->
-## Spring Boot: JPA
+## Spring Boot: Jakarta Persistence
 
-- JPA (Java Persistence API) is a collection of classes to persistently store data into a database
-- JPA provides object – relational mapping for managing relational data in JAVA applications (ORM)
-- There is lot of implementations of the JPA (like Hibernate)
+- Jakarta Persistence is a collection of classes to persistently store data into a database
+- It provides object – relational mapping for managing relational data in JAVA applications (ORM)
+- There is lot of implementations of the Jakarta Persistence (like Hibernate)
 - Dependency
 
 ```xml
