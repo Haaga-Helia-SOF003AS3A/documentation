@@ -1,5 +1,5 @@
 <!-- Slide number: 1 -->
-# Back End Programming: ORM/Jakarta Persistence (former JPA), Databases
+# Back End Programming: ORM/Jakarta Persistence (JPA), Databases
 Tanja Bergius, Minna Pellikka, Juha Hinkula and Jukka Juslin
 
 <!-- Slide number: 2 -->
