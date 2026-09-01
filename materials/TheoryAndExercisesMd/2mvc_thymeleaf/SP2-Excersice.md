@@ -73,7 +73,7 @@ Functionality is pretty much the same like in the previous exercise but now elem
 
 We will now start to create our training project. This excercise continues through the whole course and it will be returned to Github.
 
-1. Create a project called Bookstore by using Spring Initializr page (include web, devtools)
+1. Create a project called bookstore by using Spring Initializr page (include web, devtools)
 2. Add a new controller called BookController which handle get request to the path /index
 3. Add a new model class called Book which contains attributes: title, author, publicationYear, isbn, price
 4. Add your project to your GitHub account (See the instructions from the moodle)
