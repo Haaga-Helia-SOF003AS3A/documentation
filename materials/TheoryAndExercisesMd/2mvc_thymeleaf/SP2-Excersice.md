@@ -47,7 +47,7 @@ Mike Mars
 `Add friend` -link contains following code
 
 ```html
-<p><a th:href=*"@{/add}"*>Add friend</a></p>
+<p><a th:href="@{/add}">Add friend</a></p>
 ```
 
 2. Create thymeleaf template where you can insert new friend information.
