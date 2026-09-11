@@ -4,45 +4,49 @@
 
 Minna Pellikka
 
-This document explains how we replace the runtime H2 database with an external database.
+This document explains how to replace the runtime (in-memory-database) H2 database with an external database.
 
 <!-- Slide number: 2 -->
 
-## Install PostgreSQL
+## Install PostgreSQL & create databases and tables
 
-1. Install PostgreSQL on your own machine if you don't already have it there. Link is htps://www.postgresql.org/download/
+1. Install PostgreSQL on your own machine if you don't already have have it installed. Link is htps://www.postgresql.org/download/
 
-   PostgreSQL installation instructions e.g. here
+   PostgreSQL installation instructions can be found, for example,
    htps://www.w3schools.com/postgresql/postgresql_install.php
    or here
    htps://www.postgresqltutorial.com/postgresql-ge ng-started/install-postgresql/
-   (No need to install Stackbuilder)
-   Save the password you entered during installation – you'll need it later.
+   (There is no need to install Stackbuilder)
+   Save the password you entered during the installation – you'll need it later.
 
-2. Launch the pgAdmin application (htps://www.pgadmin.org/docs/)
+2. Start the pgAdmin application (htps://www.pgadmin.org/docs/)
 
 3. Create a new database by hovering over the Databases symbol under PostgreSQL and right-clicking on it. Select Create > Database from the menu
 
-4. Give your Database a name and finally click Save
+4. Give your Database a name and click Save
 
-5. Go to the code editor and create a "SQL script" for your Backend project, which contains the statements for creating tables. Save the database either to the root of your project or to the resources folder.
+5. Create "SQL script" for your Backend project. The script should contain the SQL statements for creating the tables. Save the database script either in the root of your project or in the resources folder.
 
-6. You can run the scrip in the previous section to the side of the ethos you have created, e.g. the following : a) select Schemas > Tables. b) On top of Tables, select PSQL Tool from the pop-up menu c) copy to the PSQL editor SQL commands from the database
+6. You can run the script with the following steps: a) select Schemas > Tables. b) On top of Tables, select PSQL Tool from the pop-up menu c) copy to the PSQL editor SQL commands from the database
 
-7. Now you have an etho database on your own machine -> let's go to modify the Spring Boot application, which it would use instead of the PostgreSQL database in H2
+7. Now you have a PostgreSQL database on your own machine. Next, configure the Spring Boot application so that it uses PostgreSQL database instead of H2.
 
-8. Open the SB project application.properties database and define the address of the database you created and the username & password. It would be good to parameterize the correct url, username & password instead of exporting the database to version control, but let's put them in plain language in the database. Below is an example, the ones colored in yellow update according to the settings of your own database:
 
-9. Take a new dependency for POM.XML development
+## Configure Spring Boot application:
 
-10. Comment out of the main application category test data creation.
+1. Open the application.properties. Define the connection URL, username, and password for the database you created.
+It would be better to parameterize the URL, username, and password instead of storing the credentials directly in version control. For now, however, you can put them directly in the configuration file. Below is an example. Update the values highlighted in yellow according to the settings of your own database.
 
-11. Check that entity classes names match of table names. Remember the caseSensitivity. If you notice a difference in the name, correct it by @Table annotation
+2. Add the required PostgreSQL dependency to POM.XML.
 
-Check also entity column names.
+3. Comment out the test data creation in the main application class.
 
-12. Start your Backend application and test the functionality.
+4. Check that the names of the entity classes match the names of the database tables. Remember that PostgreSQL is case-sensitive in certain contexts. If you notice a difference between the entity and table names, correct it using the @Table annotation.
 
-13. If the application works, take it to version control. Note! maybe you want to use git branches to H2 version and PostgreSQL version.
+Also check that the entity column names match the database column names.
 
-14. Export also the db script to git.
+5. Start your Backend application and test the functionality.
+
+6. If the application works correctly, commit the changes to version control. Note that you may want to use separate Git branches for the H2 and PostgreSQL versions. (Commit also the database SQL script to Git.)
+
+
