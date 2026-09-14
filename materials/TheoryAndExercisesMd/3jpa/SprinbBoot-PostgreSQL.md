@@ -35,6 +35,7 @@ This document explains how to replace the runtime (in-memory-database) H2 databa
 7. Create "SQL script" for your Backend project. The script should contain the SQL statements for creating the tables. Save the database script either in the root of your project or in the resources folder.
 
    ![](../imgs/3jpa_PostgreSQL_create_sql_script.png)
+   ![](../imgs/3jpa_PostgreSQL_create_sql_script2.png)
    
 9. You can run the script with the following steps: a) select Schemas > Tables. b) On top of Tables, select Query Tool from the pop-up menu c) copy to the Query Tool editor SQL commands you created in the previous step
    ![](../imgs/3jpa_PostgreSQL_pAdmin_run_script.png)
