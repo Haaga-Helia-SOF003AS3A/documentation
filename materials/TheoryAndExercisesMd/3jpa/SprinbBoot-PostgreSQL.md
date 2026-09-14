@@ -39,8 +39,8 @@ This document explains how to replace the runtime (in-memory-database) H2 databa
    
 9. You can run the script with the following steps: a) select Schemas > Tables. b) On top of Tables, select Query Tool from the pop-up menu c) copy to the Query Tool editor SQL commands you created in the previous step
 
-   ![](../imgs/3jpa_PostgreSQl_pAdmin_run_script.png)
-
+   ![](../imgs/3jpa_PostgreSQL_pAdmin_run_script.png)
+   
 11. Now you have a PostgreSQL database on your own machine. Next, configure the Spring Boot application so that it uses PostgreSQL database instead of H2.
 
 
