@@ -24,7 +24,7 @@ This document explains how to replace the runtime (in-memory-database) H2 databa
 3. Start the pgAdmin application (htps://www.pgadmin.org/docs/)
 
 4. Create a new database by hovering over the Databases symbol under PostgreSQL and right-clicking on it. Select Create > Database from the menu
-   ![](../imgs/3jpa_PostgreSQL_create_DB.png)
+   ![](../imgs/3jpa_PostgreSQL_pAdmin_create_db.png)
 
 5. Give your Database a name and click Save
 
