@@ -19,7 +19,7 @@ This document explains how to replace the runtime (in-memory-database) H2 databa
    https://www.enterprisedb.com/docs/supported-open-source/postgresql/installing/
 
    Save the password you entered during the installation – you'll need it later.
-   ![](../imgs/3Jpa_PostgreSQL_Installation_pwd.png)
+   ![](../imgs/3jpa_PostgreSQL_installation_password.png)
 
 3. Start the pgAdmin application (htps://www.pgadmin.org/docs/)
 
