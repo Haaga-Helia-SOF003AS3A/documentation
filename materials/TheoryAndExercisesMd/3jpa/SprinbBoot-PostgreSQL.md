@@ -48,6 +48,7 @@ This document explains how to replace the runtime (in-memory-database) H2 databa
 
 1. Open the application.properties. Define the connection URL, username, and password for the database you created.
 It would be better to parameterize the URL, username, and password instead of storing the credentials directly in version control. For now, however, you can put them directly in the configuration file. Below is an example. Update the values highlighted in yellow according to the settings of your own database.
+   ![](../imgs/3jpa_PostgreSQL_application_properties.png)
 
 2. Add the required PostgreSQL dependency to POM.XML.
 
