@@ -48,18 +48,24 @@ This document explains how to replace the runtime (in-memory-database) H2 databa
 
 1. Open the application.properties. Define the connection URL, username, and password for the database you created.
 It would be better to parameterize the URL, username, and password instead of storing the credentials directly in version control. For now, however, you can put them directly in the configuration file. Below is an example. Update the values highlighted in yellow according to the settings of your own database.
+
    ![](../imgs/3jpa_PostgreSQL_application_properties.png)
 
-2. Add the required PostgreSQL dependency to POM.XML.
+3. Add the required PostgreSQL dependency to POM.XML.
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
 
-3. Comment out the test data creation in the main application class.
+4. Comment out the test data creation in the main application class.
 
-4. Check that the names of the entity classes match the names of the database tables. Remember that PostgreSQL is case-sensitive in certain contexts. If you notice a difference between the entity and table names, correct it using the @Table annotation.
+5. Check that the names of the entity classes match the names of the database tables. Remember that PostgreSQL is case-sensitive in certain contexts. If you notice a difference between the entity and table names, correct it using the @Table annotation.
 
 Also check that the entity column names match the database column names.
 
-5. Start your Backend application and test the functionality.
+6. Start your Backend application and test the functionality.
 
-6. If the application works correctly, commit the changes to version control. Note that you may want to use separate Git branches for the H2 and PostgreSQL versions. (Commit also the database SQL script to Git.)
+7. If the application works correctly, commit the changes to version control. Note that you may want to use separate Git branches for the H2 and PostgreSQL versions. (Commit also the database SQL script to Git.)
 
 
