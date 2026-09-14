@@ -15,19 +15,22 @@ This document explains how to replace the runtime (in-memory-database) H2 databa
    PostgreSQL installation instructions can be found, for example,
    htps://www.w3schools.com/postgresql/postgresql_install.php
    (There is no need to install Stackbuilder)
+   or
+   https://www.enterprisedb.com/docs/supported-open-source/postgresql/installing/
+
    Save the password you entered during the installation – you'll need it later.
 
-2. Start the pgAdmin application (htps://www.pgadmin.org/docs/)
+3. Start the pgAdmin application (htps://www.pgadmin.org/docs/)
 
-3. Create a new database by hovering over the Databases symbol under PostgreSQL and right-clicking on it. Select Create > Database from the menu
+4. Create a new database by hovering over the Databases symbol under PostgreSQL and right-clicking on it. Select Create > Database from the menu
 
-4. Give your Database a name and click Save
+5. Give your Database a name and click Save
 
-5. Create "SQL script" for your Backend project. The script should contain the SQL statements for creating the tables. Save the database script either in the root of your project or in the resources folder.
+6. Create "SQL script" for your Backend project. The script should contain the SQL statements for creating the tables. Save the database script either in the root of your project or in the resources folder.
 
-6. You can run the script with the following steps: a) select Schemas > Tables. b) On top of Tables, select PSQL Tool from the pop-up menu c) copy to the PSQL editor SQL commands from the database
+7. You can run the script with the following steps: a) select Schemas > Tables. b) On top of Tables, select PSQL Tool from the pop-up menu c) copy to the PSQL editor SQL commands from the database
 
-7. Now you have a PostgreSQL database on your own machine. Next, configure the Spring Boot application so that it uses PostgreSQL database instead of H2.
+8. Now you have a PostgreSQL database on your own machine. Next, configure the Spring Boot application so that it uses PostgreSQL database instead of H2.
 
 
 ## Configure Spring Boot application:
