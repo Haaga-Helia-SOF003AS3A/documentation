@@ -19,20 +19,27 @@ This document explains how to replace the runtime (in-memory-database) H2 databa
    https://www.enterprisedb.com/docs/supported-open-source/postgresql/installing/
 
    Save the password you entered during the installation – you'll need it later.
+   
    ![](../imgs/3jpa_PostgreSQL_installation_password.png)
 
 3. Start the pgAdmin application (htps://www.pgadmin.org/docs/)
 
 4. Create a new database by hovering over the Databases symbol under PostgreSQL and right-clicking on it. Select Create > Database from the menu
+   
    ![](../imgs/3jpa_PostgreSQL_pAdmin_create_db.png)
 
-5. Give your Database a name and click Save
+6. Give your Database a name and click Save
 
-6. Create "SQL script" for your Backend project. The script should contain the SQL statements for creating the tables. Save the database script either in the root of your project or in the resources folder.
+   ![](../imgs/3jpa_PostgreSQL_pAdmin_create_db2.png)
+ 
+7. Create "SQL script" for your Backend project. The script should contain the SQL statements for creating the tables. Save the database script either in the root of your project or in the resources folder.
 
-7. You can run the script with the following steps: a) select Schemas > Tables. b) On top of Tables, select PSQL Tool from the pop-up menu c) copy to the PSQL editor SQL commands from the database
+   ![](../imgs/3jpa_PostgreSQL_create_sql_script.png)
+   
+9. You can run the script with the following steps: a) select Schemas > Tables. b) On top of Tables, select Query Tool from the pop-up menu c) copy to the Query Tool editor SQL commands you created in the previous step
+   ![](../imgs/3jpa_PostgreSQL_pAdmin_run_script.png)
 
-8. Now you have a PostgreSQL database on your own machine. Next, configure the Spring Boot application so that it uses PostgreSQL database instead of H2.
+10. Now you have a PostgreSQL database on your own machine. Next, configure the Spring Boot application so that it uses PostgreSQL database instead of H2.
 
 
 ## Configure Spring Boot application:
