@@ -52,15 +52,16 @@ It would be better to parameterize the URL, username, and password instead of st
    ![](../imgs/3jpa_PostgreSQL_application_properties.png)
 
 3. Add the required PostgreSQL dependency to POM.XML.
-        <dependency>
+      ```xml
+      <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-4. Comment out the test data creation in the main application class.
+5. Comment out the test data creation in the main application class.
 
-5. Check that the names of the entity classes match the names of the database tables. Remember that PostgreSQL is case-sensitive in certain contexts. If you notice a difference between the entity and table names, correct it using the @Table annotation.
+6. Check that the names of the entity classes match the names of the database tables. Remember that PostgreSQL is case-sensitive in certain contexts. If you notice a difference between the entity and table names, correct it using the @Table annotation.
 
 Also check that the entity column names match the database column names.
 
