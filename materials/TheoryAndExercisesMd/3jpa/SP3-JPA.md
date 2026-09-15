@@ -5,6 +5,7 @@ Tanja Bergius, Minna Pellikka, Juha Hinkula and Jukka Juslin
 <!-- Slide number: 2 -->
 ## Spring Boot: Jakarta Persistence
 
+
 - Jakarta Persistence is a collection of classes to persistently store data into a database
 - It provides object – relational mapping for managing relational data in JAVA applications (ORM)
 - There is lot of implementations of the Jakarta Persistence (like Hibernate)
