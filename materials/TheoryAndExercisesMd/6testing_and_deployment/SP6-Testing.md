@@ -1,5 +1,5 @@
 <!-- Slide number: 1 -->
-# Server Programming: Testing
+# Back End Programming: : Testing
 Juha Hinkula, Jukka Juslin, Minna Pellikka
 
 <!-- Slide number: 2 -->
