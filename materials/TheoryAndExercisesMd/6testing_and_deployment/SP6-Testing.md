@@ -141,9 +141,11 @@ public class StudentRepositoryTest {
 # JPA Testing on a real database (Postgres)
 - When testing with other than development database annotations change and the way to reference category
 ```java
-@SpringBootTest(classes = StudentListApplication.class)
+@DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) //if you are using real db
-public class StudentRepositoryTest {
+// if you want to use separate test environment, see
+// https://docs.spring.io/spring-framework/reference/testing/annotations/integration-spring/annotation-activeprofiles.html
+public class BooktRepositoryTest {
     @Autowired
     private BookRepository repository;
     @Autowired
