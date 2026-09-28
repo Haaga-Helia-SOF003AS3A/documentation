@@ -15,7 +15,7 @@ Juha Hinkula, Jukka Juslin, Minna Pellikka
 </dependency>
 ```
 - This dependency provides some libraries and tools for testing, for instance Junit.
-- You might need another test dependencies like
+- You might need another test dependencies like (this dependency is needed when you test database)
 ```java
 <dependency>
 	<groupId>org.springframework.boot</groupId>
