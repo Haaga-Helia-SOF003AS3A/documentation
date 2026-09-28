@@ -124,7 +124,7 @@ Private repositories can also be used, but this document does not cover that met
 
 **Note:** To successfully create the project, you must enter the **CSC project number** (e.g. **`csc\_project:<project number>`**) in the **`Description`** field.
   
-If you don’t know project number, see **step 1.4**.
+If you don’t know project number, see **step 1.6**.
 
 ![](imgs/rahti_h2_13.png)
 
