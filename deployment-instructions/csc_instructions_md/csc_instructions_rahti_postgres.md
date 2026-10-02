@@ -172,7 +172,7 @@ Select from right upper corner **`+Add`** page and choose **`Import from Git`**.
 
 ![](imgs/rahti_spring_boot_configuration2.png)
 
-Copy and paste your GitHub repository’s URL into the field **Git Repo URL ** 
+Copy and paste your GitHub repository’s URL into the field **Git Repo URL** 
 You can give names for **Application name** and **Name** fields or use the defaults
 Finally click **`Create`**.
 
@@ -182,7 +182,7 @@ Finally click **`Create`**.
 
 Successful creation will take you to your project’s **`Topology`** view. Click the graphical representation of your deployment to open your deployment controls.
 
-![](imgs/rahti_spring_boot_configuration3.png)
+![](imgs/rahti_topoloy_and_build.png)
 
 You have now deployed your application into **`Rahti`**. But it is not in working condition yet. You still need to configure the environment variables for the JDBC connection.
 
@@ -196,13 +196,13 @@ In the Rahti project web interface, navigate to Workloads → Secrets and create
 
 The Key is the identifier you will use when referring to the database user information, while the Value contains the actual data, such as the database username or password. You can add additional entries by selecting Add key/value.
 
-KUVA
+![](imgs/secrets1.png)
 
 Finally, you need to define the environment variables used by the profile in your Rahti deployment (Deployment) configuration:
 
-**DB_SERVICE_HOST**: The public host address of your Pukki database instance. This can be found in the Pukki service web interface.
+**POSTGRESQL__SERVICE_HOST**: The public host address of your Pukki database instance. This can be found in the Pukki service web interface.
 
-**DB_SERVICE_PORT**: The port of your Pukki database instance. This can be found in the Pukki service web interface.
+**POSTGRESQL__SERVICE_PORT**: The port of your Pukki database instance. This can be found in the Pukki service web interface.
 
 **DB_NAME**: The name of the database you specified when creating the database instance.
 
@@ -214,15 +214,17 @@ Finally, you need to define the environment variables used by the profile in you
 
 You can view your Pukki database connection details by selecting the database instance you created in the Pukki service web interface. The connection information is available in the Connection information section.
 
-KUVA 
-
 Open the configuration of your Rahti deployment and add the environment variable definitions in the Environment section.
 
-KUVA 
+![](imgs/environments.png)
 
-Congratulations! You have now deployed your Spring application with a proper database to CSC/Rahti!
+To start build process again go back to **`Developer`** view 🡪 **`Topology`**. 
+Click **Start build**. Build process will take about 5 minutes. 
 
-To get the URL for your app go back to **`Developer`** view 🡪 **`Topology`**. Click your application’s **`Open URL`** shortcut or navigate to deployment’s quick controls (navigation pane on the right) and scroll down to **`Routes`**. It might take few minutes before you are able to access your deployment’s URL in browser.
+![](imgs/start_build.png)
 
-![](imgs/rahti_postgres_15.png)
+
+When build is ready you can start your appplication. You can find application's url lick from topology view
+
+![](imgs/routes.png)
 
