@@ -52,10 +52,9 @@ ENTRYPOINT ["java", "-jar", "/opt/app/app.jar"]
 
 The above content is a generalized **`Dockerfile`** configuration and can be used for other Spring Boot projects.
 
-Create a new deployment profile for your application. You need to create a new file in the
-**`<your app>/src/main/resources/`** directory.
+To establish a database connection, your application needs the database name, database user name, and password you defined, as well as the database instance's public host address and port.
 
-Name the new file **`application-rahti.properties`**.
+Create a dedicated Rahti-Spring Boot profile **application-rahti.properties**.  The location of this file is in the **`<your app>/src/main/resources/`** directory. Add configuration settings similar to the following (the example uses a PostgreSQL database)
 
 Content of the **`application-rahti.properties`** is (use Copy + Paste):
 
@@ -67,7 +66,9 @@ spring.jpa.show-sql=true
 spring.jpa.generate-ddl=true
 spring.jpa.hibernate.ddl-auto=update
 ```
+In the example above, the database connection settings are configured to use environment variables defined in the Rahti service configuration.
 
+This approach keeps database connection details separate from the application code and allows you to manage them through the Rahti service.
 Commit the above changes and push them to your GitHub repository.
 
 # 2 Creating a project in CSC
@@ -187,11 +188,32 @@ You have now deployed your application into **`Rahti`**. But it is not in workin
 
 # 6 Configuring environment variables
 
-In **`Administrator`** view: **`Workloads`** 🡪 **`Deployments`** 🡪 **`<your deployment>`** 🡪 **`Environment`**.
+Next, you will pass the database configuration information to your application.
 
-Set your environment variables as shown below. Click the circled **`Add from ConfigMap or Secret`** to get more form fields. Click **`Save`** at the bottom of the page to activate your changes.
+It is recommended to store the database user credentials as a Secret in Rahti and reference them through environment variables. This helps keep database credentials secure and separate from your application code.
 
-![](imgs/rahti_postgres_14.png)
+In the Rahti project web interface, navigate to Workloads → Secrets and create a new Key/value secret. Enter the username and password of your Pukki database user.
+
+The Key is the identifier you will use when referring to the database user information, while the Value contains the actual data, such as the database username or password. You can add additional entries by selecting Add key/value.
+
+KUVA
+
+Finally, you need to define the environment variables used by the profile in your Rahti deployment (Deployment) configuration:
+
+**DB_SERVICE_HOST**: The public host address of your Pukki database instance. This can be found in the Pukki service web interface.
+**DB_SERVICE_PORT**: The port of your Pukki database instance. This can be found in the Pukki service web interface.
+**DB_NAME**: The name of the database you specified when creating the database instance.
+**DB_USER**: A reference to the database user stored in the Secret.
+**DB_PASSWORD**: A reference to the database user's password stored in the Secret.
+**SPRING_PROFILES_ACTIVE**: The profile that contains the database connection configuration (for example, rahti).
+
+You can view your Pukki database connection details by selecting the database instance you created in the Pukki service web interface. The connection information is available in the Connection information section.
+
+KUVA 
+
+Open the configuration of your Rahti deployment and add the environment variable definitions in the Environment section.
+
+KUVA 
 
 Congratulations! You have now deployed your Spring application with a proper database to CSC/Rahti!
 
