@@ -152,7 +152,7 @@ In the Initialize database section, you can create a database and a database use
 
 Note: The firewall rule allows connections from all Rahti service projects. To keep your database secure, make sure to use a _**STRONG PASSWORD**_ for the database user.
 ⚠️ **don’t use a weak password! Always use strong passwords even when practicing!** ⚠️
-**![](imgs/pukki_launch_instance3.png)**
+**![](imgs/pukki_launch_instance5.png)**
 
 Once you have entered the required information, click **Launch**. Creating the database instance may take a few minutes.
 
@@ -201,10 +201,15 @@ KUVA
 Finally, you need to define the environment variables used by the profile in your Rahti deployment (Deployment) configuration:
 
 **DB_SERVICE_HOST**: The public host address of your Pukki database instance. This can be found in the Pukki service web interface.
+
 **DB_SERVICE_PORT**: The port of your Pukki database instance. This can be found in the Pukki service web interface.
+
 **DB_NAME**: The name of the database you specified when creating the database instance.
+
 **DB_USER**: A reference to the database user stored in the Secret.
+
 **DB_PASSWORD**: A reference to the database user's password stored in the Secret.
+
 **SPRING_PROFILES_ACTIVE**: The profile that contains the database connection configuration (for example, rahti).
 
 You can view your Pukki database connection details by selecting the database instance you created in the Pukki service web interface. The connection information is available in the Connection information section.
