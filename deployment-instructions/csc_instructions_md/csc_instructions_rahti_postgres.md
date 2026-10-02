@@ -171,10 +171,9 @@ Select from right upper corner **`+Add`** page and choose **`Import from Git`**.
 
 ![](imgs/rahti_spring_boot_configuration2.png)
 
-
-Copy and paste your GitHub repository’s URL into the corresponding form field and choose **`Dockerfile`** as your **`Import Strategy`** if it is not the suggested one. You can leave rest of the form fields to their default values. Move on to **`Create`**.
-
-![](imgs/rahti_postgres_11.png)
+Copy and paste your GitHub repository’s URL into the field **Git Repo URL ** 
+You can give names for **Application name** and **Name** fields or use the defaults
+Finally click **`Create`**.
 
 **NOTE!** **`Rahti`** might not detect the **`Dockerfile`** if it is not in your GitHub project’s root. In this case open **`Show advanced Git options`** under **`Git Repo URL`** form field. In **`Context dir`** form field update the value to the name of the subdirectory that contains **`pom.xml`** and **`Dockerfile`**.
 
@@ -182,7 +181,7 @@ Copy and paste your GitHub repository’s URL into the corresponding form field 
 
 Successful creation will take you to your project’s **`Topology`** view. Click the graphical representation of your deployment to open your deployment controls.
 
-![](imgs/rahti_postgres_13.png)
+![](imgs/rahti_spring_boot_configuration3.png)
 
 You have now deployed your application into **`Rahti`**. But it is not in working condition yet. You still need to configure the environment variables for the JDBC connection.
 
