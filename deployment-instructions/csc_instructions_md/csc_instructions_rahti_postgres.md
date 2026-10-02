@@ -72,7 +72,7 @@ Commit the above changes and push them to your GitHub repository.
 
 # 2 Creating a project in CSC
 
-**NOTE!** If you already have created a project in CSC, you are unable to create another one. In that case proceed to chapter 3 of these instructions.
+**NOTE!** If you already have created a project in CSC, you cannot create another one. In that case, use the project you have already created, or delete the existing project and create a new one. These instructions assume that you are creating a new CSC project.
 
 ![](imgs/rahti_postgres_01.png)
 
@@ -80,15 +80,19 @@ Login to CSC at <https://my.csc.fi/login> using you Haka user account (Haaga-Hel
 
 ![](imgs/rahti_postgres_02.png)
 
-Fill in your project’s information as instructed in the form. Read and accept all terms of use and privacy notice. Choose **`Create project`** to continue.
+Fill in your project’s information as instructed in the form and clikc **`Next`**.
 
-You have now created your CSC project. Within this project you can start adding CSC’s services. For your deployment you only need **`Rahti – Container Cloud`**. Click **`Add services`** and select **`Rahti`**.
+Within this project you can start adding CSC’s services. For your deployment you need **`Rahti** and **`Pukki – DBaaS`** services. Select those and click **`Next`**. 
+
+On the following page, you can define the resources for your project. Let the default selections remain unchanged.
+
+On the next step read and accept all terms of use and privacy notice. Choose **`Submit`** to continue.
 
 **NOTE: check your project number. You will need it later!**
 
-![](imgs/rahti_postgres_03.png)
+![](imgs/rahti_postgres_03_project_number.png)
 
-Once you have added the **`Rahti`** service you might have to wait up to 60 mins for you to gain access after activation. So be patient!
+You have now created your CSC Project. Once you have added the **`Rahti`** and **`Pukki`** services you might have to wait up to 10-30 mins for you to gain access after activation. So be patient!
 
 # 3 Creating a project in Rahti
 
