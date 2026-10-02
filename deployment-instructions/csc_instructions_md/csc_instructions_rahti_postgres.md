@@ -109,13 +109,16 @@ Click the **`Home: Projects`** menu and click the text **`Create Project`**.
 
 Give your project a name and a display name. In the description write **`csc_project:<your CSC project number>`**. You will find your **`CSC project number`** in your CSC Project’s **`Project information`** view. Proceed by clicking **`Create`**.
 
-![](imgs/rahti_postgres_give_project_info.png)
+![](imgs/rahti_postgres_give_project_info2.png)
 
 # 4 Creating a Postgresql database instance
 
-After creating a project in Rahti it’s time to create a new database instance for your application.
+After creating a project in Rahti it’s time to create a new database instance for your application. For this reason you have to go to **`Pukki`** service.
 
-In **`Developer`** view, go to **`+Add`** page and start creating a database for your project. Choose **`PostgreSQL`**. Make sure you **don’t select the Ephemeral** version! Click **`Instantiate Template`** to continue the process.
+In **`CSC project`** view, click  **`Pukki login`**
+![](imgs/pukki1_login.png)
+
+Choose **`PostgreSQL`**. Make sure you **don’t select the Ephemeral** version! Click **`Instantiate Template`** to continue the process.
 
 You can leave all the default values in the form where you create your database. Leaving **`PostgreSQL Connection Username`** and **`Password`** empty will make the system generate random credentials for you. This is fine within the scope of Haaga-Helia UAS course work.
 
