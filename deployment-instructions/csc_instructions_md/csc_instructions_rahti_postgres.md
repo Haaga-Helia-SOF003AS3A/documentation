@@ -82,7 +82,7 @@ Login to CSC at <https://my.csc.fi/login> using you Haka user account (Haaga-Hel
 
 Fill in your project’s information as instructed in the form and clikc **`Next`**.
 
-Within this project you can start adding CSC’s services. For your deployment you need **`Rahti** and **`Pukki – DBaaS`** services. Select those and click **`Next`**. 
+Within this project you can start adding CSC’s services. For your deployment you need **`Rahti`** and **`Pukki – DBaaS`** services. Select those and click **`Next`**. 
 
 On the following page, you can define the resources for your project. Let the default selections remain unchanged.
 
