@@ -133,35 +133,29 @@ You can leave all other fields at their default settings.
 ![](imgs/pukki_launch_instance2.png)
 
 The database instance is protected by firewall rules that block external connections. You must allow the IP address of the Rahti service so that your Spring Boot application can connect to the database. To allow connections from the Rahti service, add the following value to the Allowed CIDRs field:
+
 `86.50.229.150/32`
+
 You can also allow client connections from your own IP address so that you can test the database connection from your local machine. You can find your public IP address, for example, at https://ifconfig.me/. Append the subnet mask /32 to the address, for example:
+
 `12.34.56.78/32`
+
 You can add multiple addresses by separating them with commas (use commas only, without spaces).
 ![](imgs/pukki_launch_instance3.png)
 
 In the Initialize database section, you can create a database and a database user:
 
-Initial Databases: Enter a descriptive name for the database.
-Initial Admin User: Enter a descriptive name for the database user.
-Password: Specify a strong password for the database user.
+**Initial Databases**: Enter a descriptive name for the database.
+**Initial Admin User**: Enter a descriptive name for the database user. NOTE! Remember the username you entered. You will need it later
+**Password**: Specify a strong password for the database user. NOTE! Remember the password you entered. You will need it later
 
-Note: The firewall rule allows connections from all Rahti service projects. To keep your database secure, make sure to use a STRONG PASSWORD for the database user.
+Note: The firewall rule allows connections from all Rahti service projects. To keep your database secure, make sure to use a _**STRONG PASSWORD**_ for the database user.
+⚠️ **don’t use a weak password! Always use strong passwords even when practicing!** ⚠️
 **![](imgs/pukki_launch_instance3.png)**
 
-not updated -->
+Once you have entered the required information, click **Launch**. Creating the database instance may take a few minutes.
 
-If you want to specify **`PostgreSQL Connection Username`** and **`Password`**, 
-
-⚠️ **don’t use a weak password! Always use strong passwords even when practicing!** ⚠️
-
-<p float="left">
-  <img src="imgs/rahti_postgres_07.png" width="400"/>
-  <img src="imgs/rahti_postgres_08.png" width="400"/> 
-</p>
-
-Successful creation of a database will show as a new **`DeploymentConfig`** object in your **`Topology`** view.
-
-![](imgs/rahti_postgres_09.png)
+You can later manage databases, database users, and firewall rules through the Pukki service user interface.
 
 The next step is to include your SpringBoot application into your Rahti project.
 
