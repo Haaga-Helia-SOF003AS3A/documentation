@@ -115,7 +115,7 @@ But first PostgreSQL database.
 
 # 4 Creating a Postgresql database instance huom. tätä osuutta päivitetään, valmistunee perjantaina 02.10 -- under construction
 
-After creating a project in Rahti it’s time to create a new database instance for your application. For this reason you have to go to **`Pukki`** service.
+Once you have created a project in Rahti, you need to create a database instance for your application. To do so, open the Pukki service.
 
 In **`CSC project`** view, click  **`Pukki login`**
 ![](imgs/pukki1_login.png)
@@ -124,16 +124,18 @@ After succesful login you can create database instance. Start this process by cl
 ![](imgs/pukki_launch_instance.png)
 
 Fill in the required information: 
-Instance name: Enter a descriptive name for your instance, for example, "spring-boot-db".
-Datastore: Select the database engine and version you want to use. The available options are PostgreSQL and MariaDB.
+
+**Instance name**: Enter a descriptive name for your instance, for example, "spring-boot-db".
+
+**Datastore**: Select the database engine and version you want to use. The available options are PostgreSQL and MariaDB.
 You can leave all other fields at their default settings.
+
 ![](imgs/pukki_launch_instance2.png)
 
-The database instance is protected by firewall rules that block external connections. You must allow the IP address of the Rahti service so that your Spring Boot application can connect to the database.
-To allow connections from the Rahti service, add the following value to the Allowed CIDRs field:
-86.50.229.150/32
+The database instance is protected by firewall rules that block external connections. You must allow the IP address of the Rahti service so that your Spring Boot application can connect to the database. To allow connections from the Rahti service, add the following value to the Allowed CIDRs field:
+`86.50.229.150/32`
 You can also allow client connections from your own IP address so that you can test the database connection from your local machine. You can find your public IP address, for example, at https://ifconfig.me/. Append the subnet mask /32 to the address, for example:
-12.34.56.78/32
+`12.34.56.78/32`
 You can add multiple addresses by separating them with commas (use commas only, without spaces).
 ![](imgs/pukki_launch_instance3.png)
 
