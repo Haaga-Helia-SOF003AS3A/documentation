@@ -114,7 +114,7 @@ Give your project a name and a display name. In the description write **`csc_pro
 Congrats, now you have empty project in Rahti. After PostgreSQL installation we update our Spring boot application and deploy it to Rahti. 
 But first PostgreSQL database. 
 
-# 4 Creating a Postgresql database instance huom. tätä osuutta päivitetään, valmistunee perjantaina 02.10 -- under construction
+# 4 Creating a Postgresql database instance 
 
 Once you have created a project in Rahti, you need to create a database instance for your application. To do so, open the Pukki service.
 
