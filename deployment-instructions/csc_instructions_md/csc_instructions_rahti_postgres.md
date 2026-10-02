@@ -110,17 +110,43 @@ Click the **`Home: Projects`** menu and click the text **`Create Project`**.
 Give your project a name and a display name. In the description write **`csc_project:<your CSC project number>`**. You will find your **`CSC project number`** in your CSC Project’s **`Project information`** view. Proceed by clicking **`Create`**.
 
 ![](imgs/rahti_postgres_give_project_info2.png)
+Congrats, now you have empty project in Rahti. After PostgreSQL installation we update our Spring boot application and deploy it to Rahti. 
+But first PostgreSQL database. 
 
-# 4 Creating a Postgresql database instance
+# 4 Creating a Postgresql database instance huom. tätä osuutta päivitetään, valmistunee perjantaina 02.10 -- under construction
 
 After creating a project in Rahti it’s time to create a new database instance for your application. For this reason you have to go to **`Pukki`** service.
 
 In **`CSC project`** view, click  **`Pukki login`**
 ![](imgs/pukki1_login.png)
 
-Choose **`PostgreSQL`**. Make sure you **don’t select the Ephemeral** version! Click **`Instantiate Template`** to continue the process.
+After succesful login you can create database instance. Start this process by clicking the **`Launch instance`** button
+![](imgs/pukki_launch_instance.png)
 
-You can leave all the default values in the form where you create your database. Leaving **`PostgreSQL Connection Username`** and **`Password`** empty will make the system generate random credentials for you. This is fine within the scope of Haaga-Helia UAS course work.
+Fill in the required information: 
+Instance name: Enter a descriptive name for your instance, for example, "spring-boot-db".
+Datastore: Select the database engine and version you want to use. The available options are PostgreSQL and MariaDB.
+You can leave all other fields at their default settings.
+![](imgs/pukki_launch_instance2.png)
+
+The database instance is protected by firewall rules that block external connections. You must allow the IP address of the Rahti service so that your Spring Boot application can connect to the database.
+To allow connections from the Rahti service, add the following value to the Allowed CIDRs field:
+86.50.229.150/32
+You can also allow client connections from your own IP address so that you can test the database connection from your local machine. You can find your public IP address, for example, at https://ifconfig.me/. Append the subnet mask /32 to the address, for example:
+12.34.56.78/32
+You can add multiple addresses by separating them with commas (use commas only, without spaces).
+![](imgs/pukki_launch_instance3.png)
+
+In the Initialize database section, you can create a database and a database user:
+
+Initial Databases: Enter a descriptive name for the database.
+Initial Admin User: Enter a descriptive name for the database user.
+Password: Specify a strong password for the database user.
+
+Note: The firewall rule allows connections from all Rahti service projects. To keep your database secure, make sure to use a STRONG PASSWORD for the database user.
+**![](imgs/pukki_launch_instance3.png)**
+
+not updated -->
 
 If you want to specify **`PostgreSQL Connection Username`** and **`Password`**, 
 
