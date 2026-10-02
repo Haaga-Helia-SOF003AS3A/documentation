@@ -104,15 +104,12 @@ Continue the login process, you need to click **`Login`** buttons a few times in
 
 Successfully logging in directs you to **`Rahti`** console. When starting the console for the first time take the site’s tour showing important navigation options. After the tour you are ready to create your **`Rahti`** project.
 
-Click the **`Project: All projects`** dropdown menu and choose **`Create Project`** or click the text **`Create a Project`**. If you don’t have these options visible in your page, make sure you are in **`Developer`** view (marked with yellow).
-
-**NOTE!** You can have more than one **`Rahti projects`** in one **`CSC Project`**.
-
-![](imgs/rahti_postgres_05.png)
+Click the **`Home: Projects`** menu and click the text **`Create Project`**. 
+![](imgs/rahti_postgres_055.png)
 
 Give your project a name and a display name. In the description write **`csc_project:<your CSC project number>`**. You will find your **`CSC project number`** in your CSC Project’s **`Project information`** view. Proceed by clicking **`Create`**.
 
-![](imgs/rahti_postgres_06.png)
+![](imgs/rahti_postgres_give_project_info.png)
 
 # 4 Creating a Postgresql database instance
 
