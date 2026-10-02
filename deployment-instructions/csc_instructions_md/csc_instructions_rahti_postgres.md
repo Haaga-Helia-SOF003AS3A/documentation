@@ -163,9 +163,14 @@ The next step is to include your SpringBoot application into your Rahti project.
 
 You will need to have your SpringBoot application in GitHub before continuing these instructions. The following instructions assume that you have set your GitHub repository **Public**.
 
-In **`Rahti`** dashboard make sure you are in **`Developer`** view: go to **`+Add`** page and choose **`Import from Git`**.
+In **`Rahti`** go to **Workloads -> Topology** (menu on the left)
 
-![](imgs/rahti_postgres_10.png)
+![](imgs/rahti_spring_boot_configuration.png)
+
+Select from right upper corner **`+Add`** page and choose **`Import from Git`**.
+
+![](imgs/rahti_spring_boot_configuration2.png)
+
 
 Copy and paste your GitHub repository’s URL into the corresponding form field and choose **`Dockerfile`** as your **`Import Strategy`** if it is not the suggested one. You can leave rest of the form fields to their default values. Move on to **`Create`**.
 
