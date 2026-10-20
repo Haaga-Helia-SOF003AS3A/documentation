@@ -4,7 +4,7 @@
 
 Use your own bookstore application from the GitHub.
 
-Check StudentListTest example from the moodle
+Check HelloTest and StudentJpaTest examples from the moodle
 
 1.  Add Smoke testing to your Bookstore application (for all controllers)
 
